@@ -238,4 +238,3 @@ Add a connection:
 - **Name** - HPOC VPN
 - **Server URL** - lab-vpn.nutanix.com
 
-

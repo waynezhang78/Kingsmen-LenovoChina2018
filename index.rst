@@ -60,89 +60,78 @@
   appendix/glossary
   appendix/basics
 
-.. _getting_started:
+.. _前言:
 
 ---------------
-Getting Started
+前言
 ---------------
 
 Welcome to the Nutanix Technology Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix technologies and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
 At the end of the bootcamp, attendees should understand the basic concepts and technologies that make up the Nutanix Enterprise Cloud stack and should be well prepared for a hosted or onsite proof-of-concept (POC) engagement.
 
-What's New
+欢迎来到Nutanix Hands on Lab技术训练营！本实验手册将与实验讲师的指导相配合，重点对Nutanix技术和许多常见的管理任务进行演示和介绍。每个章节都有对应的知识点介绍和动手练习，为您提供实践练习。实验讲师将负责解释并回答您可能在动手实验中遇到的任何其他问题。
+
+在训练营结束时，与会者应该可以对Nutanix企业云堆栈的基本概念和技术有所了解，并且能够有能力进行现场或利用远程环境进行POC或日常进行系统管理的能力。
+
+更新日志
 ++++++++++
 
-- Workshop updated for the following software versions:
-    - AOS 5.6
+- 训练营的环境已经针对以下软件版本进行更新:
+    - AOS 5.8
     - PC 5.7.1
 
-- Optional Lab Updates:
+- 可选部分的动手实验室更新:
     - Calm
     - Flow
 
-Agenda
+实验目录
 ++++++
 
-- Introductions
-- Nutanix Technology Overview
-- Nutanix Configuration Labs
-- Deploying and Managing Workloads
-- Monitoring and Managing the Environment
+- 实验室环境介绍
+- Nutanix技术概述
+- 如何进行配置
+- 如何部署和管理工作负载
+- 如何监测和管理环境
 
-Introductions
-+++++++++++++
 
-- Name
-- Familiarity with Nutanix
-
-Initial Setup
-+++++++++++++
-
-- Take note of the *Passwords* being used.
-- Log into your virtual desktops (connection info below)
-
-Environment Details
+实验环境细节
 +++++++++++++++++++
 
-Nutanix Workshops are intended to be run in the Nutanix Hosted POC environment. Your cluster will be provisioned with all necessary images, networks, and VMs required to complete the exercises.
+Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲师将为您的群集配置完成练习所需的所有必要镜像，连接网络和VM。
 
-Networking
+
+网络环境（待更新）
 ..........
 
-Hosted POC clusters follow a standard naming convention:
+托管POC集群环境的通用命名规则:
 
-- **Cluster Name** - POC\ *XYZ*
-- **Subnet** - 10.**21**.\ *XYZ*\ .0
-- **Cluster IP** - 10.**21**.\ *XYZ*\ .37
+- **群集名称** - POC\ *XYZ*
+- **子网** - 10.**21**.\ *XYZ*\ .0
+- **群集IP** - 10.**21**.\ *XYZ*\ .37
 
-If provisioned from the marketing pool:
-- **Cluster Name** - MKT\ *XYZ*
-- **Subnet** - 10.**20**.\ *XYZ*\ .0
-- **Cluster IP** - 10.**20**.\ *XYZ*\ .37
+例如:
 
-For example:
+- **群集名称** - POC055
+- **子网** - 10.21.55.0
+- **群集IP** - 10.21.55.37
 
-- **Cluster Name** - POC055
-- **Subnet** - 10.21.55.0
-- **Cluster IP** - 10.21.55.37
-
-Throughout the Workshop there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
+在动手实验中，有多个实验场景需要用*XYZ*替换子网的正确八位字节:
 
 .. list-table::
    :widths: 25 75
    :header-rows: 1
 
-   * - IP Address
-     - Description
+   * - IP地址
+     - 说明
    * - 10.21.\ *XYZ*\ .37
-     - Nutanix Cluster Virtual IP
+     - Nutanix群集虚拟IP
    * - 10.21.\ *XYZ*\ .39
      - **PC** VM IP, Prism Central
    * - 10.21.\ *XYZ*\ .40
-     - **DC** VM IP, NTNXLAB.local Domain Controller
+     - **DC** VM IP, NTNXLAB.local 域控制器
 
-Each cluster is configured with 2 VLANs which can be used for VMs:
+每个群集配置有2个VLAN，可用于VM:
 
 .. list-table::
   :widths: 25 25 10 40
@@ -150,29 +139,29 @@ Each cluster is configured with 2 VLANs which can be used for VMs:
 
   * - Network Name
     - Address
-    - VLAN
-    - DHCP Scope
-  * - Primary
+      - VLAN
+      - DHCP Scope
+  * - 主地址
     - 10.21.\ *XYZ*\ .1/25
     - 0
     - 10.21.\ *XYZ*\ .50-10.21.\ *XYZ*\ .124
-  * - Secondary
+  * - 次地址
     - 10.21.\ *XYZ*\ .129/25
     - *XYZ1*
     - 10.21.\ *XYZ*\ .132-10.21.\ *XYZ*\ .253
 
-Credentials
+密码
 ...........
 
-.. note::
+.. 注意::
 
-  The *<Cluster Password>* is unique to each cluster and will be provided by the leader of the Workshop.
+  *<Cluster Password>* 对每个群集都是唯一的，将由Workshop的负责人提供
 
 .. list-table::
    :widths: 25 35 40
    :header-rows: 1
 
-   * - Credential
+   * - 密码
      - Username
      - Password
    * - Prism Element
@@ -189,6 +178,8 @@ Credentials
      - *<Cluster Password>*
 
 Each cluster has a dedicated domain controller VM, **DC**, responsible for providing AD services for the **NTNXLAB.local** domain. The domain is populated with the following Users and Groups:
+每个群集都有一个专用的域控制器VM，** DC **，负责为** NTNXLAB.local **域提供AD服务。该域包含以下用户和组：
+
 
 .. list-table::
    :widths: 25 35 40
@@ -213,10 +204,10 @@ Each cluster has a dedicated domain controller VM, **DC**, responsible for provi
      - basicuser01-basicuser25
      - nutanix/4u
 
-Access Instructions
+访问说明
 +++++++++++++++++++
 
-The Nutanix Hosted POC environment can be accessed a number of different ways:
+可以通过多种不同方式访问Nutanix Hosted POC环境:
 
 Citrix XenDesktop
 .................
@@ -246,3 +237,5 @@ Add a connection:
 - **Type** - Policy Secure (UAC) or Connection Server
 - **Name** - HPOC VPN
 - **Server URL** - lab-vpn.nutanix.com
+
+

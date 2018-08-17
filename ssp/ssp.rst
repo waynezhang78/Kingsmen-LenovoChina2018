@@ -18,7 +18,7 @@
 
   如果您已在Prism Central中配置了** Authentication **，请跳过此部分。
   
-在** Prism Central **中，点击：fa：`cog` **>认证**
+在 **Prism Central** 中，点击:fa:`cog` **>认证**
 
 点击 **+ New Directory**
 
@@ -34,15 +34,15 @@
 
   .. figure:: images/ssp01.png
 
-点击黄色标识部分，紧挨着**NTNXLAB**
+点击黄色叹号，紧挨着**NTNXLAB**
 
   .. figure:: images/ssp28.png
 
-Click on the **Click Here** to go to the Role Mapping screen
+点击**点击 Here** 进入到角色映射界面
 
-Click **+ New Mapping**
+点击**+ New Mapping**
 
-Fill out the following fields and click **Save**:
+填写以下字段，然后单击**Save**:
 
 - **Directory** - NTNXLAB
 - **LDAP Type** - user
@@ -51,17 +51,16 @@ Fill out the following fields and click **Save**:
 
   .. figure:: images/ssp29.png
 
-Close the Role Mapping and Authentication windows
+关闭角色映射和身份验证窗口
 
-Configure Self Service Portal
+配置自助服务门户
 +++++++++++++++++++++++++++++
 
 .. note::
 
-  If you have already configured **SSP** in Prism Central, skip this section.
+  如果已经在Prism Central配置了 **SSP**，请跳过此部分
 
-We will use the following user information
-
+我们将使用以下用户信息
 +-----------------+-----------------------+--------------------------------+
 | **Group**       | **Usernames**         | **Password**                   |
 +-----------------+-----------------------+--------------------------------+
@@ -74,11 +73,11 @@ We will use the following user information
 | SSP Basic Users | basicuser01-25        | nutanix/4u                     |
 +-----------------+-----------------------+--------------------------------+
 
-In **Prism Central**, click :fa:`cog` **> Self-Service Admin Management**.
+在**Prism Central**中, 点击 :fa:`cog` **> Self-Service Admin Management**.
 
   .. figure:: images/ssp02.png
 
-Fill out the following fields and click **Next**:
+填写以下字段，然后单击 **Next**:
 
 - **Domain** - ntnxlab.local
 - **Username** - administrator@ntnxlab.local
@@ -86,135 +85,135 @@ Fill out the following fields and click **Next**:
 
   .. figure:: images/ssp03.png
 
-Click **+Add Admins**
+点击 **+Add Admins**
 
   .. figure:: images/ssp04.png
 
-Enter **SSP Admins**, and Click **Save**
+输入 **SSP Admins**, and 点击 **Save**
 
   .. figure:: images/ssp05.png
 
-Click **Save**
+点击 **Save**
 
   .. figure:: images/ssp06.png
 
-Create Projects
+创建项目
 +++++++++++++++
 
-In this section of the exercise we will create 3 Projects. Each project will have permissions set for different Active Directory groups.
+在本练习中，我们将创建3个项目。每个项目都将设置为不同的Active Directory组权限。
 
-In **Prism Central**, click **Explore**
+在**Prism Central**中, 点击 **Explore**
 
-Click **Projects**
+点击 **Projects**
 
-Create **Developers** Project
+创建**Developers**项目
 .............................
 
-Click **Create Project**
+点击 **Create Project**
 
-Fill out the following fields:
+填写以下字段:
 
 - **Project Name** - Developers
 - **Description** - SSP Developers
 - **AHV Cluster** - *Assigned HPOC*
 
-Click **+User** under **Users, Groups, and Roles**
+在**Users, Groups, and Roles**右下方，点击蓝色 **+User**链接
 
-Fill out the following fields and click **Save**:
+填写以下字段并点击 **Save**:
 
 - **NAME** - SSP Developers
 - **ROLE** - Developer
 
   .. figure:: images/ssp08.png
 
-Under **Network** check the appropriate network, and make it default.
-
+ 在**Network**中选择适合的网络，并设置为默认
+ 
   .. figure:: images/ssp09.png
 
-Check the box for **Quotas**
+在**Quotas**选项前打勾
 
-Fill out the following fields:
+填写以下字段:
 
 - **VCPUS** - 10 VCPUs
 - **Storage** - 200 GiB
 - **Memory** - 40 GiB
 
-Confirm everything is filled out, and click **Save**
+确认所有字段配置填写完毕，然后点击 **Save**
 
   .. figure:: images/ssp10.png
 
-Create **Power Users** Project
+创建**Power Users**项目
 ..............................
 
-Click **Create Project**
+点击 **Create Project**
 
-Fill out the following fields:
+填写以下字段:
 
 - **Project Name** - Power Users
 - **Description** - SSP Power Users
 - **AHV Cluster** - *Assigned HPOC*
 
-Click **+User** under **Users, Groups, and Roles**
+在**Users, Groups, and Roles**右下方，点击 **+User** 
 
-Fill out the following fields and click **Save**:
+填写以下字段并点击 **Save**:
 
 - **NAME** - SSP Power Users
 - **ROLE** - Developer
 
-Under **Network** check the appropriate network, and make it default.
+在**Network**中选择适合的网络，并设置为默认
 
-Check the box for **Quotas**
+在**Quotas**选项前打勾
 
-Fill out the following fields:
+填写以下字段:
 
 - **VCPUS** - 10 VCPUs
 - **Storage** - 200 GiB
 - **Memory** - 40 GiB
 
-Confirm everything is filled out, and click **Save**
+确认所有字段配置填写完毕，然后点击 **Save**
 
   .. figure:: images/ssp11.png
 
-Create **Calm** Project
+创建**Calm**项目（如需要选做Calm实验的话）
 .......................
 
-Click **Create Project**
+点击 **Create Project**
 
-Fill out the following fields:
+填写以下字段:
 
 - **Project Name** - Calm
 - **Description** - Calm
 - **AHV Cluster** - *Assigned HPOC*
 
-Click **+User** under **Users, Groups, and Roles**
+在**Users, Groups, and Roles**右下方，点击 **+User** 
 
-Fill out the following fields and click **Save**:
+填写以下字段并点击 **Save**:
 
 - **NAME** - SSP Admins
 - **ROLE** - Project Admin
 
-Fill out the following fields and click **Save**:
+填写以下字段并点击 **Save**:
 
 - **NAME** - SSP Developers
 - **ROLE** - Developer
 
-Fill out the following fields and click **Save**:
+填写以下字段并点击 **Save**:
 
 - **NAME** - SSP Power Users
 - **ROLE** - Consumer
 
-Fill out the following fields and click **Save**:
+填写以下字段并点击 **Save**:
 
 - **NAME** - SSP Basic Users
 - **ROLE** - Operator
 
-Under **Network** check the appropriate network, and make it default.
+在**Network**中选择适合的网络，并设置为默认
 
-Confirm everything is filled out, and click **Save**
+确认所有字段配置填写完毕，然后点击 **Save**
 
   .. figure:: images/ssp12.png
 
-Use Self Service Portal
+使用自助服务门户
 +++++++++++++++++++++++
 
 In this exercise we will login into Prism Central as different users from different AD groups. Then we can compare what we see in SSP, and what we can do.
@@ -235,19 +234,19 @@ After you login you only have two tabs inthe top ribbon, **Explore** & **Apps**
 
 You start on **VMs**, and should see all VMs the **adminuserXX** has access Tools
 
-Click on **Projects**, and you will see what Projects **adminuserXX** is a member of
+点击 on **Projects**, and you will see what Projects **adminuserXX** is a member of
 
   .. figure:: images/ssp14.png
 
-Now lets add some images to a **Catalog**, click on **Images**
+Now lets add some images to a **Catalog**, 点击 on **Images**
 
   .. figure:: images/ssp15.png
 
-Select the box for **Windows2012**, and click **Add Image to Catalog** from the **Actions** dropdown
+Select the box for **Windows2012**, and 点击 **Add Image to Catalog** from the **Actions** dropdown
 
   .. figure:: images/ssp16.png
 
-Fill out the following fields and click **Save**:
+填写以下字段 and 点击 **Save**:
 
 - **NAME** - Windows2012 Image
 - **Description** - Windows2012 Image
@@ -256,7 +255,7 @@ Fill out the following fields and click **Save**:
 
 Repeat these steps for the CentOS Image
 
-Click on **Catalog Items**, and you will see the two images you just added:
+点击 on **Catalog Items**, and you will see the two images you just added:
 
 - CentOS Image
 - Windows2012 Image
@@ -277,21 +276,21 @@ After you login you only have two tabs inthe top ribbon, **Explore** & **Apps**
 
 You start on **VMs**, and should see all VMs the **devuserXX** has access Tools
 
-Click on **Projects**, and you will see what Projects **devuserXX** is a member of
+点击 on **Projects**, and you will see what Projects **devuserXX** is a member of
 
   .. figure:: images/ssp20.png
 
-Click on **VMs**, then click **Create VM**
+点击 on **VMs**, then 点击 **Create VM**
 
-Verify **Disk Images** is selected, and click **Next**
+Verify **Disk Images** is selected, and 点击 **Next**
 
   .. figure:: images/ssp21.png
 
-Select **CentOS Image**, and click **Next**
+Select **CentOS Image**, and 点击 **Next**
 
   .. figure:: images/ssp22.png
 
-Fill out the following fields and click **Save**:
+填写以下字段 and 点击 **Save**:
 
 - **Name** - Developer VM 001
 - **Target Project** - Developers
@@ -323,17 +322,17 @@ You start on **VMs**, and should see all VMs the **poweruserXX** has access Tool
 
 Notice you do not see **Developer VM 001**, that is because **SSP Power Users** is not a memeber of that project.
 
-click **Create VM**
+点击 **Create VM**
 
-Verify **Disk Images** is selected, and click **Next**
+Verify **Disk Images** is selected, and 点击 **Next**
 
   .. figure:: images/ssp21.png
 
-Select **CentOS Image**, and click **Next**
+Select **CentOS Image**, and 点击 **Next**
 
   .. figure:: images/ssp22.png
 
-Fill out the following fields and click **Save**:
+填写以下字段 and 点击 **Save**:
 
 - **Name** - Calm VM 001
 - **Target Project** - Calm
@@ -353,7 +352,7 @@ You should see both **Developer VM 001** & **Calm VM 001**. That is because **SS
 
   .. figure:: images/ssp26.png
 
-Click on **Projects**, and you will see the resource usage of **Developer VM 001** against the **Developer** project quota.
+点击 on **Projects**, and you will see the resource usage of **Developer VM 001** against the **Developer** project quota.
 
   .. figure:: images/ssp27.png
 

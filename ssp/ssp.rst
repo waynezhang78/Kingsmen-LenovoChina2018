@@ -18,7 +18,7 @@
 
   如果您已在Prism Central中配置了** Authentication **，请跳过此部分。
   
-在 **Prism Central** 中，click :fa:`cog` **>认证**
+在 **Prism Central** 中，点击 :fa:`cog` **>认证**
 
 点击 **+ New Directory**
 

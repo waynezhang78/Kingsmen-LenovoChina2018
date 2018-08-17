@@ -1,135 +1,133 @@
 .. _nutanix_terminology:
 
 -------------------
-Nutanix Terminology
+Nutanix术语
 -------------------
 
 Nutanix HCI
 +++++++++++
 
-Physical Infrastructure
+物理基础设施
 .......................
 
-A Nutanix cluster is made up of Nodes and Blocks.
+Nutanix集群由节点(Nodes)和块(Blocks)组成
 
 .. figure:: images/nutanix_terminology_01.png
 
-Storage Pools and Containers
+存储池和容器
 ............................
 
-Nutanix presents the physical disks as one **Storage Pool**, that can be divided into one or more **Containers**.
+utanix将物理磁盘显示为一个**存储池**，可以分为一个或多个**容器**
 
 .. figure:: images/nutanix_terminology_02.png
 
-Nutanix Storage
+Nutanix存储
 +++++++++++++++
 
-Tunable Redundancy
+可调冗余因子
 ..................
 
-What is it?
+它是什么？
 
-- Configure different levels of fault tolerance for different applications dynamically
-- Works with EC-X for capacity savings
+- 可以灵活地为不同级别的应用程序配置不同级别的冗余度
+- 与EC-X纠删码配合使用可节省容量
 
-Points of differentiation:
+主要区别:
 
-- Software-defined. No prior understanding of storage required
-- RF-3 offers protection against two simultaneous disk, node and NIC failures
-- Switch between RF-2 and RF-3
-- Replication set at the container level
+- 纯软件定义，无需掌握存储相关知识技能；
+- RF-3可以容忍两块磁盘，双节点或双网卡同时故障的场景而不影响业务；
+- 可支持RF-2和RF-3在线切换
+- 可基于容器级别进行数据集的复制
 
 .. figure:: images/nutanix_terminology_03.png
 
 Nutanix EC-X (Erasure Coding)
 .............................
 
-- No overhead to the active write path
-- Background job
-- Only cold data is subject to EC-X
-- Lower rebuild times (equal or better than RF2)
-- Patent pending algorithm
+- 数据写入路径无需额外资源损耗
+- 底层任务
+- 只有冷数据集时采用EC-X
+- 更低的数据重建时间（等于或由于RF-2）
+- 专利算法（申请中）
 
 .. figure:: images/nutanix_terminology_04.png
 
-Deduplication
+重复数据删除
 .............
 
-- Inline fingerprinting with post-process deduplication
-- Distributed across all nodes – true scale-out
-- Global deduplication across entire cluster
-- SHA-1 fingerprinting offloaded to Intel processors for greater efficiency
-- 100% software-defined
-- Strong hash allows dedupe to happen based on metadata match
+- 在线指纹识别，近线数据去重
+- 真正的分布式-完全分布在所有节点
+- 集群内全局去重
+- SHA-1指纹识别已卸载到英特尔处理器，以提高效率
+- 100%软件定义
+- 强哈希允许基于元数据匹配进行重复数据删除
 
 .. figure:: images/nutanix_terminology_05.png
 
-Compression
+压缩
 ...........
 
-- Inline and post-process compression
-- Inline: Data compressed as it’s written
-- MapReduce: Data compressed after “cold” data is migrated to lower-performance storage tiers
-- No impact to normal IO path
-- Ideal for random batch workloads
-- Uses LZH4c algorithm (AOS 5+)
+- 在线和近线压缩
+- 在线: 数据在写入时压缩
+- MapReduce: 在冷数据迁移至低性能存储层后进行压缩
+- 对正常IO路径没有影响
+- 适用于随机批处理工作负载
+- 采用LZH4c压缩算法 (AOS 5+)
 
-Data Locality
+数据本地化
 .............
 
-- Keep data on the same node as VM
-- All read operations localized on same node
+- 将数据保存在与VM相同的节点上
+- 所有读取操作都位于同一节点上
 - ILM transparently moves remote data to local controller
 - Reduces network chattiness significantly
 - Data follows VM during vMotion/Live Migration
 
 .. figure:: images/nutanix_terminology_06.png
 
-Intelligent Tiering
+智能分层
 ...................
 
-Automatic Performance Optimization
+自动性能优化
 
-- Leverage multiple tiers of storage
-- Continuously monitors data access patterns
-- Optimally places data for best performance
-- No user intervention required
+ - 利用多层存储资源
+ - 持续监控数据访问模式
+ - 最佳地放置数据以获得最佳性能
+ - 无需用户干预
 
-Hot Data - SSD
+热数据 -  SSD
 
-- Random data
-- Persistent tier
-- Maximum performance
+ - 随机数据
+ - 持久层
+ - 最高性能
+ 
+冷数据 - 硬盘
 
-Cold Data - HDD
-
-- Sequential data
-- Highest capacity
-- Most economical
+ - 顺序数据
+ - 最大容量
+ - 最经济
 
 .. figure:: images/nutanix_terminology_07.png
 
-CVM Auto-Pathing
+CVM自动路径
 ................
 
-What is it?
+- 在CVM故障时仍然能够持续进行数据访问
+- 自动更新Hypervisor的路由，以连接其它正在运行的CVM
 
-- Continue to access data through CVM failures
-- Hypervisor routing is updated automatically to use another CVM
+优势
 
-Benefits
-
-- High availability during software upgrades and failures
+- 在软件升级和故障期间的保持高可用性
 
 .. figure:: images/nutanix_terminology_10.png
 
 vMotion/DRS or Live Migration
 .............................
 
-Seamless VM Migration
+无缝VM迁移
 
-- Metadata service can access data from anywhere
-- Locality improves over time
+- 元数据服务可以从任何地方访问数据
+- 数据本地化随着时间推移持续改善
 
 .. figure:: images/nutanix_terminology_11.png
 
@@ -139,134 +137,131 @@ Nutanix VM Mobility
 Acropolis Dynamic Scheduling (ADS)
 ..................................
 
-- Automatic Detection, and remediation of CPU and storage hot-spots
-- Initial VM Placement
-- Following anomalies are detected:
-    - CPU hot spots
-    - Storage controller hot spots
-    - Affinity rule violation
-- If anomalies are found, re-mediation by:
-    - Live migration of VMs
-    - ABS iSCSI session re-direction
+- 自动检测，修复CPU和存储热点
+- 自动判断VM初始的摆放位置
+- 检测异常:
+    - CPU热点
+    - 存储控制器热点
+    - 不符合亲和性规则
+- 如果发现异常,会通过以下方式重新调节:
+    - 虚拟机的实时迁移
+    - ABS iSCSI会话重定向
 
 .. figure:: images/nutanix_terminology_12.png
 
-Host High Availability
+主机高可用性
 ......................
 
-What it does
-
-- Auto restart user VMs after host failure
-- Policy enabled through Prism
-- AHV picks the best admission control policy:
+- 主机故障后自动重启用户VM
+- 直接通过Prism进行政策设定
+- AHV选择最佳的admission control policy:
     - Reserved segments (default)
     - Reserved host
 
-Benefits
+优点
 
-- Always-on VMs
-- Reduced administrative overhead
+- 永远在线的虚拟机
+- 减少管理开销
 
 .. figure:: images/nutanix_terminology_13.png
 
-Affinity Rules - Host
+亲和规则 - Host
 .....................
 
-VM-Host Affinity:
+VM主机亲和力:
 
-- Place and always keep a powered ON VM on selected group of hosts
+- 放置并始终在选定的主机组上保持已启动的VM
 
-Use Cases:
+用例:
 
-- SW License Compliance
-- Security / Governance
-- Hardware Segmentation
+- 软件许可证合规
+- 安全/治理
+- 硬件分段
 
-“Must” rule - never violated by:
+“必须”规则 - 不能违反:
 
-- Initial placement
-- HA
-- Host maintenance mode
+- 初始数据摆放
+- 高可用
+- 主机维护模式
 - ADS
-- Manual live migration
+- 手动在线迁移
 
 .. figure:: images/nutanix_terminology_14.png
 
-Affinity Rules - VM
+亲和规则 - VM
 ...................
 
-VM-VM Anti-affinity:
+VM-VM反关联:
 
-- Place and always keep a group of powered ON VMs on different hosts.
+- 摆放并始终将一组已打开电源的VM保留在不同的主机上
 
-Use Cases:
+用例:
 
-- VM HA fault domain separation (e.g. SQL cluster)
-- Manual Hot Spot avoidance
+- VM HA故障域分离（例如SQL群集)
+- 手动规避热点
 
-“Should” rule – best effort but can be violated.
+“尽量”规则 – 尽最大努力，但可以违反
 
 .. figure:: images/nutanix_terminology_15.png
 
-Nutanix Networking
+Nutanix网络
 ++++++++++++++++++
 
-AHV – Software Defined Networking
+AHV  - 软件定义网络
 .................................
 
-Fully distributed networking, based on open standards, simplifies deployment and ensures configuration consistency.
+基于开放标准的完全分布式网络简化了部署并确保了配置一致性。
 
-- Based on Open vSwitch
-- Fully distributed to all nodes
-- Virtual Networks w/vLANs
-- IP Address Management (DHCP)
-- Bond / Link Aggregation
+- 基于Open vSwitch
+ - 完全分发到所有节点
+ - 具有vLAN的虚拟网络
+ - IP地址管理（DHCP）
+ - Bond/Link Aggregation (端口绑定/链路聚合)
     - Active / Backup
     - Source-NIC Load Balancing
     - LACP
-- Each bridge has a bond, backed by one or more uplinks
+- 每个网桥都有一个绑定，由一个或多个上行链路支持
 
 .. figure:: images/nutanix_terminology_16.png
 
-Flow (Microsegmentation)
+Flow (网络微分段)
 ........................
 
-Regain Visibility and Control Inside Your Datacenter
+在数据中心内部恢复安全可控和洞察分析的能力
 
-- All networking native in AHV (nothing to install)
-- Logical grouping via Categories in Prism Central
-    - Categories group VM or Applications
-- Security policies map to categories
-    - Management of category membership simplifies process
-- Rules pushed from PC -> CVM -> AHV -> OVS
-    - AHV host OVS enforces rules
-- Rules logical enforced at VM (vNIC) level
-    - Firewall in front of every VM
+- AHV网络原生功能，无需安装任何组件
+- 通过Prism Central中的类别进行逻辑分组
+    - 可根据VM或应用进行分组
+- 安全策略映射到类别
+    - 通过对Category成员进行管理简化流程
+- 规则推送路径：PC -> CVM -> AHV -> OVS
+    - AHV中的OVS执行规则
+- 逻辑层面，规则在在VM(vNIC)层进行执行
+    - 以VM为料度的防火墙
 
 .. figure:: images/nutanix_terminology_17.png
 
-Flow Scenario – Environment Zoning with Isolation
+Flow适用场景 – 带隔离的环境分区
 .................................................
 
-- Isolating environments simplified through one-click policies.
+- 通过一键式策略进行分区隔离
 
-- Predefined categories for environment-type makes policy writing easy - simply add VMs to the desired category
+- 内置针对不同环境类型的预定义类别，使策略编写变得简单 - 只需将VM添加到所需类别即可
 
-- Moving workloads across environments is simply swapping the categories from Dev to Prod
-
+- 移动工作负载非常简单，比如只需将类别从Dev交换到Prod即可完成
 .. figure:: images/nutanix_terminology_18.png
 
-Nutanix Image Management
+Nutanix镜像管理
 ++++++++++++++++++++++++
 
-Image service
+镜像服务
 .............
 
-- Managed catalog of disk images (RAW & ISO)
-- Leverage existing images with AHV
-- Image management through PE or PC
-- Inline conversion to Acropolis DSF
-- Broad Format support:
+- 托管磁盘映射目录(RAW & ISO)
+- 通过AHV调有现有镜像
+- 通过PE或PC进行镜像管理
+- 在线转换到Acropolis分布式存储架构
+- 广泛的格式支持:
     - qcow
     - qcow2
     - vmdk

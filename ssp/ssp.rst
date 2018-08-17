@@ -1,38 +1,40 @@
 .. _ssp:
 
-Self-Service Portal
+自助门户网站
 -------------------
 
-Overview
+概观
 ++++++++
 
-  Estimated time to complete: **45 Minutes**
+  预计完成时间: **45分钟**
 
-In this exercise you will use Prism Central to configure Self Service Portal (SSP) from Prism Element, and create multiple projects for different groups of users. This lab should be completed **BEFORE** the Calm lab.
+在本练习中，您将会用到通过Prism Central来配置自助服务门户(SSP),并为不同的用户组创建不同的项目。
+该实验应该在进行Calm功能相关实验之前完成。
 
-Setup Authentication and Role Mapping in Prism Central
+在Prism Central中设置身份验证和角色映射
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-.. note::
+.. 注 ::
 
-  If you have already configured **Authentication** in Prism Central, skip this section.
+  如果您已在Prism Central中配置了** Authentication **，请跳过此部分。
+  
+在** Prism Central **中，点击：fa：`cog` **>认证**
 
-In **Prism Central**, click :fa:`cog` **> Authentication**
+点击 **+ New Directory**
 
-Click **+ New Directory**
+#需根据实际实验环境修改
+填写以下字段，然后单击**Save**:
 
-Fill out the following fields and click **Save**:
-
-- **Directory Type** - Active Directory
+- **Directory Type** - AD活动目录
 - **Name** - NTNXLAB
 - **Domain** - ntnxlab.local
-- **Directory URL** - ldaps://10.21.XX.40
+- **Directory URL** - ldaps://10.21.XX.40 
 - **Service Account Name** - administrator@ntnxlab.local
 - **Service Account Password** - nutanix/4u
 
   .. figure:: images/ssp01.png
 
-Click on the yellow ! next to **NTNXLAB**
+点击黄色标识部分，紧挨着**NTNXLAB**
 
   .. figure:: images/ssp28.png
 

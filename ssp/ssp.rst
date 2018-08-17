@@ -18,7 +18,7 @@
 
   如果您已在Prism Central中配置了** Authentication **，请跳过此部分。
   
-在 **Prism Central** 中，点击:fa:`cog` **>认证**
+在 **Prism Central** 中，点击 :fa:`cog` **>认证**
 
 点击 **+ New Directory**
 
@@ -216,81 +216,82 @@
 使用自助服务门户
 +++++++++++++++++++++++
 
-In this exercise we will login into Prism Central as different users from different AD groups. Then we can compare what we see in SSP, and what we can do.
+在本练习中，我们将以不同AD组的不同用户身份登录Prism Central。然后我们可以比较一下我们在SSP中看到的界面的区别，以及我们可以在不同权限下做什么操作。
 
-Lets Start by logging out of Prism Central
+我们先在Prism Central中登出现有管理员帐户
 
-Use Self Service Portal as a SSP Admin
+使用SSP Admin角色访问自助服务门户
 ......................................
 
-Log into Prism Central with the following credentials:
+使用以下凭据登录Prism Central：
 
 - **Username** - adminuserXX@ntnxlab.local (replace XX with 01-05)
 - **Password** - nutanix/4u
 
   .. figure:: images/ssp13.png
 
-After you login you only have two tabs inthe top ribbon, **Explore** & **Apps**
+登录后，在顶部功能区中只有两个选项卡， **Explore**和**Apps**
 
-You start on **VMs**, and should see all VMs the **adminuserXX** has access Tools
+在**Explore**界面中点击查看**VMs**, 您应该能看到**adminuserXX**对所有VM拥有访问工具
 
-点击 on **Projects**, and you will see what Projects **adminuserXX** is a member of
+点击**Projects**,您可以看到**adminuserXX**所属的所有项目列表
 
   .. figure:: images/ssp14.png
 
-Now lets add some images to a **Catalog**, 点击 on **Images**
+现在让我们在**Catalog**中增加一些镜像, 点击 **Images**
 
   .. figure:: images/ssp15.png
 
-Select the box for **Windows2012**, and 点击 **Add Image to Catalog** from the **Actions** dropdown
+选择**Windows2012**, 然后在**Actions**下拉菜单中点击 **Add Image to Catalog**
 
   .. figure:: images/ssp16.png
 
-填写以下字段 and 点击 **Save**:
+填写以下字段并点击 **Save**:
 
 - **NAME** - Windows2012 Image
 - **Description** - Windows2012 Image
 
   .. figure:: images/ssp17.png
 
-Repeat these steps for the CentOS Image
+对CentOS映像重复这些步骤
 
-点击 on **Catalog Items**, and you will see the two images you just added:
+点击**Catalog Items**, 您将看到刚刚添加的两个镜像文件：
 
 - CentOS Image
 - Windows2012 Image
 
   .. figure:: images/ssp18.png
 
-Use Self Service Portal as a Developer
+使用Developer角色访问自助服务门户
 ......................................
 
-Log into Prism Central with the following credentials:
+使用以下凭据登录Prism Central：
 
 - **Username** - devuserXX@ntnxlab.local (replace XX with 01-05)
 - **Password** - nutanix/4u
 
   .. figure:: images/ssp19.png
 
-After you login you only have two tabs inthe top ribbon, **Explore** & **Apps**
+登录后，在顶部功能区中只有两个选项卡， **Explore**和**Apps**
 
-You start on **VMs**, and should see all VMs the **devuserXX** has access Tools
+在**Explore**界面中点击查看**VMs**, 您应该能看到**devuserXX**对所有VM拥有访问工具
 
-点击 on **Projects**, and you will see what Projects **devuserXX** is a member of
+点击**Projects**,您可以看到**devuserXX**所属的所有项目列表
+
 
   .. figure:: images/ssp20.png
 
-点击 on **VMs**, then 点击 **Create VM**
+点击**VMs**,然后点击 **Create VM**
 
-Verify **Disk Images** is selected, and 点击 **Next**
+确认勾选了**Disk Images**, 然后点击 **Next**
 
   .. figure:: images/ssp21.png
 
-Select **CentOS Image**, and 点击 **Next**
+选择**CentOS Image**,并点击 **Next**
 
   .. figure:: images/ssp22.png
 
-填写以下字段 and 点击 **Save**:
+填写以下字段并点击 **Save**:
 
 - **Name** - Developer VM 001
 - **Target Project** - Developers
@@ -302,37 +303,37 @@ Select **CentOS Image**, and 点击 **Next**
 
   .. figure:: images/ssp23.png
 
-You should now see VM **Developer VM 001** listed
+您应该可以看到在VM列表中存在**Developer VM 001**
 
-Lets see what happens when we log in as a user from a different group
+让我们看看当我们以不同组的用户身份登录时会发生什么
 
-Use Self Service Portal as a Power User
+使用Power User角色访问自助服务门户
 .......................................
 
-Log into Prism Central with the following credentials:
+使用以下凭据登录Prism Central：
 
 - **Username** - poweruserXX@ntnxlab.local (replace XX with 01-05)
 - **Password** - nutanix/4u
 
   .. figure:: images/ssp24.png
 
-After you login you only have two tabs inthe top ribbon, **Explore** & **Apps**
+登录后，在顶部功能区中只有两个选项卡， **Explore**和**Apps**
 
-You start on **VMs**, and should see all VMs the **poweruserXX** has access Tools
+在**Explore**界面中点击查看**VMs**, 您应该能看到**poweruserXX**对所有VM拥有访问工具
 
-Notice you do not see **Developer VM 001**, that is because **SSP Power Users** is not a memeber of that project.
+请注意，您无法看到** Developer VM 001 **，这是因为** SSP Power Users **不是该项目的成员。
 
 点击 **Create VM**
 
-Verify **Disk Images** is selected, and 点击 **Next**
+确认已选中**Disk Images**, 并点击 **Next**
 
   .. figure:: images/ssp21.png
 
-Select **CentOS Image**, and 点击 **Next**
+选择**CentOS Image**, 然后点击 **Next**
 
   .. figure:: images/ssp22.png
 
-填写以下字段 and 点击 **Save**:
+填写以下字段并点击 **Save**:
 
 - **Name** - Calm VM 001
 - **Target Project** - Calm
@@ -344,23 +345,22 @@ Select **CentOS Image**, and 点击 **Next**
 
   .. figure:: images/ssp25.png
 
-You should now see VM **Calm VM 001** listed
+您应该可以看到在VM列表中存在**Calm VM 001**
 
-Logout, and log back in as **devuserXX@ntnxlab.local**
+登出，并用**devuserXX@ntnxlab.local**帐户重新登陆
 
-You should see both **Developer VM 001** & **Calm VM 001**. That is because **SSP Developers** is a member of both **Projects**
+您应该可以同时看到**Developer VM 001**和**Calm VM 001**两台虚拟机，这是因为**SSP Developers**帐户同时是两个项目的成员
 
   .. figure:: images/ssp26.png
 
-点击 on **Projects**, and you will see the resource usage of **Developer VM 001** against the **Developer** project quota.
-
+单击** Projects **，您将看到** Developer VM 001 **的资源使用情况与** Developer **项目配额相对应。
   .. figure:: images/ssp27.png
 
-Takeaways
+小贴士
 +++++++++++
 
-- Nutanix provides a native service to seperate out resources for different groups, while giving them a Self-Service approach to using those resources.
+-  Nutanix提供原生集成服务，为不同的群组分离资源，同时为他们提供使用这些资源的自助服务方法。
 
-- Easy to assign resources to different projects using directory groups
+- 使用目录组轻松将资源分配给不同的项目
 
-- Easy to assign a set of resources (quotas) to better manage cluster resources, or for show back
+- 通过配额，可以轻松分配成组资源，以更好地管理群集资源或进行回收

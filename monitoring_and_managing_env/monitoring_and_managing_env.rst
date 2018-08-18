@@ -53,7 +53,7 @@ Prism Central中央仪表板
 
 优势:
 
-- 要点总结
+- 重要信息集中显示
 
 .. figure:: images/monitoring_and_managing_04.png
 
@@ -77,7 +77,7 @@ Prism自助服务
 
 优势:
 
-- 无摩擦服务交付
+- 顺畅高效服务交付
 - 通过类AWS的体验，实现开发人员赋能
 
 .. figure:: images/monitoring_and_managing_06.png
@@ -101,60 +101,57 @@ Prism Central报告管理和机器学习能力
 
 通过报告管理，您可以:
 
-- Configure and deliver the historical reports containing information about the infrastructure resources.
-- Gain operational insights of your infrastructure into your mailbox according to the schedule that you have configured.
 - 配置并提供包含有关基础架构资源信息在内的详细历史报告
 - 根据您配置的日程，自动将基础架构的操作洞察报告通过邮件发送
 
 .. figure:: images/monitoring_and_managing_08.png
 
-Actionable Capacity Forecasting
+可实施的容量预测
 ...............................
+用途
 
-What is it?
+- 详细的容量趋势
+- 智能推荐
+- 由正在申请专利的X-FIT算法提供支持
 
-- Detailed capacity trends
-- Intelligent recommendations
-- Powered by patent pendingX-FIT algorithm
+核心优势:
 
-Key Points:
-
-- Enables pay as you grow capacity expansion
-- Eliminates guesswork
+- 随容量的扩展按需付费
+- 消除凭空猜测
 
 .. figure:: images/monitoring_and_managing_09.png
 
-Just-In-Time Forecast
+准时预测
 .....................
 
-What is it?
+用途
 
-- Machine learning based forecast that predicts capacity expansion to meet future workload growth
-- Planning of expansion based on existing/new workload demands
-- Powered by X-FIT
+- 基于机器学习算法，预测容量扩展以满足未来的工作负载增长
+- 根据现有/新的工作负载需求预测扩展规划
+- 由X-FIT提供支持
 
-Benefits:
+核心优势:
 
-- Pre defined workload friendly inputs to save planning time and avoid hassle
-- Enables pay as you grow capacity expansion
-- Eliminates guesswork
+- 通过预先定义的工作负载模板和简单的信息输入即可完成规划，节省时间减少麻烦
+- 随容量的扩展按需付费
+- 消除凭空猜测
 
 .. figure:: images/monitoring_and_managing_10.png
 
-Rich and Insightful Analytics
+丰富且富有洞察的分析能力
 .............................
 
 .. figure:: images/monitoring_and_managing_11.png
 
-VM Management for ESXi
+ESXi的VM管理
 ......................
 
-What is it?
+适用场景
 
-- ESXi Management from Prism
-- Does not displace vCenter
+- Prism的ESXi管理
+- 不是vCenter的替代
 
-Use Prism for common use cases:
+在常见任务中可以直接使用Prism:
 
 - VM Create
 - VM Update
@@ -163,24 +160,25 @@ Use Prism for common use cases:
 - Launch console
 - Clone
 
-Key Points:
+关键点:
 
-- Consumer-grade virtualization management across different hypervisors
-- Unified management plane for virtualization, storage and compute
+- 可以跨不同虚拟机管理程序的消费者级虚拟化管理体验
+- 用于虚拟化，存储和计算管理的统一管理平面
 
 .. figure:: images/monitoring_and_managing_12.png
 
-Video Demonstration: Cluster Software Update
+视频演示：群集软件更新
 ............................................
 
-This demo shows how easy it is to upgrade a Nutanix cluster. Software upgrades are non-disruptive to the environment and can be performed at any time.
+该演示展示了对Nutanix群集进行升级是一件多么容易的事，软件升级操作不会对应用环境造成影响，且支持随时执行。
 
 Cluster Upgrade - https://youtu.be/_dzyaWbRkAQ
 
 
-Video Demonstration: Cluster Expansion
+视频演示：群集扩展
 .......................................
 
 This demo shows the ease with which a cluster could be expanded through the addition of one more node into the demo environment.
+此演示展示在演示环境中，如何快速添加一个节点并轻松对集群进行计算和存储的扩展。
 
 Cluster Expansion - https://youtu.be/qg0vU48d5XA

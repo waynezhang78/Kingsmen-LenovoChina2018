@@ -94,20 +94,20 @@ Prism Central
 Prism Element
 +++++++++++++
 
-From the Firefox web browser (preferred), log into the Nutanix Prism GUI using the Cluster IP.
+使用Google Chrome或Firefox浏览器，使用集群IP登陆到 Nutanix Prism GUI.
 
 Open https://<*NUTANIX-CLUSTER-IP*>:9440
 
-Fill out the following fields and click **Enter**:
+使用以下登陆密钥进行登陆**Enter**:
 
 - **Username** - admin
 - **Password** - *HPOC Password*
 
 .. figure:: images/nutanix_tech_overview_01.png
 
-After you log in to Prism Element, familiarize yourself with the Prism UI. Explore the information on the **Home** screen, as well as the other screens.
+登录Prism Element后，随意浏览一下，熟悉Prism的管理界面。浏览** Home **界面以及其他界面上的信息。
 
-Review the Home screen, and identify the following items:
+查看Home界面，并找到以下功能项并记录：
 
 - Hypervisor
 - Version
@@ -119,15 +119,15 @@ Review the Home screen, and identify the following items:
 
 .. figure:: images/nutanix_tech_overview_02.png
 
-Review the UI navigation options.
+查看快速导航栏
 
 .. figure:: images/nutanix_tech_overview_03.png
 
-Examine the cluster hardware by using the navigation menu, and go to the Hardware.
+使用导航栏进入Hardware菜单，查看集群的硬件状态.
 
-In **Prism > Hardware**, click **Hardware**, then click **Diagram**.
+进入**Prism > Hardware**, 点击**Hardware**, 并点击**Diagram**.
 
-Review the hardware summary information:
+查看硬件信息总结:
 
 - Blocks
 - Hosts
@@ -137,7 +137,7 @@ Review the hardware summary information:
 
 .. figure:: images/nutanix_tech_overview_04.png
 
-Review the other sections, and do a quick walk through:
+快速浏览其它的菜单:
 
 - VM
 - Health
@@ -147,7 +147,7 @@ Review the other sections, and do a quick walk through:
 - Alerts
 - Etc.
 
-Review other sections of the Prism UI
+检查Prism UI的其它部分：
 
 - Health :fa:`heartbeat`
 - Alarms :fa:`bell`
@@ -160,50 +160,53 @@ Review other sections of the Prism UI
 .. figure:: images/nutanix_tech_overview_05.png
 
 .......................
-Prism Element UI Review
+思考时间
 .......................
 
-Where would you locate the version of AOS you are running?
+1.在哪个界面能找到正在运行的AOX版本？
 
 .. figure:: images/nutanix_tech_overview_06.png
 
-You can do this by clicking on the **User** drop down :fa:`user`, and clicking **About Nutanix**.
+答：您可以在点击**User**的下拉菜单中，单击** About Nutanix **.
 
-How would you get to the following screen to view a summary of the number of hosts (or nodes) and the resource capacity and current utilization?
+2.您如何进入以下界面以查看主机（或节点）数量以及资源容量和当前利用率的摘要？
 
 .. figure:: images/nutanix_tech_overview_07.png
 
-In **Prism > Hardware**, click **Hardware**, then click **Table**.
+答：在**Prism > Hardware**, 点击**Hardware**, 然后点击**Table**.
 
-How would you get the following screen to see the health of your cluster?
+3. 您可以在哪个界面检查集群的健康检查状态？
 
 .. figure:: images/nutanix_tech_overview_08.png
 
-In **Prism > Health**, click **Health**, then click **Summary** in the right pane.
+答：在**Prism > Health**, 点击**Health**, 然后点击右侧的**Summary**菜单.
 
-What page would show you the latest activity in the system? On this page, you can monitor the progress of any task and keep track of what has been done in the past using time stamps. Can you figure out two different ways to get there?
+4. 在哪个页面能够显示系统中的最新活动？
+   在哪个页面上，您可以监控所有任务的进度，并使用时间戳跟踪过去的操作。你能想出两种不同的方法吗？
 
 .. figure:: images/nutanix_tech_overview_09.png
 
-First Way, In **Prism > Tasks**, click **Tasks**. Second Way, click :fa:`circle-o`.
+第一种方式，在**Prism > Tasks**, 点击**Tasks**. 
+第二种方式, 点击 :fa:`circle-o`.
+
 
 .. note::
 
-  In ESXi:
+  在ESXi中:
 
-  - The containers created in Prism appear as datastores in vCenter.
+  - 在Prism中创建的容器在vCenter中显示为datastores.
 
-  Example view of storage containers from Prism:
+  Prism存储容器的示例视图:
 
   .. figure:: images/nutanix_tech_overview_13.png
 
-  Example view of storage containers (datastores) from vCenter:
+  vCenter中存储容器（Datastore）的示例视图:
 
   .. figure:: images/nutanix_tech_overview_14.png
 
-Takeaways
+小贴士
 +++++++++
 
-- Prism is thoughtfully laid out UI
-- Critical information is displayed front and center
-- Prism Central can manage multiple clusters
+- Prism是通过精心设计的UI界面
+- 关键信息显示在前面和中间
+- Prism Central可以同时管理多个集群

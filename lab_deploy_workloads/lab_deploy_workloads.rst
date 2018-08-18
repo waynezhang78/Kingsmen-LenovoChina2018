@@ -1,32 +1,33 @@
 .. _lab_deploy_workloads:
 
 -------------------------
-Lab - Deploying Workloads
+工作负载部署实验
 -------------------------
 
-Overview
+概览
 ++++++++
 
-Learn about basic VM deployment.
+了解基本的VM部署操作
 
-Image Configuration
+镜像配置
 +++++++++++++++++++
 
-Nutanix's Image Service is where you can store your build ISOs, as well as Disk Images you create (similar to VMware Templates).
+Nutanix的镜像服务是用来存储您的构建ISO以及您创建的磁盘映像（类似于VMware模板）。
 
-We will upload CentOS ISO to use for deploying VMs.
+我们本实验使用CentOS ISO上传作为镜像并用于部署VM。
 
-In **Prism Central > Explore**, click **Images**.
+在**Prism Central > Explore**, 点击**Images**.
 
-Next click **Add Image**, and click **URL**.
+然后点击**Add Image**, 选择**URL**方式.
 
-Fill out the following fields and click **Upload File**:
+填写以下字段，然后单击**Upload File**:
 
 - **Enter Image URL** - http://10.20.134.222/images/CentOS-7-x86_64-Minimal-1804.iso
+#更新
 
 .. figure:: images/deploy_workloads_01.png
 
-Next, fill out the following fields and click **Save**:
+接下来，按提示填写以下字段，然后单击**Save**:
 
 - **Image Name** - CentOS7-*initials*
 - **Image Type** - ISO
@@ -34,15 +35,16 @@ Next, fill out the following fields and click **Save**:
 
 .. figure:: images/deploy_workloads_02.png
 
-Now we will upload Windows 2012 ISO to use for deploying VMs, **if the cluster doesn't already have this image available**.
+现在我们再来上传Windows 2012 ISO，用于部署实验VM，**如果群集尚未提供此图像**
 
-Click **Add Image**, and click **URL**.
+点击**Add Image**, 然后选择**URL**选项.
 
-Fill out the following fields and click **Upload File**:
+填写以下字段，然后单击**Upload File**:
 
 - **Enter Image URL** - http://10.20.134.222/images/server_2012_r2_vl_x64_dvd_3319595.iso
+#更新
 
-Next, fill out the following fields and click **Save**:
+接下来，按提示填写以下字段，然后单击**Save**:
 
 - **Image Name** - Windows2012-*initials*
 - **Image Type** - ISO
@@ -50,18 +52,20 @@ Next, fill out the following fields and click **Save**:
 
 .. note::
 
-  Image management in Prism Central allows you to upload images that can be used to deploy workloads in any of the clusters registered to that Prism Central instance.
-  This tool can also convert VM disk images to formats that AHV can understand.
-  The image service supports raw, vhd, vhdx, vmdk, vdi, iso, and qcow2 disk formats.
+  1）在Prism Central中的映像管理，允许您上载的镜像可同时用于所有在注册到Prism Central实例的任何群集中。
+  2）此工具还可以将VM磁盘映像转换为AHV可以理解的格式。
+  3）映像服务支持raw，vhd，vhdx，vmdk，vdi，iso和qcow2磁盘格式
 
-Creating a Linux VM
+
+
+创建Linux VM
 +++++++++++++++++++
 
-Deploy a Linux VM from Prism Central.
+从Prism Central部署Linux VM
 
-In **Prism Central > Explore > VMs**, click **Create VM**.
+在**Prism Central > Explore > VMs**, 点击**Create VM**.
 
-Fill out the following fields and click **Save**:
+按提示填写以下字段，然后点击**Save**:
 
 - **Name** - Linux_VM-*initials*
 - **Description** - (Optional) Description for your VM.
@@ -71,87 +75,89 @@ Fill out the following fields and click **Save**:
 
 .. figure:: images/deploy_workloads_03.png
 
-- Select :fa:`pencil` next to CDROM
+- 选择CDROM旁边的Edit图标：
     - **Operation** - Clone from Image Service
     - **Image** - CentOS7-*initials* (The Image we added above)
     - Select **Update**
 
 .. figure:: images/deploy_workloads_04.png
 
-- Select **+ Add New Disk**
+- 选择**+ Add New Disk**
     - **Type** - DISK
     - **Operation** - Allocate on Storage Container
     - **Storage Container** - Default Container
     - **Size (GiB)** - 30 GiB
     - Select **Add**
 
-- Select **Add New NIC**
+- 选择**Add New NIC**
     - **VLAN Name** - Primary
     - Select **Add**
 
-Click **Save** to create the VM.
+点击**Save**以创建VM.
 
-Creating a Windows VM
+创建Windows VM
 +++++++++++++++++++++
 
-Deploy a Windows VM from Prism Central.
-
+从Prism Central部署Windows VM
 .. note::
+  
+    Nutanix提供了一组与VMware Tools类似的用户工具和驱动程序。
+    要安装基于Windows的操作系统，必须在安装时提供Virtual I/O驱动程序，否则虚拟机无法识别到虚拟磁盘。 
+    Nutanix为AHV上的Windows操作系统提供了一组定制的Virtual I/O驱动程序。
+    
 
-  Nutanix provides a set of guest tools and drivers comparable to VMware Tools. To install a Windows-based OS, the I/O drivers must be provided at install time. Nutanix provides a customized set of virtualized I/O drivers for Windows OS on AHV.
+在**Prism Central > Explore > VMs**, 点击**Create VM**.
 
-In **Prism Central > Explore > VMs**, click **Create VM**.
-
-Fill out the following fields and click **Save**:
+按提示填写以下字段，然后点击**Save**:
 
 - **Name** - Windows_VM-*initials*
 - **Description** - (Optional) Description for your VM.
 - **vCPU(s)** - 2
 - **Number of Cores per vCPU** - 1
 - **Memory** - 4 GiB
-- Select :fa:`pencil` next to CDROM
+- 选择CDROM旁边的Edit图标：
     - **Operation** - Clone from Image Service
     - **Image** - Windows2012-*initials*
-    - Select **Update**
+    - 点击**Update**
 
-- Select **+ Add New Disk**
+- 选择**+ Add New Disk**
     - **Type** - DISK
     - **Operation** - Allocate on Storage Container
     - **Storage Container** - Default Container
     - **Size (GiB)** - 30 GiB
     - Select **Add**
 
-- Select **+ Add New Disk**
+- 选择**+ Add New Disk**
     - **Type** - CDROM
     - **Operation** - Clone from Image Service
     - **Image** - Nutanix VirtIO
     - Select **Add**
 
-- Select **Add New NIC**
+- 选择**Add New NIC**
     - **VLAN Name** - Primary
       - Select **Add**
 
-Click **Save** to create the VM.
+点击**Save**以创建VM.
 
-Now lets power on the VM:
+现在让我们试试启动VM:
 
-Select the VM, then click **Power On** from the **Actions** drop-down menu.
+选择要启动的VM，然后从**Actions**下拉菜单中单击**Power On**
 
-Next lets open a console session:
+接下来打开一个控制台会话：
 
-Select the VM, then click **Launch Console** from the **Actions** drop-down menu.
+选择VM，然后从**Actions**下拉菜单中单击**Launch Console**。
 
-Progress through the standard install questions until you reach the Windows install location.
+根据提示进行下一步操作并等待安装进度到需要选择Windows安装路径的界面，此时系统安装进程会提示无法找到硬盘
 
-Click **Load Driver** and navigate to the CD where the Nutanix VirtIO is mounted.
+选择**Load Driver**，并选择找到Nutanix VirtIO挂载的CD目录。
 
-Browse the CD, and select the directory that corresponds to the Windows OS being installed.
+浏览CD的目录，并选择与要安装的Windows操作系统版本一致的目录。
 
 .. figure:: images/deploy_workloads_05.png
 
 .. figure:: images/deploy_workloads_06.png
 
-Select the three Nutanix drivers displayed (Press and hold the Ctrl key and select all three drivers):
+选择显示的三个Nutanix驱动程序 (按住Ctrl键并选择所有三个驱动程序):
 
 - Balloon
 - Ethernet adapter
@@ -159,22 +165,23 @@ Select the three Nutanix drivers displayed (Press and hold the Ctrl key and sele
 
 .. figure:: images/deploy_workloads_07.png
 
-Click Next.
+点击下一步.
 
-After the drivers are loaded, the disk created in step 1 appears as an installation target. Select that disk and continue with the normal install process.
+正常加载驱动程序后，步骤1中创建的磁盘将显示为安装目标。选择该磁盘并继续正常安装过程。
 
-After the installation completes, the Windows install ISO can be unmounted and the additional CD-ROM used for the drivers can be removed from the VM.
+安装完成后，可以卸载Windows安装ISO，并可以从VM中删除用于驱动程序的其他CD-ROM。
 
 .. note::
 
-  In ESXi:
+  在ESXi中：
+  
+   - 通过VMware vSphere创建VM后，它将显示在Prism VMs列表中。
+   - 或者，如果通过Prism创建VM，它将显示在VMware vSphere UI中。
+   示例如下图所示。
+   .. figure:: images/deploy_workloads_08.png
 
-  - After a VM is created via VMware vSphere, it appears in the Prism VMs list.
-  - Alternatively, if a VM is created via Prism, it appears in the VMware vSphere UI. An example is shown in the image below.
-  .. figure:: images/deploy_workloads_08.png
-
-Takeaways
+小贴士
 +++++++++
 
-- In this lab you saw how simple it is to deploy a Linux VM and a Windows VM.
-- The Image Configuration tool allows you to have a catalog of available images to be used in VM deployments as needed and covering a broad format support which includes qcow, qcow2, vmdk, VHD, VHDx, RAW, and ISO.
+ - 在本实验中，您可以看到部署Linux VM和Windows VM非常简单。
+ - 镜像配置工具允许您根据需要可创建一个用于VM部署的可用映像服务目录，并涵盖包括qcow，qcow2，vmdk，VHD，VHDx，RAW和ISO的广泛格式支持。

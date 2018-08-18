@@ -200,37 +200,37 @@ Each cluster has a dedicated domain controller VM, **DC**, responsible for provi
      - basicuser01-basicuser25
      - nutanix/4u
 
-访问说明
-+++++++++++++++++++
+#访问说明
+#+++++++++++++++++++
 
-可以通过多种不同方式访问Nutanix Hosted POC环境:
+#可以通过多种不同方式访问Nutanix Hosted POC环境:
 
-Citrix XenDesktop
-.................
+#Citrix XenDesktop
+#.................
 
-https://citrixready.nutanix.com - *Accessible via the Citrix Receiver client or HTML5*
+#https://citrixready.nutanix.com - *Accessible via the Citrix Receiver client or HTML5*
 
-**Nutanix Employees** - Use your NUTANIXDC credentials
+#**Nutanix Employees** - Use your NUTANIXDC credentials
 
-**Non-Employees** - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+#**Non-Employees** - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
 
-Employee Pulse Secure VPN
-..........................
+#Employee Pulse Secure VPN
+#..........................
 
-https://sslvpn.nutanix.com - Use your CORP credentials
+#https://sslvpn.nutanix.com - Use your CORP credentials
 
-Non-Employee Pulse Secure VPN
-..............................
+#Non-Employee Pulse Secure VPN
+#..............................
 
-https://lab-vpn.nutanix.com - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+#https://lab-vpn.nutanix.com - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
 
-Under **Client Application Sessions**, click **Start** to the right of **Pulse Secure** to download the client.
+#Under **Client Application Sessions**, click **Start** to the right of **Pulse Secure** to download the client.
 
-Install and open **Pulse Secure**.
+#Install and open **Pulse Secure**.
 
-Add a connection:
+#Add a connection:
 
-- **Type** - Policy Secure (UAC) or Connection Server
-- **Name** - HPOC VPN
-- **Server URL** - lab-vpn.nutanix.com
+#- **Type** - Policy Secure (UAC) or Connection Server
+#- **Name** - HPOC VPN
+#- **Server URL** - lab-vpn.nutanix.com
 

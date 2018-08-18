@@ -173,7 +173,6 @@ Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲�
      - nutanix
      - *<Cluster Password>*
 
-Each cluster has a dedicated domain controller VM, **DC**, responsible for providing AD services for the **NTNXLAB.local** domain. The domain is populated with the following Users and Groups:
 每个群集都有一个专用的域控制器VM，** DC **，负责为** NTNXLAB.local **域提供AD服务。该域包含以下用户和组：
 
 

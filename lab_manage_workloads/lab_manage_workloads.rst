@@ -1,63 +1,63 @@
 .. _lab_manage_workloads:
 
 ------------------------
-Lab - Managing Workloads
+工作负载管理实验
 ------------------------
 
-Overview
+实验目的
 ++++++++
 
-Get experience using VM management tasks from Prism, which include power actions, searching, cloning, and migrating.
+学习并掌握通过Prism进行VM管理任务的经验，包括电源操作，搜索，克隆和迁移。
 
-Workload Management
+工作负载管理
 +++++++++++++++++++
 
-Now that you have a couple VMs deployed, let’s have some fun and explore some of the VM management tasks with AHV.
+现在您已经成功部署了几个虚拟机，让我们碰探索一些在AHV平台上如何进行虚拟机管理的乐趣。
 
-Power Actions and Console Access
+电源操作和控制台访问
 ................................
 
-Explore VM power actions and console access.
+在**Prism Central > Explore > VMs**菜单.
 
-In **Prism Central > Explore > VMs**.
-
-Locate the Linux VM you created in the previous lab (Linux_VM-*initials*). (Use Prism’s search function if necessary)
+找到您在上一个实验中创建的Linux VM (Linux_VM-*initials*). (必要时可以使用Prism的搜索功能)
 
 .. note::
 
-  Note that the Power State column for that VM shows a red dot, indicating that the VM is powered off.
+  请注意，如果该VM的Power State列显示一个红点，表示VM已关闭
+  
+现在我们来启动VM:
 
-Now lets power on the VM:
-
-Select the VM, then click **Power On** from the **Actions** drop-down menu.
-
-.. note::
-
-  See the list of available actions (Update, Delete, Clone, Launch Console, Power On, Pause/Suspend, Snapshot, Migrate, and so on).
-  Note that Launch Console is shaded. This action is not available because the VM is off.
-
-Next lets open a console session:
-
-Select the VM, then click **Launch Console** from the **Actions** drop-down menu.
+选择VM，然后从**Actions**下拉菜单中单击**Power On**
 
 .. note::
 
-  When the console window opens, note that there are three actions available in the console (Send CTRL-ALT-DEL, Take Screen Capture, and Power).
+  请同时查看所有可用操作列表（包手更新，删除，克隆，启动控制台，开机，暂停/挂起，快照，迁移等）
+  
+  请注意，此步骤Launch Console功能带有阴影，表明此操作不可用，因为此时VM正处于关闭状态。
+  
+接下来打开一个控制台会话:
 
-  Power On in the Actions menu changes to Power Off once the VM has been powered on. You can also click on the name of the VM to open a console window for a specific VM. This console window contains all of the options available under the Actions menu, performance-related information, and other relevant VM details.
+选择VM，然后从**Actions**下拉菜单中单击**Launch Console**.
+
+.. note::
+
+  - 控制台窗口打开时，请注意控制台中有三个可用操作(发送CTRL-ALT-DEL，截屏和电源操作).
+  - 一旦VM启动，“Actions”菜单中的“powered on”将更改为“Power Off”。
+  - 您还可以单击VM的名称以打开特定VM的控制台窗口。
+  - 此控制台窗口包含“操作”菜单下可用的所有选项，与性能相关的信息以及其他相关的VM详细信息。
 
 .. figure:: images/manage_workloads_01.png
 
 .. note::
 
-  In ESX:
+ 在ESXi环境:
 
-  - The steps in this exercise could also be done from Prism while using an ESXi cluster that has its VMware vCenter instance is registered to Prism.
-  - The image below shows the side by side comparison of what the Actions drop down menu would look like for a VM hosted in ESXi versus one hosted in AHV.
+  - 对于ESXi环境，VMware vCenter实例注册到Prism，本实验的所有步骤同样有效。 
+  - 下图显示了在ESXi中托管的VM与AHV中托管的VM之间的“操作”下拉菜单的横向比较.
 
   .. figure:: images/manage_workloads_06.png
 
-Prism Search
+Prism搜索功能
 ............
 
 The Prism search function makes it easier to identify problems or find feature documentation in Prism Central. Use Prism Central’s search capabilities by typing a few search queries to see how easy this can make the tasks above.

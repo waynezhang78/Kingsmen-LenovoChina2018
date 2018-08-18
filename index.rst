@@ -66,10 +66,6 @@
 前言
 ---------------
 
-Welcome to the Nutanix Technology Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix technologies and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
-
-At the end of the bootcamp, attendees should understand the basic concepts and technologies that make up the Nutanix Enterprise Cloud stack and should be well prepared for a hosted or onsite proof-of-concept (POC) engagement.
-
 欢迎来到Nutanix Hands on Lab技术训练营！本实验手册将与实验讲师的指导相配合，重点对Nutanix技术和许多常见的管理任务进行演示和介绍。每个章节都有对应的知识点介绍和动手练习，为您提供实践练习。实验讲师将负责解释并回答您可能在动手实验中遇到的任何其他问题。
 
 在训练营结束时，与会者应该可以对Nutanix企业云堆栈的基本概念和技术有所了解，并且能够有能力进行现场或利用远程环境进行POC或日常进行系统管理的能力。

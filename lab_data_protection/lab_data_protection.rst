@@ -71,32 +71,32 @@ VM快照
 - Scroll down and click **Protect Selected Entities**.
 - The selected VMs appear in the right-hand side table. Click **Next**.
 
-Configure a local schedule:
+配置本地计划:
 
-- Click **New Schedule**.
-- Select a frequency (for example, repeat every one day).
+- 单击**New Schedule**.
+- 选择备份频率(如,每天一次).
 
-Configure a retention policy:
+配置保留策略:
 
-- Set the retention policy (for example, keep the last two snapshots).
-
-.. note::
-
-  Local is the only option in this lab environment because no remote targets are configured.
-
-  You could setup a remote site with a neighbor cluster.
-
-Click **Create Schedule**.
+- 设置保留策略(比如, 保持最后两份快照).
 
 .. note::
 
-  A Protection Domain can have multiple schedules.
+  本地备份是此实验室环境中的唯一选项，因为未配置远程目标。
+  您可以使用邻居群集设置远程站点
+  
+单击**Create Schedule**.
 
-Click **Close** to exit.
+.. note::
 
-Takeaways
+  一个保护域可以有多个计划
+  
+点击**Close**退出.
+
+小贴士
 +++++++++
 
-- Nutanix offers data protection solutions for virtual datacenters via different strategies including one-to-one or one-to-many replication.
-- Nutanix provides data protection functions at the VM, file, and volume group level, so VMs and data remain safe in a crash-consistent environment.
-- You can implement a data protection strategy by configuring protection domains and remote sites through the web console.
+ -  Nutanix通过不同的策略为虚拟数据中心提供数据保护解决方案，包括一对一或一对多复制。
+ -  Nutanix在VM，文件和卷组级别提供数据保护功能，因此VM和数据在崩溃一致的环境中保持安全。
+ - 您可以通过Web控制台配置保护域和远程站点来实施数据保护策略。
+ 

@@ -63,13 +63,13 @@ VM快照
 
 选择**+ Protection Domain** 以创建PD，然后单击创建Async DR.
 
-提供PD的名称，然后单击**Create**.
+输入PD的名称，然后单击**Create**.
 
-选择您希望成为PD成员的VM:
+选择您希望加入PD的VM:
 
-- Filter or scroll to select the VMs you created in this bootcamp to be part of the PD.
-- Scroll down and click **Protect Selected Entities**.
-- The selected VMs appear in the right-hand side table. Click **Next**.
+- 通过过滤或滚动以选择您在此训练营中创建的VM，加入到此PD中
+- 向下滚动并单击**Protect Selected Entities**.
+- 所选VM显示在右侧表中，点击**Next**.
 
 配置本地计划:
 

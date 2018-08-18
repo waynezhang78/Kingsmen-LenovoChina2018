@@ -1,34 +1,35 @@
 .. _lab_nutanix_technology_overview:
 
 ---------------------------------
-Lab - Nutanix Tech Overview
+实验室 - Nutanix管理界面介绍
 ---------------------------------
 
-Overview
+简介
 ++++++++
 
-This lab will introduce the Prism Element & Prism Central UIs, and familiarize you with their layout and navigation.
+本实验将介绍Nutanix两大管理界面，Prism Element＆Prism Central UI，并让您熟悉它们的界面布局和功能导航。
 
 Prism Central
 +++++++++++++
 
-Open https://<*Prism-Central-IP*>:9440
+在浏览器中打开 https://<*Prism-Central-IP*>:9440
+建议使用Google Chrome或Firefox浏览器
 
-Fill out the following fields and click **Enter**:
+在界面输入登陆用户名和密码信息，并点击**Enter**:
 
 - **Username** - admin
 - **Password** - *HPOC Password*
 
-After you log in to Prism Central, familiarize yourself with the Prism UI.
+登录Prism Central后，请尝试各功能，以便熟悉Prism UI
 
-Explore the information on the **Home** screen:
+浏览**Home** 页面的各种显示信息:
 
 - Cluster Runway
 - Cluster Quick Access
 - Impacted Cluster | Alerts
 - tasks
 
-Review the **Explore** screen:
+浏览**Explore** 页面的所有功能选项:
 
 - VMs
 - Images
@@ -39,7 +40,7 @@ Review the **Explore** screen:
 
 .. figure:: images/nutanix_tech_overview_10.png
 
-Review the other sections, and do a quick walk through:
+查看其它功能标签栏，并快速浏览:
 
 - Planning
 - Analysis
@@ -52,38 +53,41 @@ Review the other sections, and do a quick walk through:
 - User :fa:`user`
 
 .......................
-Prism Central UI Review
+思考时间
 .......................
 
-How would you find the screen that shows you a table of all the hosts managed by an instance of Prism Central?
+在PC中通过哪个界面能够显示所有被管理的主机的列表？ 
 
 .. figure:: images/nutanix_tech_overview_11.png
 
 .. note::
 
-  If this Prism Central instance was managing multiple clusters, this screen would show the hosts for all of the clusters being managed.
+如果Prism Central同时管理多个集群，该界面会显示所有集群中可管理的主机列表。
 
-In **Prism Central > Explore**, click **Hosts** on left-hand menu.
+在**Prism Central > Explore**界面中, 在左边菜单中点击**Hosts**.
 
-How would you find the screen that lists all of the VMs currently deployed. This screen looks similar to the figure below?
+在哪个界面能够看到所有已部署的虚拟机列表？是不是与下图的界面类似？
 
 .. figure:: images/nutanix_tech_overview_12.png
 
-In **Prism Central > Explore**, click **VMs** on left-hand menu.
+在**Prism Central > Explore**菜单中, 点击菜单栏左边的**VMs**.
 
-What page would show you the latest activity in the system? On this page, you can monitor the progress of any task and keep track of what has been done in the past using time stamps. Can you figure out two different ways to get there?
+在哪个页面会显示系统中的最新活动？
+在此页面上，您可以监控任何任务的进度，并使用时间戳跟踪过去的操作。
+你能想出两种不同的方法吗？
 
-First Way, In **Prism Central > Home**, click **View All Tasks**. Second Way, click :fa:`circle-o`
+第一种方式，在**Prism Central > Home**界面中, 点击**View All Tasks**. 
+第二种方式, 点击 :fa:`circle-o`
 
 .. note::
 
   In ESXi:
 
-  - vCenter Server instances can be registered to Prism via Prism's :fa:`cog` icon.
-  - Registering a Nutanix Cluster running ESXi with vCenter allows to perform core VM management operations directly from Prism without switching to vCenter Server.
-  - The vCenter Server that is managing the hosts in the cluster is auto-discovered and its IP address is auto-populated in the Address field as shown in the example below.
+  - vCenter Server实例可以通过Prism中的:fa:`cog`中进行注册
+  - 将运行ESXi的Nutanix集群注册到vCenter，可以让Prism直接运行核心的VM管理操作，而不需要切换至vCenter服务器。
+  - 如果vCenter服务器也在Nutanix集群中，则可以被自动发现,IP地址可以被自动填充，如下图所示：
 
-  Example view of vCenter registration to Prism:
+  vCenter注册到Prism的示例图：
 
   .. figure:: images/nutanix_tech_overview_15.png
 

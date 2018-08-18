@@ -1,34 +1,34 @@
-.. _what_is_nutanix:
+.. Nutanix是什么:
 
 ---------------
-What is Nutanix
+Nutanix是什么
 ---------------
 
-What is Nutanix Enterprise OS?
+什么是Nutanix Enterprise OS?
 ++++++++++++++++++++++++++++++
 
-Streamlining The Datacenter
+简化数据中心
 ...........................
 
-Nutanix has the features required to run most of today’s Enterprise Applications and MORE…
+Nutanix具有运行当今绝大多数企业应用程序所需的全部功能，并能提供更多......
 
 .. figure:: images/what_is_nutanix_01.png
 
-Nutanix Web-Scale Architecture
+Nutanix Web-Scale架构
 ..............................
 
-Nutanix is built on Web-Scale Architecture
+Nutanix建立在Web-Scale架构之上
 
 .. figure:: images/what_is_nutanix_02.png
 
-The Nutanix Solution
+Nutanix解决方案
 ....................
 
-Nutanix is made up of two parts, Nutanix Prism and Nutanix Acropolis.
+Nutanix由Nutanix Prism和Nutanix Acropolis两部分组成
 
 .. figure:: images/what_is_nutanix_03.png
 
-Prism Central Management
+Prism Central一站式管理：
 ........................
 
 Nutanix Prism Central is your Multi-Cloud & Multi-Hypervisor management plane.

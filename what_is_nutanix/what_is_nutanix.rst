@@ -1,4 +1,4 @@
-.. Nutanix是什么:
+.. _what_is_nutanix:
 
 ---------------
 Nutanix是什么

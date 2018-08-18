@@ -1,73 +1,71 @@
 .. _lab_data_protection:
 
 ---------------------
-Lab - Data Protection
+数据保护实验
 ---------------------
 
-Overview
+概览
 ++++++++
 
-Learn how to set up protection domains, create VM snapshots, and restore from those snapshots.
+了解如何设置保护域(protection domains)，创建VM快照以及从这些快照恢复数据。
 
-Data Protection
+数据保护
 +++++++++++++++
 
-In Prism, data protection policies are called protection domains (PDs). A PD is made up of a set of VMs and a policy. The available policies include snapshots, replication locations, and schedules.
+在Prism中，数据保护策略称为保护域（PD）。 PD由一组VM和策略组成。可用策略包括快照，复制目标位置和日程计划。
 
-VM snapshots
+VM快照
 ............
 
-Create a VM snapshot and restore a VM from a snapshot.
+创建VM快照并从快照还原VM。
 
-In **Prism Element > VM**, click **VM**, then click **Table**.
+在**Prism Element> VM**中，单击**VM**，然后单击**Table**
 
-Locate the Linux VM you created in the previous lab (Linux_VM-*intials*).
+找到您在上一个实验中创建的Linux VM（Linux_VM- * intials *）
+ - 如果VM已开启，请将其关闭
 
-- If the VM is powered on, power it Off
+选择VM，然后从VM列表下方的菜单中单击 **Snapshot**。
+ 
+为快照起一个名字
 
-Select the VM, then click **Snapshot** from the menu below the list of VMs.
+返回VM列表并单击VM的名称以打开其控制台窗口
 
-Provide a name for your snapshot.
+单击**Snapshots**以查看快照
 
-Return to VMs table and click the VM’s name to open its console window.
+- 请注意此步骤还有四个可用操作(Details, Clone, Restore, and Delete)（详细信息，克隆，还原和删除）
 
-Click **Snapshots** to see your snapshot.
+单击**Details**可查看快照时的所有VM属性
 
-- Note the four available actions (Details, Clone, Restore, and Delete).
+现在我们可以通过删除磁盘模拟我们的测试VM遭到损坏的情况
 
-Click **Details** to see all of the VM’s properties at the time of the snapshot.
+单击下面菜单中的**Update**并修改您拍摄快照的原始VM
 
-Now lets break our VM.
+- 向下滚动到磁盘部分，通过点击**X**图标，删除CD-ROM和DISKS
+- 点击**Save**确认更改.
 
-Click **Update** from the menu below and modify the original VM you took the snapshot of.
+现在尝试启动该VM并打开其控制台窗口
+ - 注意，VM此时不再有任何可引导的磁盘，并且显示2048游戏。
+ 
+关闭VM电源。
 
-- Scroll down to the disks section and delete the CD-ROM and DISK by clicking the **X** icon for each item.
-- Click **Save** to finalize the changes.
+选择VM，然后从VM列表下方的菜单中单击**VM Snapshots**.
 
-Now attempt to power on that VM and open its console window.
+点击**Restore**将VM恢复到删除磁盘之前的状态.
 
-- Note that the VM no longer has any disks to boot from and that the 2048 game is displayed.
+尝试打开VM并打开控制台。
 
-Power off the VM.
+验证VM是否已成功引导以及其配置是否已还原
 
-Select the VM, then click **VM Snapshots** from the menu below the list of VMs.
-
-Click **Restore** to revert the VM to the state it was in before you removed the disks.
-
-Attempt to power on the VM and open the console.
-
-Verify that the VM boots successfully and that its configuration has been restored.
-
-Configure a Protection Domain (PD)
+配置保护域（PD）
 ..................................
 
-In **Prism Element > Data Protection**, click **Data Protection**, then click **Table**.
+在**Prism Element > Data Protection**中, 单击**Data Protection**, 然后点击**Table**.
 
-Click **+ Protection Domain** to create a PD, then click Async DR.
+选择**+ Protection Domain** 以创建PD，然后单击创建Async DR.
 
-Provide a name for the PD, and click **Create**.
+提供PD的名称，然后单击**Create**.
 
-Select the VMs that you want be members of the PD:
+选择您希望成为PD成员的VM:
 
 - Filter or scroll to select the VMs you created in this bootcamp to be part of the PD.
 - Scroll down and click **Protect Selected Entities**.

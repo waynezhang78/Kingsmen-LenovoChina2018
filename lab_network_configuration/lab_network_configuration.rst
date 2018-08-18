@@ -1,85 +1,85 @@
 .. _lab_network_configuration:
 
 ------------------------------
-Lab - Networking Configuration
+网络配置实验
 ------------------------------
 
-Overview
+概览
 ++++++++
 
-Learn how to set up a network in the cluster using Prism. The networks you create in the steps below provide VMs with connectivity by assigning the appropriate networks for the VMs’ respective NICs.
+了解如何使用Prism在集群中设置网络：通过如下步骤可以为VM各自的NIC分配适当的网络，从而为VM提供网络接入能力。
 
-AHV Networking Background
+AHV网络背景知识
 +++++++++++++++++++++++++
 
-AHV simplifies networking. Typically, nodes are connected with a trunked VLAN such that multiple VM networks can be surfaced into the environment.
+AHV可有效简化网络拓扑，通常情况下，节点可以连接一个Trunked的VLAN环境，从而允许多个VM网络可以在环境中共存。 
 
-With AHV, you can also setup a DHCP server to automatically provide IP addresses for VMs using the IP address management (IPAM) service.
+通过AHV, 您还可以通过DHCP服务器，通过IPAM服务，自动为VM分配IP地址.
 
-Virtual Networks
+虚拟网络
 ................
 
-- Similar to a “distributed portgroup”
-- Each virtual NIC belongs to exactly one virtual network
-- Each virtual network is a common point of configuration for a group of virtual NICs
-- Physical switch port must be configured to trunk VLAN
+- 类似于“分布式端口组“
+- 每个虚拟NIC只属于一个虚拟网络
+- 每个虚拟网络是一组虚拟NIC的集合
+- 物理交换机端口必须配置为中继VLAN
 
 .. figure:: images/network_config_01.png
 
-Virtual NICs
+虚拟网卡
 ............
 
-- Each vNIC belongs to exactly one virtual network
-- For IPAM-enabled networks, vNICs get life-long static IP assignments
-- User may configure pools to automatically allocate IPs, or specify the IP manually
+- 每个vNIC只属于一个虚拟网络
+- 对于支持IPAM的网络，vNIC可获得永久的静态IP分配
+- 用户可以将网络池配置为自动分配IP，或手动指定IP
 
 .. figure:: images/network_config_02.png
 
-IP Address Management (IPAM)
+IP地址管理（IPAM）
 ............................
 
-- Integrated DHCP Server
-- AHV intercepts DHCP requests from guests on IPAM networks, and injects responses
-- Virtualization admin manages a range of IP addresses
-- Supports arbitrary DHCP options, with UI support for DNS and TFTP configuration
+- 内置集成DHCP服务器
+- AHV会拦截来自IPAM网络上的访客的DHCP请求，并直接回复响应
+- 由虚拟化管理员设定并管理一系列IP地址
+- 支持任意DHCP选项，并为DNS和TFTP提供UI界面支持
 
 .. figure:: images/network_config_03.png
 
-Configure Network
+配置网络
 +++++++++++++++++
 
-In this exercise, we intentionally use an invalid VLANs so no communication is possible from VMs placed on the network.
+在本练习中，我们故意使用无效的VLAN，因此无法与现有网络上的VM进行直接通信。
 
 .. note::
 
-  This exercise is for demonstration purposes only. VMs connected to networks other than vlan 0 get a DHCP IP, but the network is not valid and does not transmit any traffic.
+  此练习仅用于演示目的，我们会让VM连接到vlan 0以外的网络，VM通过DHCP获取IP，但由于网络无效，不会传输任何流量。
 
-Setup user VM network
+设置用户VM网络
 .....................
 
-Connect to Prism Central and create a network for user VM interfaces. Use any VLAN other than 0, and do not enable IP address management.
+连接到Prism Central并为用户VM的网络接口创建网络，使用0以外的任何VLAN，不要启用IP地址管理。
 
-In **Prism Central > Explore**, click **VMs**, then click **Network Config**
+在**Prism Central > Explore**界面, 点击**VMs**,并点击**Network Config**
 
-Next click **VM Networks**, then click **+ Create Network**.
+然后点击**VM Networks**, 选择**+ Create Network**.
 
-Fill out the following fields and click **Save**:
+以下字段根据提示填写并点击**Save**:
 
 - **Name** - Network-*intials*
 - **VLAN ID** - Something other than 0
 - **Enable IP Address Management** - unchecked
 
-The final result should look like the image below.
+填写完成后的结果会如下图所示.
 
 .. figure:: images/network_config_04.png
 
-Setup user VM network with IPAM
+使用IPAM设置用户VM网络
 ...............................
 
 
-Create another network, but this time enable IPAM.
+创建另一个网络，但这次启用IPAM。
 
-Fill out the following fields and click **Save**:
+以下字段根据提示填写并点击 **Save**:
 
 - **Name** - Network_IPAM-*intials*
 - **VLAN ID** - Something other than 0
@@ -92,10 +92,10 @@ Fill out the following fields and click **Save**:
 
 .. note::
 
-  It is possible to create multiple pool ranges for a network.
-
-Takeaways
+   可以支持为网络同时创建多个池范围
+   
+小贴士
 +++++++++
 
-- It's very easy to setup a network in the cluster in order to establish VM connectivity.
-- IPAM is very simple to setup within a network and it can greatly simplify IP management within the cluster.
+- 在群集中设置网络并建立VM连接非常容易.
+- 在网络中设置IPAM非常简单，它可以极大地简化集群内的IP管理.

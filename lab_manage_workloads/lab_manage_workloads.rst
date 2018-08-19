@@ -60,10 +60,10 @@
 Prism搜索功能
 ............
 
-The Prism search function makes it easier to identify problems or find feature documentation in Prism Central. Use Prism Central’s search capabilities by typing a few search queries to see how easy this can make the tasks above.
+Prism搜索功能可以更轻松地识别问题或在Prism Central中查找相关文档资料。
+通过键入一些搜索条件来使用Prism Central的搜索功能，以体验如何轻松完成上述任务。
 
-
-Suggestions:
+一些建议尝试的搜索条件如下（可以根据需求自定义):
 
 - vm cpu > 1
 - vm mem > 2
@@ -72,25 +72,25 @@ Suggestions:
 - powered on
 - powered on cpu = 8
 
-In **Prism Central >** :fa:`search`.
+在**Prism Central >** 点击放大镜图标:fa:`search`.
 
-- Note the result types: Entity, Alerts, and Help.
-- Click the star icon to save a search.
+- 请注意结果类型：实体，警报和帮助
+- 可通过单击星形图标以保存搜索.
 
 .. note::
 
-  The search hot key (a slash mark, or /) can be used from anywhere in the Prism Central UI to bring up the search function.
+  搜索功能有快捷键(斜杠符号"/"),在Prism Central的任何界面上都可以通过'/'快捷键直接调用搜索功能.
 
-Clone a VM
+VM克隆
 ..........
 
-In **Prism Central > Explore > VMs**.
+在**Prism Central > Explore > VMs**.
 
-Find and clone four copies of the CentOS-base virtual machine.
+查找并基于CentOS的虚拟机克隆四个副本
 
-Select the VM, then click **Clone** from the **Actions** drop-down menu.
+选择VM，然后从**Actions**下拉菜单中单击**Clone**
 
-Fill out the following fields and click **Save**:
+按如下内容填写以下字段，然后单击**保存**
 
 - **Number of Clones** - 4
 - **Prefix Name**  - Flow-*initials*-Clone
@@ -98,77 +98,81 @@ Fill out the following fields and click **Save**:
 
 .. figure:: images/manage_workloads_02.png
 
-Leave them powered off as they are used in the optional Flow Lab.
+这些虚拟机可以保持关闭状态，他们将在可选高级实验-Flow实验中使用。
 
-Migrate a VM Between Hosts
+在主机之间进行VMotion迁移
 ..........................
 
-In **Prism Central > Explore > VMs**.
+在**Prism Central > Explore > VMs**菜单中.
 
-Locate the Linux Vm from the previous lab (Linux_VM-*initials*).
+找到上一个实验中创建的虚拟机(Linux_VM-*initials*).
 
-- If the VM is powered on, power it Off
+- 如果VM已开机，请将其关机
 
-You should see that it has no entry in the **Host** column when it is powered off.
+您应该可以看到在关闭电源后,VM的**Host**列中没有条目。
 
-Power on the VM, and make note of the **Hosts Name** in the **Host** column.
-
+启动VM，并记下**Host**列中的**Hosts Name**
 .. figure:: images/manage_workloads_03.png
 
-Select the VM, then click **Migrate** from the **Actions** drop-down menu.
+选择VM，然后从**Actions**下拉菜单中单击**Migrate**
 
-You can either choose one of the other hosts in the cluster as a migration target for the VM, or accept the default and let AHV automatically select a location.
+您可以选择群集中的其他主机之一作为VM的迁移目标，也可以接受默认值并让AHV自动选择位置。
 
-Click **Migrate** to finalize the action.
+单击**Migrate**以完成操作.
 
-When the task completes, verify that your VM host location has changed from the host recorded above to the new location you selected.
+任务完成后，请验证您的VM主机位置是否已从上面记录的主机更改为您选择的新位置。
 
 .. figure:: images/manage_workloads_04.png
 
-Configure VM-to-Host Affinity Policies
+配置VM到主机的关联策略
 ......................................
 
-In **Prism Central > Explore > VMs**.
+在**Prism Central > Explore > VMs**.
 
-Locate the Linux Vm from the previous lab (Linux_VM-*initials*).
+找到上一个实验中创建的虚拟机(Linux_VM-*initials*).
 
-- If the VM is powered on, power it Off
+- 如果VM已开机，请将其关机
 
-Select the VM, then click **Configure VM Host Affinity** from the **Actions** drop-down menu.
+选择VM，然后从**Actions**下拉菜单中单击**Configure VM Host Affinity**
 
-Select one **Host** to which the VM can have affinity, and click Save to finish.
+选择一个可以与VM关联的**Host**，如NTNX-AHV-2,然后单击“Save”完成
 
-Power On the VM, and verify it is on the **Host** you selected in the affinity policy.
+启动VM，并验证它是否在您在关联策略中选择的**Host**上。
 
-Select the VM, then click **Migrate** from the **Actions** drop-down menu.
+选择VM，然后从**Actions**下拉菜单中单击**Migrate**
 
-- This VM has host affinity set to host NTNXAHV-2. It cannot be migrated to any other host without setting the host affinity to that host.
+此时会看到类似如下提示：
 
-Click **Cancel** to exit migration.
+-此VM已将主机关联设置为主机NTNXAHV-2，如果不将主机关联设置为该主机，则无法将其迁移到任何其他主机
+ （This VM has host affinity set to host NTNXAHV-2. It cannot be migrated to any other host without setting the host affinity to that host.）
 
-Select the VM, then click **Configure VM Host Affinity** from the **Actions** drop-down menu.
+单击**Cancel**以退出迁移
 
-Select another **Host** to which the VM can have affinity, and click Save to finish.
+选择VM，然后从**Actions**下拉菜单中单击**Configure VM Host Affinity**。
 
-Select the VM, then click **Migrate** from the **Actions** drop-down menu.
+选择VM可以与之关联的另一个**Host**，然后单击“Save”完成。
 
-- There is now a drop-down menu displaying the available hosts.
+选择VM，然后从**Actions**下拉菜单中单击**Migrate**。
 
-Either select a host manually or allow AHV to select it, then click **Migrate**.
+- 现在有一个显示可用主机的下拉菜单
 
-You should see that the VM has moved to the other host.
+手动选择主机或允许AHV自动选择，然后单击**Migrate**
+
+您应该看到VM已移至另一台主机
 
 .. figure:: images/manage_workloads_05.png
 
-High Availability
+高可用性
 .................
 
-High availability is enabled by default for AHV and will restart VMs in a best-effort manner in the event of a host failure. Additional configuration can set resource reservations to ensure there is capacity during an HA event.
+AHV默认启用高可用性，并在主机发生故障时以尽力而为的方式重启VM，我们可以通过额外的配置以预留足够资源，并确保在故障事件期间始终能够保证HA有充足资源实现。
 
-VMware HA works by providing high availability for virtual machines by pooling the virtual machines and the hosts they reside on into a cluster. The hosts in that cluster are then monitored and in case there is a failure, the VMs residing on the failed host would get restarted on alternate hosts. This feature must be turned on in vSphere, as opposed to AHV where it’s on by default without reservation.
+VMware HA的工作原理是通过将虚拟机及其驻留的主机集中到群集中来为虚拟机提供高可用性，然后监视该群集中的主机，如果发生故障，驻留在故障主机上的VM将在备用主机上重新启动，VmwareHA功能必须在vSphere中手动开启，AHV默认情况下HA处于打开状态且无需进行资源保留即可生效。
 
-Takeaways
+
+
+小贴士
 +++++++++
 
-- In this lab you got to experience first hand how AHV provides a complete set of tools and actions that can be done manage the VMs in the cluster.
-- It is possible to register an ESXI cluster to Prism and be able to perform some of the basic VM management tasks right from Prism as well.
+ - 在本实验中，您应该体验了在AHV上如何提供一套完整的工具和操作流程，以便管理群集中的VM
+ - 可以将ESXI集群注册到Prism，并且可以直接从Prism执行一些基本的VM管理任务

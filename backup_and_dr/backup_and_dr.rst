@@ -1,110 +1,110 @@
 .. _backup_and_dr:
 
 ---------------------
-Nutanix Backup and DR
+Nutanix备份和容灾解决方案
 ---------------------
 
-Comprehensive Backup and DR Solution
+全面的备份和DR解决方案
 ++++++++++++++++++++++++++++++++++++
 
 .. figure:: images/backup_and_dr_01.png
 
-Nutanix Local Snapshots (Time Stream)
-.....................................
+ Nutanix本地快照（时间流）
+ .....................................
 
-Use Cases
+ 用例
+ 
+ - 防止客户操作系统损坏
+ - 快照VM环境
+ - 自助文件级还原
 
-- Protection against Guest OS corruption
-- Snapshot VM environments
-- Self-Service File Level Restore
+关键优势
 
-Key Points
-
-- VM granularity
-- No performance impact
-- Lower $ / GB with storage heavy/only nodes
+ - VM为基本单元
+ - 没有性能影响
+-  有效降低存储节点的每GB成本
 
 .. figure:: images/backup_and_dr_02.png
 
 Nutanix Cloud Connect
 .....................
 
-What is it
+用途
+- 来自Nutanix的混合云解决方案
+- 支持与Azure和AWS集成
 
-- Hybrid cloud solution from Nutanix
-- Integration with Azure and AWS
+用例
 
-Use Cases
+- 存档
+- 备份
 
-- Archiving
-- Backup
+关键优势
 
-Key Points
-
-- Easy to setup and manage
-- WAN optimized replication
-- Interop with Nutanix DR portfolio
+ - 易于设置和管理
+ - 广域网WAN加速传输
+ - 与Nutanix DR产品天然兼容
 
 .. figure:: images/backup_and_dr_03.png
 
-Asynchronous Replication
+异步复制
 ........................
 
-Use Cases
+用例
 
-- Protection against VM corruption/deletion
-- Protection against complete site failure(s)
+ - 防止VM损坏/删除
+ - 防止完全站点故障
 
-Points of differentiation
+差异优势
 
-- Multiple DR topologies
-- Multiple retention policies
-- WAN optimized replication
-- Rest API driven(customer DR runbooks)
-- VM and application level consistency
+ - 支持多站点DR拓扑
+ - 同时支持多个保留策略共存
+ - WAN广域网优化复制
+ - Rest API驱动（客户DR Runbook）
+ - VM和应用程序级别一致性
 
 .. figure:: images/backup_and_dr_04.png
 
-Metro Availability and Sync Replication
+Metro双活高可用复制
 .......................................
 
-Use Cases
+用例
 
-- Protection against complete site failure(s)
-- No data loss in case of a site failure
+ - 防止完全站点故障
+ - 站点发生故障时不会丢失数据
 
-Key Points
+关键优势
 
-- Easy to setup and manage
-- Interop with a-sync replication(3rd site)
-- Witness Option
-- Rest API driven (customer DR runbooks)
+- 易于设置和管理
+- 支持两地三中心（第3站点）
+- 第三方仲裁选项
+- Rest API驱动（客户DR Runbook）
+
 
 .. figure:: images/backup_and_dr_05.png
 
-Cross-Hypervisor Backup and DR
+跨管理程序备份和容灾
 ..............................
 
-Value Proposition and Benefits
+价值主张和收益
 
-- Enjoy hypervisor choice while using integrated backup and DR
-- All the benefits of Nutanix async remote replication technologies
-- Automatic migration of configuration and VM conversion
+- 享受虚拟化管理程序自由选择的便利，同时使用内置集成备份和容灾服务
+- 享受Nutanix异步远程复制技术的所有优点
+- 自动迁移配置和VM转换
 
 .. figure:: images/backup_and_dr_06.png
 
-Self-Service File Restore
+自助文件还原
 .........................
 
-What is it?
+用途
 
-- Item level recovery of independent files from VM Snapshots
-- Eliminates the need to recover entire VM
+ - VM Snapshots中独立文件级别恢复
+ - 无需恢复整个VM
 
-Points of differentiation
+差异优势
 
-- Self-service recovery without Admin intervention
-- Easy to setup and manage
-- Viable backup solution for mid sized customers and Tier-2 workloads
+- 无需管理员干预的自助服务恢复
+- 易于设置和管理
+- 适用于中型客户和第2级工作负载的可行备份解决方案
 
 .. figure:: images/backup_and_dr_07.png

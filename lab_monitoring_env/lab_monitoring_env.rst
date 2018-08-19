@@ -1,95 +1,91 @@
 .. _lab_monitoring_env:
 
 ----------------
-Lab - Monitoring
+监控管理实验
 ----------------
 
-Overview
+实验目的
 ++++++++
 
-Learn about Prism Central’s monitoring and resource planning features that help you stay on top of cluster utilization and more accurately predict cluster expansions.
+了解Prism Central的监控和资源规划功能，这些功能可帮助您掌握集群利用率并更准确地预测集群扩展。
 
-Prism Central Reports
+Prism Central报告功能
 +++++++++++++++++++++
 
-Prism Central allows you to generate historical reports about your cluster environment.
+Prism Central允许您生成有关群集环境的历史报告。
+此类报告可包括资源消耗，异常行为和其他有价值的技术建议。
 
-Such reports can include resource consumption, abnormal behavior, and other valuable operational insights.
+在**Prism Central > Explore > Reports**.
 
-In **Prism Central > Explore > Reports**.
+我们先尝试运行**Cluster Efficiency Summary**报告.
 
-Lets run the **Cluster Efficiency Summary** report.
-
-Select **Cluster Efficiency Summary**, then click **Run** from the **Actions** drop-down menu.
+选择**Cluster Efficiency Summary**,然后从**Actions**下拉菜单中单击**Run**.
 
 .. figure:: images/monitoring_01.png
 
-Next, fill out the following fields and click **Run**:
+然后，按提示输入以下字段，并点击**Run**按钮:
 
 - **Report instance Name** - Cluster Efficiency Summary - *initials*
 - **Time Period for Report** - Last 24 Hours
 
-Now lets run the **Environment Summary** report.
+我们再运行一下**Environment Summary**报告。
 
-Select **Environment Summary**, then click **Run** from the **Actions** drop-down menu.
+选择**Environment Summary**,然后从**Actions**下拉菜单中单击**Run**.
 
-Next, fill out the following fields and click **Run**:
+接下来，填写以下字段，然后单击**运行**:
 
 - **Report instance Name** - Environment Summary - *initials*
 - **Time Period for Report** - Last 24 Hours
 
-Once the reports are complete, select each report, and do the following:
+报告完成后，选择要查看的报告项目，然后执行以下操作：
 
-Click **View Instances.** from the **Actions** drop-down menu.
+点击**Actions**下拉菜单中的**View Instances**。
 
-- To view the report in a separate tab, click the name of the report.
-- To download the report, select its check box, then click **Download** at the upper right of the screen.
+- 要在单独的选项卡中查看报告，请单击报告的名称.
+- 要下载报告，请选中其复选框，然后单击屏幕右上角的**Download**.
 
-Review the contents of the reports you created in this exercise.
+查看您在本练习中创建的报告的内容。
 
-Capacity Runway
+Capacity规划
 ...............
 
-Use Prism Central’s Capacity Runway feature to learn about cluster resource planning and recommendations.
+使用Prism Central的Capacity Runway功能来了解群集资源规划和建议。
 
-In **Prism Central > Planning > Capacity Runway**.
+在**Prism Central > Planning > Capacity Runway**菜单.
 
-- Note the runway summaries showing the days left for each cluster.
-- How long does the current cluster has before it runs out of memory, CPU, and storage?
+- 注意规划总结摘要中显示的是每个群集资源用尽所需的剩余天数.
+- 查查看我们实验环境的集群，到内存，CPU和存储空间资源耗尽还剩下多长时间？
 
-Click one of the clusters.
-
+单击其中一个群集
 .. note::
 
-  The most constrained resource is highlighted on the left side.
-
+  资源最紧张的项目会在左侧突出显示
+  
 .. note::
 
-  Clicking Storage, CPU, or Memory Runway displays the chart for that resource.
+  单击“存储”，“CPU”或“内存”资源利用率趋势将分别显示该资源的图表
 
-Click **Optimize Resources** to see a list of recommended management tasks for reallocating resources, such as optimizing over-provisioned VMs, deleting inactive VMs, or adding resources to constrained VMs.
+单击**Optimize Resources**以查看用于资源重新分配的建议管理任务列表，例如优化过度配置的VM，删除非活动VM或向受约束的VM添加资源。
 
-Close the Capacity Runway view.
+关闭Capacity Runway视图.
 
-What If Planning
+假设预估规划
 ................
 
-Push the initial guess of the capacity planning task to add hypothetical workloads and see how the prediction changes.
+基于根据现有容量规划任务的初始猜测，再添加一些假设的新型工作负载规划，查看预测报告会如何变化。
 
-In **Prism Central > Planning > Scenarios**, then click **New Scenario**.
+在**Prism Central> Planning> Scenarios**中，然后单击**New Scenario**。
 
-Next, fill out the following fields:
-
+接下来，按提示填写以下字段：
 - **Cluster** - Select a Cluster Model
 - **Target** - 6 months
 - **Vendor Type** - Nutanix
 
-Now lets add a 150 seat Citrix XenDesktop workload..
+现在，我们可以添加150个座席的Citrix XenDesktop工作负载。
 
-Click **+ Add Workload**.
+点击**+ Add Workload**.
 
-Next, fill out the following fields and click **Add Workload**:
-
+接下来，根据提示填写以下字段，然后单击**Add Workload**：
 - **Workload** - VDI
 - **Vendor** - XenDesktop
 - **User Type** - Power Users
@@ -97,34 +93,35 @@ Next, fill out the following fields and click **Add Workload**:
 - **Number of Users** - 150
 - **On** - One Month from now
 
-Repeat this process, adding workloads until the runway falls short of the six-month target.
+重复此过程，继续添加工作负载，直到资源无法满足六个月的目标。
+点击**Save**保存此场景.
 
-**Save** this scenario.
+请注意**Resources**部分，显示的是现有硬件配置。
 
-Note the **Resources** section, which shows the existing hardware.
+单击**Recommend**以查看建议的NX配置以扩展集群来满足未来需求。
 
-Click **Recommend** to see a suggested NX configuration to extend the runway.
+现在让我们再尝试更改目标和工作负载并生成新的建议：
 
-Now lets experiment with changing the target and workloads and generating recommendations:
+- 三个月内增加150个座位.
+- 每三个月发生新的需求变化.
 
-- Additional 150 seats in three months.
-- Change in demand every three months.
+生成PDF报告以查看详细的容量规划信息
 
-Generate a PDF report to see detailed capacity planning information.
 
-Bonus Round: Create a Custom Report
+开放实验: 创建自定义报告
 ...................................
 
-To create a new custom report from scratch, click the plus sign beside **Actions**, then add the desired metrics from the pane on the left side.
+要从头开始创建新的自定义报告，请单击**Actions**旁边的加号，然后从左侧的窗格中添加所需的度量标准。
 
-Once you have saved the custom report, you can run it just as you would run any other report.
+保存自定义报告后，您可以像运行任何其他报告一样运行它。
 
-To set a report to run automatically, add a schedule to it.
+如果想要将报告设置为自动运行，请为其添加日程计划即可。
 
-Takeaways
+
+小贴士
 +++++++++
 
-- The Prism Central report management feature provides you with an ability to configure and deliver the historical reports containing information about the infrastructure resources straight into your mailbox according to the schedules configured.
-- The Capacity Runway view in the Planning dashboard allows you to view summary resource runway information for the registered clusters and access detailed runway information about each cluster.
-- The Scenarios view in the Planning dashboard allows you to create "what if" scenarios to assess the future resource requirements for potential work loads that you specify.
-- You must have a Prism Pro license to use the resource planning tools.
+ -  Prism Central报告管理功能使您能够根据配置的计划配置和提供包含有关基础结构资源的信息的历史报告。
+ -  Planning仪表板中的Capacity Runway视图允许您查看已注册集群的摘要资源用尽预测，并访问有关每个集群的详细资源消耗预测信息。
+ - “规划”仪表板中的“方案”视图允许您创建“假设”方案，以评估您指定的潜在工作负载的未来资源要求。
+ -  您必须拥有Prism Pro许可才能使用资源规划工具。

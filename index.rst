@@ -42,7 +42,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Optional Labs
+  :caption: 可选高级实验
   :name: _optional_labs
   :hidden:
 

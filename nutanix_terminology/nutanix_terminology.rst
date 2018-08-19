@@ -1,7 +1,7 @@
 .. _nutanix_terminology:
 
 -------------------
-Nutanix术语
+介绍-Nutanix术语
 -------------------
 
 Nutanix HCI

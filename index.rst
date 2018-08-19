@@ -2,7 +2,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Technology Overview
+  :caption: Nutanix技术概览
   :name: _technology_overview
   :hidden:
 
@@ -11,7 +11,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Nutanix Configuration Labs
+  :caption: 通用配置实验
   :name: _nutanix_configuration_labs
   :hidden:
 
@@ -21,7 +21,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Deploying and Managing Workloads
+  :caption: 工作负载管理实验
   :name: _deploying_and_managing_workloads
   :hidden:
 
@@ -29,15 +29,16 @@
   lab_deploy_workloads/lab_deploy_workloads
   lab_manage_workloads/lab_manage_workloads
   lab_data_protection/lab_data_protection
-
+  ssp/ssp
 .. toctree::
   :maxdepth: 2
-  :caption: Monitoring and Managing the Environment
+  :caption: 监控和管理实验
   :name: _monitoring_and_managing_the_environment
   :hidden:
 
   monitoring_and_managing_env/monitoring_and_managing_env
   lab_monitoring_env/lab_monitoring_env
+  
 
 .. toctree::
   :maxdepth: 2
@@ -46,14 +47,13 @@
   :hidden:
 
   authentication/authentication
-  ssp/ssp
   calm/calm
   flow/flow
 
 
 .. toctree::
   :maxdepth: 2
-  :caption: Appendix
+  :caption: 附录
   :name: _appendix
   :hidden:
 

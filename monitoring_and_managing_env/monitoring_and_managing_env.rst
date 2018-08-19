@@ -168,6 +168,7 @@ ESXi的VM管理
 .. figure:: images/monitoring_and_managing_12.png
 
 视频演示：群集软件更新
+#本地视频源
 ............................................
 
 该演示展示了对Nutanix群集进行升级是一件多么容易的事，软件升级操作不会对应用环境造成影响，且支持随时执行。
@@ -176,6 +177,7 @@ Cluster Upgrade - https://youtu.be/_dzyaWbRkAQ
 
 
 视频演示：群集扩展
+#本地视频源
 .......................................
 
 This demo shows the ease with which a cluster could be expanded through the addition of one more node into the demo environment.

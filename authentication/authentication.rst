@@ -1,22 +1,22 @@
 .. _authentication:
 
 -------------------------------
-Authentication and Role Mapping
+用户认证和角色映射
 -------------------------------
 
-In most environments you will want to connect your Nutanix cluster(s) to your companies Active Directory or LDAP servers.
+在大多数情况下，用户都需要将Nutanix集群连接到公司的AD域或LDAP服务器中进行权限验证.
 
-This allows the admins to login with those credentials instead of local Nutanix cluster credentials.
+这将允许用户直接采用自己的帐号进行访问，而不需要使用Nutanix本地集群的默认管理员帐户。
 
 .. note::
 
-  The Steps are the same for Prism Central and Prism Element
+  以下步骤在PC或PE环境中，操作都完全适用。
 
-In **Prism**, click :fa:`cog` **> Authentication**
+在**Prism**, 点击齿轮**> Authentication**
 
-Click **+ New Directory**
+点击**+ New Directory**
 
-Fill out the following fields and click **Save**:
+根据以下提示输入相关字段并点击**Save**:
 
 - **Directory Type** - Active Directory
 - **Name** - NTNXLAB
@@ -27,15 +27,15 @@ Fill out the following fields and click **Save**:
 
 .. figure:: images/authentication_01.png
 
-Click on the yellow ! next to **NTNXLAB**
+点击**NTNXLAB**旁边的黄色叹号
 
 .. figure:: images/authentication_02.png
 
-Click on the **Click Here** to go to the Role Mapping screen
+点击**Click Here**，进入到用户映射配置界面
 
-Click **+ New Mapping**
+点击**+ New Mapping**
 
-Fill out the following fields and click **Save**:
+根据以下提示输入相关字段并点击**Save**:
 
 - **Directory** - NTNXLAB
 - **LDAP Type** - user
@@ -44,4 +44,4 @@ Fill out the following fields and click **Save**:
 
 .. figure:: images/authentication_03.png
 
-Close the Role Mapping and Authentication windows
+关闭角色映射和认证窗口，完成配置。

@@ -4,53 +4,52 @@
 Flow
 -------------
 
-Overview
+实验目的
 ++++++++
 
 .. note::
 
-  Estimated time to complete: 30-40 MINUTES
+  本实验预计完成时间：30-40 MINUTES
 
-In this exercise you will enable Nutanix Flow, formally known as Microsegmentation, and create the VMs to be used throughout the remaining Flow exercises, **if you have not cloned the VMs already as part of the Lab - Deploying Workloads exercise**.
+在本实验中您将启用Nutanix Flow的功能，也称为微分段。
+首先您需要创建一系列用于Flow实验的虚拟机，然后我们会将虚拟机放置在隔离区并进行观察。您还需要检查隔离策略中的所有可配置选项，并根据设定的需求，创建不同用途的类别。
+然后，我们通过使用新创建的类别的创建隔离安全策略，以限制未经授权的访问。
+最后，您将创建一个名为**app-<initials>**的应用程序类别，将**AppType：app-<initials>**类别分配给您的应用程序VM，在本练习中使用**flow-<initials>-5**，并创建安全策略以限制应用程序VM从**programs-<initials>：sales-<initials>**类别之外的VM接收ICMP ping请求。
 
-As part of this exercise, you will place a VM into quarantine and observe the behavior of the VM. You will also inspect the configurable options inside the quarantine policy and create a category with different values. Then you will create and implement an isolation security policy that uses the newly created category in order to restrict unauthorized access.
-
-Finally, you will create an application category named **app-abc**, assign the **AppType: app-abc** category to your application VM, which in this exercise is the **flow-abc-5** VM, and create a security policy to restrict the application VM from receiving ICMP ping requests from VMs outside of the **programs-abc: sales-abc** category.
-
-Enabling Microsegmentation
+启用网络微分段(Microsegmentation)
 ++++++++++++++++++++++++++
 
-Open https://<Prism-Central-IP>:9440/ in a browser and log in.
+在浏览器中打开PC并登陆， https://<Prism-Central-IP>:9440/.
 
-From the navigation bar, click the question mark at the top right corner and expand the **New in Prism Central** section of the menu.
+在导航栏中，单击右上角的问号，然后展开菜单中的**New in Prism Central**部分
 
-Click **Microsegmentation**.
+点击**Microsegmentation**.
 
-Select the **Enable Microsegmentation** check box within the **Enable Microsegmentation** dialog box.
+在**Enable Microsegmentation** 对话框中选中**Enable Microsegmentation**复选框.
 
 .. figure:: images/enable_flow.png
 
 .. note::
 
-  Flow can only be enabled once per Prism Central instance. If **Microsegmentation** displays a green check mark next to it, that means Microsegmentation has already been enabled for the Prism Central instance being used.
+   每个Prism Central实例只能启用一次Flow功能。如果您发现在**Microsegmentation**旁边显示绿色复选标记，则表示已经有人为本Prism Central实例启用了Microsegmentation功能。
 
-Click **Enable**
+点击**启用**
 
 .. figure:: images/enable.png
 
 
-Create Five VMs
+创建五个虚拟机
 +++++++++++++++
 
 .. note::
 
-  Skip this VM creation section if you have already created the Flow VMs as part of the Lab - Deploying Workloads exercise.
+  如果您已在实验 - 部署工作负载练习中创建了Flow虚拟机，请跳过此虚拟机创建部分
 
-Now you will create the **five** virtual machines you will use to test the capabilities of Nutanix Flow. Create these virtual machines from the base VM in Prism Central called CentOS.
+现在，您将创建**五个**虚拟机，用于测试Nutanix Flow的功能。我们可以直接使用Prism Central中的名为CentOS的模板虚拟机中创建这些虚拟机。
 
-In **Prism Central > Explore > VMs**, click **Create VM**.
+在**Prism Central> Explore> VMs**中，单击**Create VM**。
 
-Fill out the following fields and click **Save**:
+填写以下字段，然后单击**保存**：
 
 - **Name** - flow-<your_initials>-1
 - **Description** - Flow testing VM
@@ -69,10 +68,10 @@ Fill out the following fields and click **Save**:
   - **IP Address** - *10.21.XX.42*
   - Select **Add**
 
-Clone the other four VMs:
+克隆其他四个VM:
 -------------------------
 
-Take that VM and clone it four times to have a total of five VMs named as follows:
+通过此VM并克隆四次，完成如下5个VM的创建:
 
 flow-<your_initials>-1
 flow-<your_initials>-2
@@ -80,314 +79,309 @@ flow-<your_initials>-3
 flow-<your_initials>-4
 flow-<your_initials>-5
 
-Select the **flow-<your_initials>-1** VM and click **Actions > Clone**.
+选择**flow-<your_initials>-1** 然后单击 **Actions > Clone**.
 
 - **Number of Clones** - 4
 - **Prefix Name** - flow-<your_initials>-
 - **Starting Index Number** - 2
 
-Select the five newly created Flow VMs and click **Actions > Power on**.
+选择五个新创建的Flow VM，然后单击**Actions> Power on**进行开机。
 
 .. figure:: images/flow_vms_2.png
 
-Quarantine a VM and Explore the Quarantine Policy
+隔离虚拟机并探索隔离策略
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
-Confirm Communication between flow-abc-1 and flow-abc-2
+确认flow-<your_initials>-1和flow-<your_initials>-2之间的通信
+
 .......................................................
 
-Log on to the Prism Central environment and navigate to **Explore > VMs**.
+登录Prism Central环境并进入**Explore>VMs**界面。
 
-Open the VM console of **flow-abc-1** and **flow-abc-2** by selecting one VM at a time and clicking on the checkbox next to it.
+通过复选框选中flow-<your_initials>-1和flow-<your_initials>-2，并打开两个虚拟机的控制台
 
-Click **Actions > Launch Console**.
+点击**Actions > Launch Console**.
 
 .. figure:: images/quarantine_pings.png
 
-Log into both VMs with the following user credentials:
-
+使用以下用户凭据登录两个VM：
 - **Username** - root
 - **Password** - nutanix/4u
 
-Find the IPs of the VMs via the command *ifconfig*, and start a continuous ping from the **flow-abc-1** VM to the **flow-abc-2** VM.
+通过命令*ifconfig*查找VM的IP，并从**flow-<initials>-1** VM开始连续ping到**flow-<initials>-2** VM。
 
-Quarantine a VM and Edit The Quarantine Policy
+隔离VM并编辑隔离策略
 ..............................................
 
-Quarantine the **flow-abc-2** VM by navigating to **Explore > VMs**.
+在**Explore > VMs**菜单中找到flow-<your_initials>-2虚拟机.
 
-Select **flow-abc-2 > Actions > Quarantine VMs**. Select **Forensic** and click **Quarantine**.
+选择**flow-<your_initials>-2>Actions>Quarantine VMs**。选择**Forensic**并单击**Quarantine**。
 
 .. figure:: images/select_forensic.png
 
-What happens with the continuous ping between VMs 1 and 2?
+观察一下，VM1到VM2的连续ping操作发生了什么？
 
-Navigate to **Explore > Security Policies > Quarantine**.
+导航到**Explore > Security Policies > Quarantine**.
 
-Select **Update** in the top right corner then select **+ Add Source** to the Quarantine policy.
+选择右上角的**Update**，然后选择**+ Add Source** 隔离策略（Quarantine policy）.
 
-Add a source by **Subnet/IP** with the IP address of **flow-abc-1**, a netmask of **/32**. Click on the plus sign ( + ) near **Forensic** category and allow any protocol on any port to the Forensic quarantine category.
+将flow-<your_initials>-1的IP地址增加到**Subnet/IP**栏中，子网掩码选择**/32**。
 
-What targets can this source be connected to?
+单击**Forensic**类别附近的加号（+），并允许任何端口上的任何协议到Forensic隔离类别
 
-What is the difference between the Forensic and Strict quarantine mode?
 
-Select **Next > Apply Now** to save the policy.
+思考：
+1）该资源可以连接到哪些目标？
+2）Forensic和Strict quarantine模式有什么区别?
 
-What happens to the pings between **flow-abc-1** and **flow-abc-2** after the source is added?
+选择**Next > Apply Now**以保存策略.
 
-Unquarantine **flow-abc-2** by navigating to **Explore > VMs > flow-abc-2 > Actions > Unquarantine VM**.
+在添加source源之后，**flow-<your_initials>-1**和**flow-<your_initials>-2**之间的ping会发生什么？
 
-Isolate Environments with Flow
+在界面**Explore > VMs > **flow-<your_initials>-2 > Actions > Unquarantine VM**取消对**flow-<your_initials>-2的隔离.
+
+使用Flow进行环境隔离
+
 ++++++++++++++++++++++++++++++
 
-Create a New Category
+创建一个新类别
 .....................
 
-Log on to the Prism Central environment and navigate to **Explore > Categories**.
+登录Prism Central环境并导航至**Explore > Categories**.
 
 .. note::
-  There should be default categories present. Now you will create a custom category to add to the list as well.
+   可能存在默认类别或者其它实验人员创建的类别，不要对修改其它的类别，您需要创建一个自定义类别以添加到列表中。
 
-Click **New Category**.
+单击**New Category**.
 
-Fill out the following fields and click **Save**:
+填写以下字段，然后单击**保存**：
 
-- **Name** - Programs-abc, replacing abc with your initials.
-- **Purpose** - This category will be used to tag VMs belonging to the program called "Programs-abc", as an example. This category will have "intern" and "sales" values in order to differentiate intern and sales VMs within the **programs-abc** category.
-- **Values** - interns-abc.
-- **Values** - sales-abc.
+- **Name** - Programs-<intials>.
+- **Purpose** - This category will be used to tag VMs belonging to the program called "Programs-<intials>", as an example. This category will have "intern" and "sales" values in order to differentiate intern and sales VMs within the **programs-<intials>** category.
+- **Values** - interns-<intials>.
+- **Values** - sales-<intials>.
 
 .. figure:: images/create_category.png
 
-Create a New Security Policy
+创建新的安全策略
 ............................
 
-Navigate to **Explore > Security Policies** within Prism Central.
+在Prism Central中导航到 **Explore > Security Policies**.
 
-Click **Create Security Policy** > Select **Isolate Environments**.
+单击**Create Security Policy**，选择**Isolate Environments**.
 
-Fill out the following fields and click **Apply Now**:
+填写以下字段，然后单击**Apply Now**:
 
-- **Name** - isolate-interns-sales-abc, replacing abc with your initials.
+- **Name** - isolate-interns-sales-<intials>
 - **Purpose** - Isolate intern vm traffic from sales.
-- **Isolate This Category** - programs-abc:interns-abc.
-- **From This Category** - programs-abc:sales-abc.
-Do NOT select the check box for **Apply the isolation only within a subset of the data center**.
+- **Isolate This Category** - programs-<initials>:interns-<intials>.
+- **From This Category** - programs-<initials>:sales-<intials>.
+不要选中**Apply the isolation only within a subset of the data center**的复选框。 
 
-•	Enter interns-abc as a possible value of this category, replacing abc with your initials.
-•	Click the plus sign and enter sales-abc as another value in this category, replacing abc with your initials.
 
 .. note::
-  The Save and Monitor button allows you to save the configuration and monitor how the security policy works without applying it.
+  “Save and Monitor”按钮允许您保存配置并监视安全策略的工作方式，但不会真正应用，以防止误操作。
 
 .. figure:: images/create_isol_pol.png
 
-Apply the New Security Policy
+应用新的安全策略
 .............................
 
-Confirm communication is possible before applying the categories to the VMs
+在将类别应用于VM之前，确保通讯是正常的
 ---------------------------------------------------------------------------
 
-Navigate to **Explore > VMs**.
+导航到**Explore > VMs**.
 
-Open the VM console of **flow-abc-3** and **flow-abc-4** by selecting one VM at a time then clicking on the checkbox next to it.
+通过复选框选中flow-<your_initials>-1和flow-<your_initials>-2，并打开两个虚拟机的控制台
 
-Click **Actions > Launch Console**.
+单击**Actions > Launch Console**.
 
-Log into both VMs and find the ips of the VMs via the command *ifconfig*. Ping from the **flow-abc-3** VM to the **flow-abc-4** VM.
+通过命令*ifconfig*查找VM的IP，并从**flow-<initials>-3** VM开始连续ping到**flow-<initials>-4** VM。
 
 .. note::
-  The pings should succeed because these two VMs do not yet have categories assigned.
-
-Assign a category to the VMs flow-abc-3 and flow-abc-4
+  ping应该成功，因为这两个VM还没有分配任何类别。
+  
+为VM flow-3和flow-4分配一个类别：
 -------------------------------------------------------
-Navigate to **Explore > VMs**.
+导航到**Explore > VMs**.
 
-Select **flow-abc-3** and click **Actions > Manage Categories**.
+选择**flow-<initials>-3**并单击**Actions > Manage Categories**.
 
-In the Set Categories text box on the left side of the UI, type intern and select **programs-abc:interns-abc** from autocomplete. Click Save.
+在UI左侧的“设置类别”文本框中, 键入关键词"intern"并从自动完成中选择**programs-<initials>:interns-<initials>** 点击Save.
 
-Select **flow-abc-4** and click **Actions > Manage Categories**.
+选择**flow-<initials>-4**并单击**Actions > Manage Categories**.
 
-In the Set Categories text box on the left side of the UI, type sales and select **Actions > Manage Categories** programs-abc:sales-abc from autocomplete. Click Save.
-
-Confirm communication is NOT possible after applying the categories to the VMs
-------------------------------------------------------------------------------
-
-Open the VM console of **flow-abc-3** and **flow-abc-4**.
-
-Log into both VMs and ping from the **flow-abc-3** VM to the **flow-abc-4** VM.
+在UI左侧的“设置类别”文本框中, 键入关键词"sales"并从自动完成中选择**programs-<initials>:sales-<initials>** 点击Save.
 
 .. note::
-  The pings should NOT succeed because these two VMs now belong to the programs-abc:intern-abc and programs-abc:sales-abc categories and the policy isolate-interns-sales-abc, which was created earlier, isolates these two types of VMs.
-
-Secure Applications with Microsegmentation
+    ping不应该成功，因为这两个VM现在属于program-<initials>：intern-<initials>和programs-<initials>：sales-<initials>两个不同的类别，且属于之前创建的策略isolate -interns-sales-<initials>，策略会阻止两个不同类别之间的虚拟机进行通讯。
+    
+通过网络微分段确保应用安全
 ++++++++++++++++++++++++++++++++++++++++++
 
-Create and Assign Categories
+创建和分配类别
 ............................
 
-Update **AppType** with New Category Value **app-abc**
+使用新的**app-<initials>**类别来更新**AppType**
 ------------------------------------------------------
 
-Log on to the Prism Central environment and navigate to **Explore > Categories**.
+登录Prism Central环境并导航至**Explore > Categories**.
 
-Click the check box beside **AppType**. Click **Actions > Update**.
+单击**AppType**旁边的复选框. 单击**Actions > Update**.
 
-Scroll down and click the plus sign beside the last entry.
+向下滚动并单击最后一个条目旁边的加号
 
-Enter **app-abc**, replacing abc with your initials and click **Save**.
+输入**app-<initials>**,并单击**Save**.
 
-
-Assign VM **flow-abc-5** to the category **AppType: app-abc**.
+将VM **flow-<initials>-5**分配给类别**AppType: app-<initials>**.
 --------------------------------------------------------------
 
-Within the **Explore > VMs** view in Prism Central, click the check box beside the **flow-abc-5** VM.
+在Prism Central的**Explore > VMs**视图中，单击**flow-<initials>-5** 旁边的复选框.
 
-Click **Actions > Manage Categories**.
+单击**Actions > Manage Categories**.
 
-In the Set Categories text box, type **AppType** and select **AppType: app-abc** from autocomplete then click **Save**.
+在“设置类别”文本框中，键入**AppType**并从自动完成中选择**AppType: app-<initials>**并点击**Save**保存.
 
 .. figure:: images/set_app_category.png
 
 
-Assign VM **flow-abc-1** the default category **Environment: Dev**
+分配VM**flow-<initials>-1**到默认类别**Environment: Dev**
 ------------------------------------------------------------------
 
-Within the **Explore > VMs** view in Prism Central, click the check box beside the **flow-abc-5** VM.
+在Prism Central的**Explore>VMs**视图中，单击**flow-<initials>-5** VM旁边的复选框.
 
-Click **Actions > Manage Categories**.
+单击**Actions > Manage Categories**.
 
-In the Set Categories text box, type **Dev** and select **Environment: Dev** from autocomplete then click **Save**.
+在“设置类别”文本框中，键入**Dev**并从自动完成中选择**Environment: Dev**然后单击**Save**.
 
 
-Secure the Application VM
+保护应用程序VM
 .........................
 
-Create a new security policy to protect the **app-abc** application.
+创建新的安全策略以保护**app-<initials>**应用程序
 --------------------------------------------------------------------
 
-Navigate to **Explore > Security Policies**.
+导航到**Explore > Security Policies**.
 
-Click **Create Security Policy > Secure an Application**.
+单击**Create Security Policy > Secure an Application**.
 
-Fill out the following fields and click **Next**:
+填写以下字段，然后单击 **Next**:
 
-- **Name** - Protect-app-abc, replacing abc with your initials.
-- **Purpose** - Protect app-abc from ICMP outside of sales VMs.
-- **Secure this app** - AppType: app-abc.
-Do NOT select the check box for the option **Filter the app type by category**.
+- **Name** - Protect-app-<initials>, replacing <initials> with your initials.
+- **Purpose** - Protect app-<initials> from ICMP outside of sales VMs.
+- **Secure this app** - AppType: app-<initials>.
+不要选中**Filter the app type by category**选项的复选框.
 
 .. figure:: images/create_app_vm_sec_pol.png
 
-In the Inbound rules section, allow incoming traffic with the following steps:
+在“Inbound rules”入站规则部分中，使用以下步骤允许传入流量：
 
 - Leave **Whitelist Only** selected.
 - Select **+ Add Source**.
 - Leave **Add source by: Category** selected.
-- Type **sales** and select **programs-abc:sales-abc**. Click Add.
+- Type **sales** and select **programs-<initials>:sales-<initials>**. Click Add.
 
-Click + which appears on the left side of **AppType: app-abc** after completing the steps above.
+完成上述步骤后，单击**AppType: app-<initials>**左侧显示的+。
 
-This opens the Create Inbound Rule window.
+这将打开创建“Inbound Rule”的窗口.
 
-In the Protocol column, select **ICMP** to allow inbound ping requests for this app and leave all other fields blank. Click **Save**.
+在“协议”列中，选择**ICMP**以允许此应用程序的入站ping请求，并将所有其他字段留空。点击**Save**。
 
-On the right side, **Outbound** should be set to **Allow All**. You should see **All Destinations**.
+在右侧，**Outbound**应设置为**Allow All**，对所有**All Destinations**放开访问权限。
 
 .. figure:: images/create_inbound_rule.png
 
-Click **Next** then click **Save and Monitor**.
+单击**Next**然后单击**Save and Monitor**.
 
-Confirm that VMs belonging to the **programs-abc:sales-abc** category can ping the application VM which belongs to the **AppType: app-abc** category.
+确认属于**programs-abc：sales-abc**类别的VM可以ping属于**AppType：app-abc**类别的应用程序VM。
 
-Navigate to **Explore > VMs** and open the console window for the following three VMs:
+PC导航到**Explore> VMs**并打开以下三个VM的控制台窗口：
 
- - The designated AppType: app-abc VM, flow-abc-5.
- - The Sales VM (a VM in the programs-abc:sales-abc category, flow-abc-4).
- - The Dev VM (a VM in Environment: Dev, flow-abc-1).
+ - The designated AppType: app-<initials> VM, flow-<initials>-5.
+ - The Sales VM (a VM in the programs-<initials>:sales-<initials> category, flow-<initials>-4).
+ - The Dev VM (a VM in Environment: Dev, flow-<initials>-1).
 
-Send a ping from the Sales VM (4) to the AppType: app-abc VM (5).
+从Sales VM (4)向AppType: app-<initials> VM (5)发送Ping指令.
 
-This ping request should succeed.
+此ping请求应该成功
 
-Send a ping from the Dev VM (1) to the AppType: app-abc VM (5).
+从Dev VM（1）发送ping到AppType：app-abc VM（5）
 
-This ping also succeeds, even though Environment: Dev is not part of the allowed policy. Why? What is the policy Status?
+即使Environment：Dev不是允许的策略的一部分，此ping也会成功。为什么？
 
-Flow Visualization
+
+Flow可视化
 ++++++++++++++++++
 
-Add Flows to a Policy Using Flow Visualization
+使用Flow可视化功能为Flow添加策略
 ..............................................
 
-View the detected traffic flows from Environment: Dev
+查看来自Environment：Dev的检测到的流量
 -----------------------------------------------------
 
-Navigate to **Explore > Security Policies > Protect-app-abc** to view the detected traffic flows from **Environment: Dev**
+导航到**Explore > Security Policies > Protect-app-<initials>**，查看在**Environment: Dev**中检测到的流量；
 
-Confirm that **Environment: Dev** is listed as a source to **AppType: app-abc**. This can take a few minutes to appear.
+确认**Environment：Dev**被列为**AppType：app-<initials>*的source源。这可能需要几分钟才能显示。
 
 .. figure:: images/flow_viz.png
 
-Hover over the yellow flow line from **Environment: Dev** to **AppType: app-abc** to view the protocol and connection information.
+将鼠标悬停在黄色流线上，从**Environment：Dev**到**AppType：app-<initials>**，查看协议和连接信息。
 
-Click the yellow flow line to view a detailed graph of connection attempts.
+单击黄色流线，查看更细致的连接尝试统计图。
 
 .. figure:: images/network_flows.png
 
 
-Add The Detected Flow to The Security Policy
+将检测到的流添加到安全策略
 --------------------------------------------
 
-Select **Update** in the top right corner to edit the policy.
+选择右上角的**Update**以编辑策略。
 
-Click **Next** and view the detected traffic flows.
+单击**Next**并查看检测到的流量。
 
-Hover over the **Environment: Dev** source in the inbound list.
+将鼠标悬停在入站列表中的**Environment：Dev**源上.
 
-Select the green check box to add this source to the inbound allowed list.
+选中绿色复选框以将此源添加到入站允许列表
 
 .. figure:: images/add_env_flow.png
 
-Select OK to Add to Rule
+选择确定以添加到规则
 
-Hover over the blue **Environment: Dev** source and select the pencil icon to edit the rule.
+将鼠标悬停在蓝色**Environment: Dev**源上，然后选择铅笔图标以编辑规则。
 
-Select the pencil on **AppType: app-abc** to define specific ports and protocols.
+点击** AppType：app-<initials>**上的铅笔来定义特定的端口和协议。
 
-Currently ICMP is allowed due to the ping detected in the previous task.
+由于在上一个任务中检测到ping，因此当前已经允许使用ICMP协议。
 
-Select **Save** to save the ICMP rule.
+选择**Save**以保存ICMP规则。
 
-Select **Next** to review the changes to the policy.
+选择**Next**以查看对策略的更改。
 
-Move Policy from **Monitoring** Mode to **Applied** Mode
+将策略从**Monitoring**模式移至**Applied**模式
 ------------------------------------------------------------
 
-Now that the policy is complete, let move it from monitor mode to apply mode.
+既然策略已完成，请将其从监控模式移至应用模式。
 
-Select **Apply Now** to save the policy and move it into apply mode.
+选择**Apply Now**以保存策略并将其移至应用模式
 
-Navigate to **Explore > Security Policies > Protect-app-abc**.
+导航到**Explore > Security Policies > Protect-app-<initials>**.
 
-Confirm that **Environment: Dev** shows in blue as an allowed source.
+确认**Environment: Dev**以蓝色显示为允许的来源.
 
-Attempt to send traffic from another source such as **flow-abc-2** to **flow-abc-5**.
+请尝试将来自其他来源，例如将**flow-<initials>-2**发送到**flow-<initials>-5**.
 
-Is this traffic blocked?
+请问此流量是否会被阻止？ 
 
-Takeaways
+小贴士
 +++++++++
 
-- Microsegmentation is a decentralized security framework included from within Prism Central.
-- It offers additional protection against malicious threats that originate from within the data center and spread laterally, from one machine to another.
-- Once Microsegmentation is enabled in the cluster, VMs can be easily protected through Security Policies as created in the Prism Central UI. These function as labels that can easily be applied to VMs without any additional network setup.
-- In this exercise you utilized Flow to quarantine a VM in the environment using the two modalities of the quarantine policy, which are strict and forensic.
-- The forensic modality is key in allowing you to study the connection patterns into and out of a VM in order to establish which connections are allowed or denied while the VM is quarantined.
-- In this exercise you also created categories and an isolation security policy with ease without having to alter or change any networking configuration.
-- After tagging the VMs with the categories created, the VMs simply behaved according to the policies they belong to.
-- You also created a category to protect a special application VM. Then you created the security policy to restrict ICMP traffic into that application VM.
-- Notice that the policy created is in **Save and Monitor** mode, which means traffic is not actually going to get blocked yet until the policy is applied. This is helpful in order to study the connections and ensure no true traffic is getting blocked unintentionally.
-- Flow visualization allows you to visualize the flows that are occurring within a policy. From there it's really easy to edit the policy in order to add or remove the flows that should or should not be occurring.
+- Microsegmentation是一个分散的安全框架，并内置包含在Prism Central内部。
+- 它对数据中心提供额外的保护，防范来自在数据中心内部，从一台机器到另一台机器横向传播的恶意和安全威胁。
+- 在群集中启用Microsegmentation后，可以通过Prism Central UI中创建的安全策略轻松保护VM。它们可用作标签，无需任何其他网络设置即可轻松应用于VM。
+- 在本练习中，您已经使用Flow隔离策略的两种模式隔离环境中的VM，分别为strict（严格）和forensic（取证）模式。
+- 取证模式是允许您研究进出VM的连接模式的关键字段，以便在隔离VM时确定允许或拒绝哪些连接。
+- 在本练习中，您还可以轻松创建类别和隔离安全策略，而无需更改或更改任何网络配置。
+- 使用创建的类别标记VM后，VM只根据其所属的策略执行操作。
+- 您还创建了一个类别来保护特殊应用程序VM。然后，您创建了安全策略以将ICMP流量限制到该应用程序VM。
+- 请注意，创建的策略处于**Save and Monitor**模式，这意味着在应用策略之前，流量实际上不会被阻止。这有助于研究连接并确保没有意外阻止真正的流量。
+- 流可视化允许您可视化策略中发生的流。从那里开始编辑策略非常容易，以便添加或删除应该或不应该发生的流。

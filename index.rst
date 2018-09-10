@@ -11,7 +11,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: 通用配置实验
+  :caption: 初级实验-初始配置
   :name: _nutanix_configuration_labs
   :hidden:
 
@@ -21,18 +21,24 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: 工作负载管理实验
+  :caption: 初级实验-AHV部署与管理
   :name: _deploying_and_managing_workloads
   :hidden:
 
-  backup_and_dr/backup_and_dr
   lab_deploy_workloads/lab_deploy_workloads
   lab_manage_workloads/lab_manage_workloads
-  lab_data_protection/lab_data_protection
-  ssp/ssp
+  
 .. toctree::
   :maxdepth: 2
-  :caption: 监控和管理实验
+  :caption: 中级实验-数据保护与恢复
+  :name: _monitoring_and_managing_the_environment
+  :hidden:
+  lab_data_protection/lab_data_protection
+  backup_and_dr/backup_and_dr
+  
+.. toctree::
+  :maxdepth: 2
+  :caption: 中级实验-集中监控和管理
   :name: _monitoring_and_managing_the_environment
   :hidden:
 
@@ -42,14 +48,14 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: 可选高级实验
+  :caption: 高级实验
   :name: _optional_labs
   :hidden:
 
-  authentication/authentication
-  calm/calm
+  ssp/ssp
   flow/flow
-
+  calm/calm
+  
 
 .. toctree::
   :maxdepth: 2
@@ -97,14 +103,14 @@
 Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲师将为您的群集配置完成练习所需的所有必要镜像，连接网络和VM。
 
 
-网络环境（待更新）
+网络环境
 ..........
 
 托管POC集群环境的通用命名规则:
 
-- **群集名称** - POC\ *XYZ*
-- **子网** - 10.**21**.\ *XYZ*\ .0
-- **群集IP** - 10.**21**.\ *XYZ*\ .37
+- **群集名称** - POC\*XYZ*
+- **子网** - 10.**21**.\*XYZ*\ .0
+- **群集IP** - 10.**21**.\*XYZ*\ .37
 
 例如:
 
@@ -120,11 +126,11 @@ Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲�
 
    * - IP地址
      - 说明
-   * - 10.21.\ *XYZ*\ .37
+   * - 10.21.\ **XYZ**\ .37
      - Nutanix群集虚拟IP
-   * - 10.21.\ *XYZ*\ .39
+   * - 10.21.\ **XYZ**\ .39
      - **PC** VM IP, Prism Central
-   * - 10.21.\ *XYZ*\ .40
+   * - 10.21.\ **XYZ**\ .40
      - **DC** VM IP, NTNXLAB.local 域控制器
 
 每个群集配置有2个VLAN，可用于VM:
@@ -162,18 +168,18 @@ Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲�
      - Password
    * - Prism Element
      - admin
-     - *<Cluster Password>*
+     - *nx2Tech308!*
    * - Prism Central
      - admin
-     - *<Cluster Password>*
+     - *nx2Tech308!*
    * - Controller VM
      - nutanix
-     - *<Cluster Password>*
+     - *nx2Tech308!*
    * - Prism Central VM
      - nutanix
-     - *<Cluster Password>*
+     - *nx2Tech308!*
 
-每个群集都有一个专用的域控制器VM，** DC **，负责为** NTNXLAB.local **域提供AD服务。该域包含以下用户和组：
+每个群集都有一个专用的域控制器VM，**DC**，负责为 **NTNXLAB.local** 域提供AD服务。该域包含以下用户和组：
 
 
 .. list-table::
@@ -187,50 +193,50 @@ Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲�
      - Administrator
      - nutanix/4u
    * - SSP Admins
-     - adminuser01-adminuser25
+     - adminuser01-adminuser32
      - nutanix/4u
    * - SSP Developers
-     - devuser01-devuser25
+     - devuser01-devuser32
      - nutanix/4u
    * - SSP Power Users
-     - poweruser01-poweruser25
+     - poweruser01-poweruser32
      - nutanix/4u
    * - SSP Basic Users
-     - basicuser01-basicuser25
+     - basicuser01-basicuser32
      - nutanix/4u
 
-#访问说明
-#+++++++++++++++++++
+访问说明
++++++++++++++++++++
 
-#可以通过多种不同方式访问Nutanix Hosted POC环境:
+可以通过多种不同方式访问Nutanix Hosted POC环境:
 
-#Citrix XenDesktop
-#.................
+1)Citrix XenDesktop
+.................
 
-#https://citrixready.nutanix.com - *Accessible via the Citrix Receiver client or HTML5*
+https://citrixready.nutanix.com - *Accessible via the Citrix Receiver client or HTML5*
 
-#**Nutanix Employees** - Use your NUTANIXDC credentials
+**Nutanix Employees** - Use your NUTANIXDC credentials
 
-#**Non-Employees** - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+**Non-Employees** - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
 
-#Employee Pulse Secure VPN
-#..........................
+2)Employee Pulse Secure VPN
+..........................
 
-#https://sslvpn.nutanix.com - Use your CORP credentials
+https://sslvpn.nutanix.com - Use your CORP credentials
 
-#Non-Employee Pulse Secure VPN
-#..............................
+Non-Employee Pulse Secure VPN
+..............................
 
-#https://lab-vpn.nutanix.com - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+https://lab-vpn.nutanix.com - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
 
-#Under **Client Application Sessions**, click **Start** to the right of **Pulse Secure** to download the client.
+Under **Client Application Sessions**, click **Start** to the right of **Pulse Secure** to download the client.
 
-#Install and open **Pulse Secure**.
+Install and open **Pulse Secure**.
 
-#Add a connection:
+Add a connection:
 
-#- **Type** - Policy Secure (UAC) or Connection Server
-#- **Name** - HPOC VPN
-#- **Server URL** - lab-vpn.nutanix.com
+- **Type** - Policy Secure (UAC) or Connection Server
+- **Name** - HPOC VPN
+- **Server URL** - lab-vpn.nutanix.com
 
 

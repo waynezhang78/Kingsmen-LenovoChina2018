@@ -210,30 +210,30 @@ Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲�
 
 可以通过多种不同方式访问Nutanix Hosted POC环境:
 
-1)Citrix XenDesktop
+1)Citrix XenDesktop桌面(推荐)
 .................
 
 https://citrixready.nutanix.com - *Accessible via the Citrix Receiver client or HTML5*
 
-**Nutanix Employees** - Use your NUTANIXDC credentials
+**Nutanix内部员工** - 使用Nutanix公司SSO域帐户
 
-**Non-Employees** - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+**非Nutanix员工** - **用户名:** POCxxx-User01 (up to POCxxx-User20), **密码:** *<培训讲师提供>*
 
 2)Employee Pulse Secure VPN
 ..........................
 
-https://sslvpn.nutanix.com - Use your CORP credentials
+https://sslvpn.nutanix.com - 使用Nutanix域帐户登陆
 
 Non-Employee Pulse Secure VPN
 ..............................
 
-https://lab-vpn.nutanix.com - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+https://lab-vpn.nutanix.com - **用户名:** POCxxx-User01 (up to POCxxx-User20), **密码:** *<培训讲师提供>*
 
-Under **Client Application Sessions**, click **Start** to the right of **Pulse Secure** to download the client.
+在**Client Application Sessions**界面, 找到右下角的 **Pulse Secure** 图标右侧的**Start** 按钮，下载客户端。
 
-Install and open **Pulse Secure**.
+下载并安装**Pulse Secure**客户端软件.
 
-Add a connection:
+按照如下信息添加一个连接:
 
 - **Type** - Policy Secure (UAC) or Connection Server
 - **Name** - HPOC VPN

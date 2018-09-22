@@ -79,22 +79,28 @@
 更新日志
 ++++++++++
 
-- 训练营的环境已经针对以下软件版本进行更新:
+- 动手实验室环境已经针对以下软件版本进行更新:
     - AOS 5.8
-    - PC 5.7.1
+    - PC 5.8.1
 
-- 可选部分的动手实验室更新:
-    - Calm
-    - Flow
+- 高级实验部分的动手实验室更新:
+    - SSP自助服务门户
+    - Flow软件定义网络
+
 
 实验目录
 ++++++
 
-- 实验室环境介绍
-- Nutanix技术概述
-- 如何进行配置
-- 如何部署和管理工作负载
-- 如何监测和管理环境
+-
+初级实验1:NUTANIX管理界面介绍 
+初级实验2:存储容器配置  
+初级实验3:网络配置  
+初级实验4:AHV的虚机部署与管理 
+中级实验5:数据保护与恢复 
+中级实验6:监控与管理 
+高级实验7:自助服务门户
+高级实验8：FLOW网络虚拟化
+
 
 
 实验环境细节
@@ -216,7 +222,6 @@ Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲�
 https://citrixready.nutanix.com - *Accessible via the Citrix Receiver client or HTML5*
 
 **Nutanix内部员工** - 使用Nutanix公司SSO域帐户
-
 **非Nutanix员工** - **用户名:** POCxxx-User01 (up to POCxxx-User20), **密码:** *<培训讲师提供>*
 
 2)Employee Pulse Secure VPN

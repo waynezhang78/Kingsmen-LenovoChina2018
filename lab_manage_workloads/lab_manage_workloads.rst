@@ -1,8 +1,12 @@
 .. _lab_manage_workloads:
 
 ------------------------
-实验-工作负载管理
+初级实验4-B:AHV的虚机管理 
 ------------------------
+
+预计完成时间: 15分钟
+本实验使用Prism Central
+在浏览器中打开Prism Central链接，使用admin用户登录Prism Central界面
 
 实验目的
 ++++++++

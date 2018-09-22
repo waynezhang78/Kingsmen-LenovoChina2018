@@ -1,8 +1,11 @@
 .. _lab_monitoring_env:
 
 ----------------
-实验-监控与管理
+中级实验6:监控与管理 
 ----------------
+预计完成时间: 20分钟
+
+本实验使用Prism Central,在浏览器中打开Prism Central链接，使用admin用户登录Prism Central界面
 
 实验目的
 ++++++++

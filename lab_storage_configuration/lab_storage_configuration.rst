@@ -1,10 +1,14 @@
 .. _lab_storage_configuration:
 
 ---------------------------
-实验 - 存储配置
+初级实验2:存储容器配置
 ---------------------------
+预计完成时间: 10分钟
 
-简介
+本实验使用Prism Element，在浏览器中打开Prism Element链接，登录Prism Element界面
+
+
+实验目的
 ++++++++
 
 在本实验中，我们将使用Prism Element软件进行基本的存储容器设置.
@@ -53,12 +57,12 @@ Prism Element存储配置项
 
 .. figure:: images/storage_config_03.png
 
-在** Prism> Home **中，单击Data Resiliency Status框中的** green OK **。这将打开“数据弹性状态”窗口
+在**Prism> Home**中，单击Data Resiliency Status框中的**green OK**。这将打开“数据弹性状态”窗口
 
 上图显示了Data Resiliency Status窗口，您可以在其中查看，诸如可以容忍多少ZooKeeper节点故障而不会影响群集。
 列出的每个服务都在群集中具有特定功能，Zookeeper节点是用来维护集群的配置信息。
 
-可以通过单击齿轮菜单中的** Redundancy State **来配置Prism Element中的RF冗余度。
+可以通过单击齿轮菜单中的**Redundancy State**来配置Prism Element中的RF冗余度。
 
 .. 注::
 

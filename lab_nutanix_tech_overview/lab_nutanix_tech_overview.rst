@@ -1,13 +1,18 @@
 .. _lab_nutanix_technology_overview:
 
 ---------------------------------
-实验 - Nutanix管理界面介绍
+初级实验1:NUTANIX管理界面介绍
 ---------------------------------
+预计完成时间: 15分钟
+
+本实验使用Prism Element和Prism Central
 
 简介
 ++++++++
 
-本实验将介绍Nutanix两大管理界面，Prism Element＆Prism Central UI，并让您熟悉它们的界面布局和功能导航。
+本实验将介绍Nutanix两大管理界面，Prism Element＆Prism Central，并让您熟悉它们的界面布局和功能导航。
+- Prism Element简称PE，是集成在每个CVM管理虚拟机中，用于单个Nutanix日常管理和操作的界面，
+- Prism Central简称PC，是额外部署的一套管理虚拟机，支持分布式集群部署，可以同时管理多个虚拟机功能，并提供诸如报告，预测，搜索等高级功能，Nutanix集  成的很多高级功能诸如Flow，Calm也都需要在Prism Central中使用
 
 Prism Central
 +++++++++++++

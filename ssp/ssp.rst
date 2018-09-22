@@ -1,12 +1,15 @@
 .. _ssp:
 
-实验-自助服务门户
+-------------------
+高级实验1：自助服务门户
 -------------------
 
-概览
-++++++++
+预计完成时间: 45分钟
+本实验使用Prism Central
+在浏览器中打开Prism Central链接，使用admin用户登录Prism Central界面
 
-  预计完成时间: **45分钟**
+实验目的
+++++++++
 
 在本练习中，您将会用到通过Prism Central来配置自助服务门户(SSP),并为不同的用户组创建不同的项目。
 该实验应该在进行Calm功能相关实验之前完成。
@@ -65,13 +68,13 @@
 +-----------------+-----------------------+--------------------------------+
 | **Group**       | **Usernames**         | **Password**                   |
 +-----------------+-----------------------+--------------------------------+
-| SSP Admins      | adminuser01-25        | nutanix/4u                     |
+| SSP Admins      | adminuser01-20        | nutanix/4u                     |
 +-----------------+-----------------------+--------------------------------+
-| SSP Developers  | devuser01-25          | nutanix/4u                     |
+| SSP Developers  | devuser01-20          | nutanix/4u                     |
 +-----------------+-----------------------+--------------------------------+
-| SSP Power Users | poweruser01-25        | nutanix/4u                     |
+| SSP Power Users | poweruser01-20        | nutanix/4u                     |
 +-----------------+-----------------------+--------------------------------+
-| SSP Basic Users | basicuser01-25        | nutanix/4u                     |
+| SSP Basic Users | basicuser01-20        | nutanix/4u                     |
 +-----------------+-----------------------+--------------------------------+
 
 在**Prism Central**中, 点击 :fa:`cog` **> Self-Service Admin Management**.

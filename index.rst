@@ -34,8 +34,8 @@
   :name: _monitoring_and_managing_the_environment
   :hidden:
   
-  lab_data_protection/lab_data_protection
   backup_and_dr/backup_and_dr
+  lab_data_protection/lab_data_protection
   
 .. toctree::
   :maxdepth: 2
@@ -49,7 +49,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: 高级实验-自助服务门户
+  :caption: 高级实验-ssp
   :name: _optional_labs
   :hidden:
 

@@ -44,7 +44,7 @@
 - **Name** - SSP Admins
 - **Default Cluster** - *<Cluster Name>*
 
-在 **Network** 部分, 如果可能的话可以选择  **Primary** 和 **Secondary** 网络. 在 **Primary** 旁边点击  :fa:`star` ，这样就可以为**Calm** 项目的虚拟机设置了默认的虚拟网络。
+在 **Network** 部分, 如果可能的话可以选择  **Primary** 和 **Secondary** 网络. 在 **Primary** 旁边点击  :fa:`star` ，这样就可以为 **Calm** 项目的虚拟机设置了默认的虚拟网络。
 
 点击 **Next**.
 
@@ -82,29 +82,29 @@
 - **Project Name** - Calm
 - **Description** - Calm
 
-在 **Users, Groups, 和 Roles**部分, 点击 **+ User**.
+在 **Users, Groups, 和 Roles** 部分, 点击 **+ User** .
 
-填写以下字段并点击 **Save**:
+填写以下字段并点击 **Save** :
 
 - **Name** - SSP Admins
 - **Role** - Project Admin
 
-点击 **+ User**, 填写以下字段并点击 **Save**:
+点击 **+ User**, 填写以下字段并点击 **Save** :
 
 - **Name** - SSP Developers
 - **Role** - Developer
 
-点击 **+ User**, 填写以下字段并点击 **Save**:
+点击 **+ User**, 填写以下字段并点击 **Save** :
 
 - **Name** - SSP Power Users
 - **Role** - Consumer
 
-点击 **+ User**, 填写以下字段并点击 **Save**:
+点击 **+ User**, 填写以下字段并点击 **Save** :
 
 - **Name** - SSP Basic Users
 - **Role** - Operator
 
-在 **Infrastructure**部分, 填写以下字段:
+在 **Infrastructure** 部分, 填写以下字段:
 - **Select which resources you want this project to consume** - Local only
 - **AHV Cluster** - *<Cluster Name>*
 
@@ -126,9 +126,9 @@
 创建蓝图
 ..................
 
-在 **Prism Central > Apps**的策略中选择 **Blueprints** ，并点击 **+ Create Application Blueprint**.
+在 **Prism Central > Apps** 的策略中选择 **Blueprints** ，并点击 **+ Create Application Blueprint**.
 
-在**Blueprint Name**字段中，填写 **CalmIntro<INITIALS>** .
+在 **Blueprint Name** 字段中，填写 **CalmIntro<INITIALS>** .
 在描述字段中填写一个 **Description** .
 从 **Project** 的下拉菜单中选择 **Calm** ，并点击 **Proceed**.
 
@@ -154,11 +154,11 @@
 设置变量
 .................
 
-变量能使Blueprint具有扩展性, 基于所配置的变量，一个蓝图可以被用在不同的环境和目的。变量既可以作为静态的数值和蓝图保存在一起，也可以在**Runtime** 运行时被指定（当蓝图被启动了以后）。默认情况下，变量在配置页面中以明文的形式保存。配置一个变量为 **Secret** 时，它的指将被遮盖起来，适合用于存储密码。
+变量能使Blueprint具有扩展性, 基于所配置的变量，一个蓝图可以被用在不同的环境和目的。变量既可以作为静态的数值和蓝图保存在一起，也可以在 **Runtime** 运行时被指定（当蓝图被启动了以后）。默认情况下，变量在配置页面中以明文的形式保存。配置一个变量为 **Secret** 时，它的值将被遮盖起来，适合用于存储密码。
 
-变量可以在脚本执行的过程中以 **@@{variable_name}@@**的形式引用. 在把变量发送给虚拟机执行前，变量会被Calm扩展和替换成相应的数据。
+变量可以在脚本执行的过程中以 **@@{variable_name}@@** 的形式引用. 在把变量发送给虚拟机执行前，变量会被Calm扩展和替换成相应的数据。
 
-在 **Configuration Pane** 中的 **Variable List**清单里, 填写以下字段:
+在 **Configuration Pane** 中的 **Variable List** 清单里, 填写以下字段:
 
 +----------------------+------------------------------------------------------+------------+
 | **Variable Name**    | **Value**                                            | **Secret** |
@@ -181,7 +181,7 @@
 
 In **Application Overview > Services**, 点击 :fa:`plus-circle`.
 
-注意 **Service1** 显示在了**Workspace** 和 **Configuration Pane** 中，从而表示了一个所选择的配置。
+注意 **Service1** 显示在了 **Workspace** 和 **Configuration Pane** 中，从而表示了一个所选择的配置。
 
 填写以下字段:
 
@@ -208,7 +208,7 @@ In **Application Overview > Services**, 点击 :fa:`plus-circle`.
 
   在处理下一步之前，确保**Credential**中的配置已经最终选定了，选择其它的字段会清除掉 **Credential** 的选择.
 
-在工作区窗口中选中 MySQL 服务的图标, 滚动到 **Configuration Panel**的顶端, 点击 **Package**.
+在工作区窗口中选中 MySQL 服务的图标, 滚动到 **Configuration Panel** 的顶端, 点击 **Package**.
 
 填写以下字段:
 
@@ -649,7 +649,7 @@ Calm应用市场第二部分
 
 选择 **Prism Central > Apps**, 在侧栏中选中 |bp-icon| **Blueprints** .
 
-通过对点击任一 **Active** 蓝图的 **Name**来打开它.
+通过对点击任一 **Active** 蓝图的 **Name** 来打开它.
 
 .. figure:: images/marketplace_p2_1.png
 
@@ -720,7 +720,7 @@ Calm应用市场第二部分
 
 选择 **Environment** 标签.
 
-在 **Credential**下, 点击 :fa:`plus-circle` 来增加新的账户信息.
+在 **Credential** 下, 点击 :fa:`plus-circle` 来增加新的账户信息.
 
 填写以下字段:
 
@@ -731,7 +731,7 @@ Calm应用市场第二部分
 - 选择 **Use as default**
 
 
-在 **VM Configuration**下
+在 **VM Configuration** 下
 
 - 选择 **AHV on NUTANIX**.
 - **VM Name** - add prefix "default" to the name
@@ -743,11 +743,11 @@ Calm应用市场第二部分
 .. figure:: images/marketplace_p2_010.png
 
 
-在 **Network Adapters (NICs)**下, 点击 :fa:`plus-circle` 并选择 **Primary**.
+在 **Network Adapters (NICs)** 下, 点击 :fa:`plus-circle` 并选择 **Primary**.
 
 .. figure:: images/marketplace_p2_10.png
 
-点击 **Save**.
+点击 **Save** .
 
 从Marketplace启动蓝图
 ........................................

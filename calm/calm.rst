@@ -1,34 +1,34 @@
 .. _calm:
 
 ----------------------------
-高级实验3：Calm（汉化进行中...)
+高级实验3：Calm
 ----------------------------
 
-Overview
+概述
 ++++++++
 
-.. note::
+.. 注意::
 
-  Review :ref:`calm_basics` before proceeding with the lab to familiarize yourself with the UI and common terminology used in Nutanix Calm.
+  在进行本实验之前请先通过查阅 :ref:`calm_basics` 来让你自己熟悉一下Nutanix Calm的界面和基础术语。
 
-  Estimated time to complete: **170 MINUTES**
+  估计完成时间: **170 分钟**
 
-In this exercise you will enable Nutanix Calm and configure a Project to contain your Blueprints and Applications created throughout the Workshop.
+在实验的过程中，你将会启用Nutanix Calm，配置一个使用蓝图的项目，并通过蓝图进行应用的管理。
 
-Enabling App Management
+启用应用管理
 +++++++++++++++++++++++
 
-In this exercise you will enable Nutanix Calm and configure a Project to contain your Blueprints and Applications created throughout the Workshop.
+进行下面的操作来启用Nutanix Calm应用管理。
 
-Open \https://*<Prism-Central-IP>*:9440/ in a browser and log in.
+在浏览器中打开 \https://*<Prism-Central-IP>*:9440/ 并且登陆。
 
-From the navigation bar, select **Apps**.
+从导航菜单里选择  **Apps** 。
 
-Click **Click here to enable Self Service and App management**.
+点击 **点击 here to enable Self Service and App management** 这段文字。
 
 .. figure:: images/enable1.png
 
-Click **New Directory**. Fill out the following fields and click **Next**:
+点击 **New Directory**。填写完以下字段后点击 **Next**:
 
 - **Directory Type** - Active Directory
 - **Name** - NTNXLAB
@@ -39,126 +39,126 @@ Click **New Directory**. Fill out the following fields and click **Next**:
 
 .. figure:: images/enable2.png
 
-Click **+ Add Admins**. Fill out the following fields:
+点击 **+ Add Admins**. 并填写下面的字段:
 
 - **Name** - SSP Admins
 - **Default Cluster** - *<Cluster Name>*
 
-Under **Network**, select the **Primary** and if available, the **Secondary** networks. Select :fa:`star` for the **Primary** network to make it the default virtual network for VMs in the **Calm** project.
+在 **Network** 部分, 如果可能的话可以选择  **Primary** 和 **Secondary** 网络. 在 **Primary** 旁边点击  :fa:`star` ，这样就可以为**Calm** 项目的虚拟机设置了默认的虚拟网络。
 
-Click **Next**.
+点击 **Next**.
 
-.. note::
+.. 注意::
 
-  The Administrators, Default Cluster, and Networks chosen here will define the **Default** project created when enabling Self-Service Portal or App Management. In the following section you will create an additional project used for the remainder of the Workshop.
+  在启用自服务或者应用管理的过程中，你所配置的 Administrators, Default Cluster 和 Network，将成为 **Default** 项目的配置。在后续的章节里会配置新增的项目，用来提醒其它的配置方式。
 
 .. figure:: images/enable3.png
 
-Select **Enable App Management** and click **Finish**.
+选择 **Enable App Management** 并点击 **Finish**.
 
-.. note:: Nutanix Calm is a separately licensed product that can be used with Acropolis Starter, Pro, or Ultimate editions. Each Prism Central instance can manage up to 25 VMs for free before additional licensing is required.
+.. 注意:: Nutanix Calm 是需要单独的产品许可证的，该许可证可以与 Acropolis Starter, Pro, 或者Ultimate 版本搭配使用。每一个 Prism Central 实例能够免费管理 25 个虚拟机，超出的部分需要购买许可证。
 
 .. figure:: images/enable4.png
 
-Following successful completion of the **Enable App Management** task, refresh the browser and select **Apps** from the navigation bar.
+下面是成功地完成了所有 **Enable App Management** 配置的屏幕，在导航菜单上选择 **Apps** 刷新后如下图所示.
 
 .. figure:: images/enable5.png
 
-.. note:: Starting Calm services for the first time can take ~6 minutes. If the Calm UI doesn't load immediately, wait a moment and try refreshing the browser again.
+.. 注意:: 首次启动 Calm 的服务可能需要 ~6 分钟左右. 如果 Calm 的界面并没有立刻地重新加载，等待一会之后再次刷新浏览器。
 
 .. note about possibly needing to SSH into PC VM to do 'cluster start' if Epsilon service doesn't start on its own
 
-Creating A Project
+创建一个项目
 ++++++++++++++++++
 
-Projects are the logical construct that integrate Calm with Nutanix's native Self-Service Portal (SSP) capabilities, allowing an administrator to assign both infrastructure resources and the roles/permissions of Active Directory users/groups to specific Blueprints and Applications.
+项目是一个逻辑的构造，它集成了Nutanix原生的自服务（SSP）功能，允许管理员为特定的蓝图和应用分配基础架构资源和用于访问该项目的AD中的用户/组。
 
-Select |proj-icon| **Projects** from the sidebar.
+在边栏中点击  |proj-icon| **Projects** 图标.
 
 .. figure:: images/enable6.png
 
-Fill out the following fields:
+填写以下字段:
 
 - **Project Name** - Calm
 - **Description** - Calm
 
-Under **Users, Groups, and Roles**, click **+ User**.
+在 **Users, Groups, 和 Roles**部分, 点击 **+ User**.
 
-Fill out the following fields and click **Save**:
+填写以下字段并点击 **Save**:
 
 - **Name** - SSP Admins
 - **Role** - Project Admin
 
-Click **+ User**, fill out the following fields and click **Save**:
+点击 **+ User**, 填写以下字段并点击 **Save**:
 
 - **Name** - SSP Developers
 - **Role** - Developer
 
-Click **+ User**, fill out the following fields and click **Save**:
+点击 **+ User**, 填写以下字段并点击 **Save**:
 
 - **Name** - SSP Power Users
 - **Role** - Consumer
 
-Click **+ User**, fill out the following fields and click **Save**:
+点击 **+ User**, 填写以下字段并点击 **Save**:
 
 - **Name** - SSP Basic Users
 - **Role** - Operator
 
-Under **Infrastructure**, fill out the following fields:
+在 **Infrastructure**部分, 填写以下字段:
 - **Select which resources you want this project to consume** - Local only
 - **AHV Cluster** - *<Cluster Name>*
 
-Under **Network**, select the **Primary** and if available, the **Secondary** networks. Select :fa:`star` for the **Primary** network to make it the default virtual network for VMs in the **Calm** project.
+在 **Network** 部分, 在可以的情况下配置 **Primary** 和 **Secondary** 网络. 通过点击网络右侧的 :fa:`star` 图标来为 **Calm** 项目中的虚拟机配置默认的 **Primary** 网络。
 
-Click **Save**.
+点击 **Save**.
 
 .. figure:: images/enable7.png
 
-.. note::
+.. 注意::
 
-  Click `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v56:nuc-roles-responsibility-matrix-c.html>`_ to view the complete matrix of default SSP roles and associated permissions.
+  点击 `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v56:nuc-roles-responsibility-matrix-c.html>`_ 去查看完整的SSP默认角色和相关权限的说明文档.
 
-Creating Blueprint (MySQL)
+创建蓝图 (MySQL)
 ++++++++++++++++++++++++++
 
-In this exercise you will explore the basics of Nutanix Calm by building and deploying a Blueprint that installs and configures a single service, MySQL, on a CentOS image.
+在这个实验中，你将探索通过部署 Nutanix Calm 的蓝图来安装和配置一个独立的基于CentOS镜像的MySQL服务。
 
-Creating Blueprint
+创建蓝图
 ..................
 
-From **Prism Central > Apps**, select **Blueprints** from the sidebar and click **+ Create Application Blueprint**.
+在 **Prism Central > Apps**的策略中选择 **Blueprints** ，并点击 **+ Create Application Blueprint**.
 
-Specify **CalmIntro<INITIALS>** in the **Blueprint Name** field.
-Enter a **Description** in the Description field.
-Select **Calm** from the **Project** drop down menu and click **Proceed**.
+在**Blueprint Name**字段中，填写 **CalmIntro<INITIALS>** .
+在描述字段中填写一个 **Description** .
+从 **Project** 的下拉菜单中选择 **Calm** ，并点击 **Proceed**.
 
-Click **Proceed** to continue.
+点击 **Proceed** 并继续.
 
-Click **Credentials >** :fa:`plus-circle` and fill out the following fields then click **Save**:
+点击 **Credentials >** :fa:`plus-circle` 并填写以下字段，然后点击 **Save**:
 
 - **Credential Name** - CENTOS
 - **Username** - root
 - **Secret** - Password
 - **Password** - nutanix/4u
 
-Click **Back**.
+点击 **Back**.
 
-.. note::
+.. 注意::
 
-  Credentials are unique to each Blueprint.
+  对每个蓝图而言 Credential 是唯一的.
 
-  Each Blueprint requires a minimum of 1 Credential.
+  每个蓝图需要至少一个 Credential.
 
-Click **Save** to save your Blueprint.
+点击 **Save** 保存你的蓝图.
 
-Setting Variables
+设置变量
 .................
 
-Variables allow extensibility of Blueprints, meaning a single Blueprint can be used for multiple purposes and environments depending on the configuration of its variables. Variables can either be static values saved as part of the Blueprint or they can be specified at **Runtime** (when the Blueprint is launched). By default, variables are stored in plaintext and visible in the Configuration Pane. Setting a variable as **Secret** will mask the value and is ideal for variables such as passwords.
+变量能使Blueprint具有扩展性, 基于所配置的变量，一个蓝图可以被用在不同的环境和目的。变量既可以作为静态的数值和蓝图保存在一起，也可以在**Runtime** 运行时被指定（当蓝图被启动了以后）。默认情况下，变量在配置页面中以明文的形式保存。配置一个变量为 **Secret** 时，它的指将被遮盖起来，适合用于存储密码。
 
-Variables can be used in scripts executed against objects using the **@@{variable_name}@@** construct. Calm will expand and replace the variable with the appropriate value before sending to the VM.
+变量可以在脚本执行的过程中以 **@@{variable_name}@@**的形式引用. 在把变量发送给虚拟机执行前，变量会被Calm扩展和替换成相应的数据。
 
-In the **Configuration Pane** under **Variable List**, fill out the following fields:
+在 **Configuration Pane** 中的 **Variable List**清单里, 填写以下字段:
 
 +----------------------+------------------------------------------------------+------------+
 | **Variable Name**    | **Value**                                            | **Secret** |
@@ -174,21 +174,21 @@ In the **Configuration Pane** under **Variable List**, fill out the following fi
 
 .. figure:: images/mysql1.png
 
-Click **Save**.
+点击 **Save**.
 
-Adding DB Service
+添加数据库服务
 .................
 
-In **Application Overview > Services**, click :fa:`plus-circle`.
+In **Application Overview > Services**, 点击 :fa:`plus-circle`.
 
-Note **Service1** appears in the **Workspace** and the **Configuration Pane** reflects the configuration of the selected Service.
+注意 **Service1** 显示在了**Workspace** 和 **Configuration Pane** 中，从而表示了一个所选择的配置。
 
-Fill out the following fields:
+填写以下字段:
 
 - **Service Name** - MySQL
 - **Name** - MySQLAHV
 
-  .. note:: This defines the name of the substrate within Calm. Names can only contain alphanumeric characters, spaces, and underscores.
+  .. 注意:: 在Calm中名称是一个基础的定义。名称中只能接受数字字母，空格和下划线。
 
 - **Cloud** - Nutanix
 - **OS** - Linux
@@ -196,31 +196,31 @@ Fill out the following fields:
 - **Image** - CentOS
 - **Device Type** - Disk
 - **Device Bus** - SCSI
-- Select **Bootable**
+- 选择 **Bootable**
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory (GiB)** - 4
-- Select :fa:`plus-circle` under **Network Adapters (NICs)**
+- 选择 :fa:`plus-circle` 在 **Network Adapters (NICs)** 下
 - **NIC** - Primary
 - **Credential** - CENTOS
 
-.. note::
+.. 注意::
 
-  Ensure selecting the **Credential** is the final selection made before proceeding to the next step, selecting other fields can clear your **Credential** selection.
+  在处理下一步之前，确保**Credential**中的配置已经最终选定了，选择其它的字段会清除掉 **Credential** 的选择.
 
-With the MySQL service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **Package**.
+在工作区窗口中选中 MySQL 服务的图标, 滚动到 **Configuration Panel**的顶端, 点击 **Package**.
 
-Fill out the following fields:
+填写以下字段:
 
 - **Package Name** - MYSQL_PACKAGE
-- **Click** - Configure install
-- **Click** - + Task
+- **点击** - Configure install
+- **点击** - + Task
 - **Name Task** - Install_sql
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+复制并粘贴下面的脚本到 **Script** 字段:
 
 .. code-block:: bash
 
@@ -257,70 +257,70 @@ Copy and paste the following script into the **Script** field:
   FLUSH PRIVILEGES;
   EOF
 
-.. note::
+.. 注意::
 
-  You can click the **Pop Out** icon on the script field for a larger window to view/edit scripts.
+  你能点击在脚本字段上的 **Pop Out** 图标来窗口放大后进行查看和编辑脚本。
 
-  Looking at the script you can see the package will install MySQL, configure the credentials and create a database based on the variables specified earlier in the exercise.
+  仔细查看这段脚本，你可以看到它会安装 MySQL 数据库，配置账号密码，基于之前所配置的变量创建一个数据库。
 
-Select the MySQL service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
+在工作区域中再次选中 MySQL 服务图标，滚动到 **Configuration Panel**的顶部, 点击 **Package**.
 
-- **Click** - Configure Uninstall
-- **Click** - + Task
+- **点击** - Configure Uninstall
+- **点击** - + Task
 - **Name Task** - Uninstall_sql
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+复制并粘贴下面的脚本到 **Script** 字段:
 
 .. code-block:: bash
 
   #!/bin/bash
   echo "Goodbye!"
 
-.. note:: The uninstall script can be used for removing packages, updating network services like DHCP and DNS, removing entries from Active Directory, etc. It is not being used for this simple example.
+.. 注意:: 卸载脚本可以用于删除软件包、更新DHCP和DNS之类的网络服务，删除AD中额记录，等等。并不是像这个简单的例子这样。
 
-Click **Save**. You will be prompted with specific errors if there are validation issues such as missing fields or unacceptable characters.
+点击 **Save**. 如果在任何字段中输入了非法/不可接受的字符，或者缺少字段，当你点击保存按钮的时候，你会受到出错的提示信息。
 
-Launching the Blueprint
+启动蓝图
 .......................
 
-From the toolbar at the top of the Blueprint Editor, click **Launch**.
+从蓝图编辑器的工具栏顶端， 点击 **Launch**.
 
-In the **Name of the Application** field, specify a unique name (e.g. CalmIntro*<INITIALS>*-1).
+在 **Name of the Application** 字段中, 填写一个唯一的名称 (例如 CalmIntro*<INITIALS>*-1).
 
-.. note::
+.. 注意::
 
-  A single Blueprint can be launched multiple times within the same environment but each instance requires a unique **Application Name** in Calm.
+  在Calm中的同一个环境中，一个蓝图可以多次启动，但是启动的每一个实例需要使用一个唯一的 **Application Name** .
 
-Click **Create**.
+点击 **Create**.
 
-You will be taken directly to the **Applications** page to monitor the provisioning of your Blueprint.
+然后就会跳转到监控你的蓝图制备的 **Applications** 页面。
 
-Select **Audit > Create** to view the progress of your application. After **MySQLAHV - Check Login** is complete, select **PackageInstallTask** to view the real time output of your installation script.
+选中 **Audit > Create** 来查看你的应用的创建进度。在 **MySQLAHV - Check Login** 的任务完成了之后, 选择 **PackageInstallTask** 去查看安装脚本的实时输出。
 
-Note the status changes to **Running** after the Blueprint has been successfully provisioned.
+注意，在蓝图被成功的制备了以后，应用的状态就变成了 **Running** 。
 
 .. figure:: https://s3.amazonaws.com/s3.nutanixworkshops.com/calm/lab1/image25.png
 
-Calm Blueprint (LAMP)
+Calm 蓝图 (LAMP)
 +++++++++++++++++++++
 
-In this exercise you will extend the MySQL Blueprint created previously into a basic LAMP Stack (Linux Apache MySQL PHP) deployment with a scalable web tier as shown below.
+在这个实验中，你将把之前创建的MySQL数据库蓝图扩展成为一个基本的LAMP堆栈，如下图所示，它的web层是可以扩展的。 
 
 .. figure:: images/lamp1.png
 
-Creating the Web Server
+创建Web服务器
 .......................
 
-From **Prism Central > Apps**, select **Blueprints** from the sidebar and select your Blueprint from the previous exercise.
+从侧栏里 **Prism Central > Apps** 选择之前实验中你使用的 **Blueprints** .
 
-In **Application Overview > Services**, click :fa:`plus-circle`.
+在 **Application Overview > Services**, 点击 :fa:`plus-circle`.
 
-Note **Service1** appears in the **Workspace** and the **Configuration Pane** reflects the configuration of the selected Service. You can rearrange the Service icons on the Workspace by clicking and dragging them.
+注意 **Service1** 显示在了 **Workspace** 中，在 **Configuration Pane** 的部分显示了所选服务的配置信息。你可以通过点击和拖拽工作区里服务图标的方式重新布局这张蓝图。
 
-With the Apache service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **Package**.
+在工作区的窗口里，保持Apache服务的图标处于选中状态，滚动到 **Configuration Panel** 的顶部， 点击 **Package**.
 
 - **Service Name** - APACHE_PHP
 - **Name** - APACHE_PHP_AHV
@@ -330,28 +330,28 @@ With the Apache service icon selected in the workspace window, scroll to the top
 - **Image** - CentOS
 - **Device Type** - Disk
 - **Device Bus** - SCSI
-- Select **Bootable**
+- 选择 **Bootable**
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory (GiB)** - 4
-- Select :fa:`plus-circle` under **Network Adapters (NICs)**
+- 选择 :fa:`plus-circle` under **Network Adapters (NICs)**
 - **NIC** - Primary
 - **Credential** - CENTOS
 
-Scroll to the top of the **Configuration Panel**, click **Package**.
+滚动到 **Configuration Panel** 的顶部， 点击 **Package**.
 
-Click on the Apache service icon again and fill out the following fields:
+再次点击 Apache 服务的图标并填写以下字段:
 
 - **Package Name** - APACHE_PHP_PACKAGE
-- **Click** - Configure install
-- **Click** - + Task
+- **点击** - Configure install
+- **点击** - + Task
 - **Name Task** - Install_Apache
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
 
-Copy and paste the following script into the **Script** field:
+在 **Script** 字段里复制并粘贴以下脚本:
 
 .. code-block:: bash
 
@@ -375,18 +375,18 @@ Copy and paste the following script into the **Script** field:
 
 .. code-block:: bash
 
-Select the Apache service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
+在工作区里再次选中 Apache 服务的图标并滚动到 **Configuration Panel** 的顶部, 点击 **Package**.
 
-Fill out the following fields:
+填写以下字段:
 
-- **Click** - Configure uninstall
-- **Click** - + Task
+- **点击** - Configure uninstall
+- **点击** - + Task
 - **Name Task** - Uninstall_apache
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+在 **Script** 字段里复制并粘贴以下脚本:
 
 .. code-block:: bash
 
@@ -395,38 +395,38 @@ Copy and paste the following script into the **Script** field:
 
 .. code-block:: bash
 
-Click **Save**.
+点击 **Save**.
 
-Adding Dependencies
+添加依赖关系
 ...................
 
-As our application will require the database to be running before the web server starts, our Blueprint requires a dependency to enforce this ordering.
+由于 web 服务器的应用在启动之前需要数据库先运行起来，这需要在蓝图中加入这种相互依赖的顺序关系。
 
-In the **Workspace**, select the **APACHE_PHP** Service and click the **Create Dependency** icon that appears above the Service icon.
+在 **Workspace** 工作区中，选中 **APACHE_PHP** 服务并点击位于服务图标之上的 **Create Dependency** 图标.
 
-Select the **MySQL** Service. This will hold the execution of **APACHE_PHP** installation script until the **MySQL** Service is running.
+选中 **MySQL** 服务. 这会保证 **APACHE_PHP** 的安装脚本的执行，在 **MySQL** 服务运行了以后。
 
-Click **Save**.
+点击 **Save**.
 
-Adding Replicas
+添加副本数
 ...............
 
-Calm makes it simple to add multiple copies of a given Service, which is helpful for scale out workloads such as web servers.
+通过Calm为一个特定的服务扩容多个虚拟机是很简单的，这对横向扩容web服务这样的需求很有帮助。
 
-In the **Workspace**, select the **APACHE_PHP** Service.
+在工作区 **Workspace**中, 选中 **APACHE_PHP** 服务.
 
-In the **Configuration Pane**, select the **Service** tab.
+在 **Configuration Pane** 中, 选中 **Service**  标签.
 
-Under **Deployment Config**, change the **Max** Number of replicas from 1 to 2.
+在 **Deployment Config** 的下面, 将 **Max** 副本最大数从 1 改为 2.
 
-Creating the Load Balancer
+创建负载均衡
 ..........................
 
-To take advantage of a scale out web tier our application needs to be able to load balance connections across multiple web server VMs. HAProxy is a free, open source TCP/HTTP load balancer used to distribute workloads across multiple servers. It can be used in small, simple deployments and large web-scale environments such as GitHub, Instagram, and Twitter.
+为了实现横向扩容 web 层应用服务的效果，我们需要将接入负载的连接分发到web服务器的虚拟机上。HAProxy是一个免费、开源的 TCP/HTTP 负载均衡器，能用于工作负载流量的分发。它不仅能用于小型的简单环境，还能用于大规模互联网规模的公司如 GitHub, Instagram 和 Twitter.
 
-In **Application Overview > Services**, click :fa:`plus-circle`.
+在 **Application Overview > Services** 菜单, 点击 :fa:`plus-circle`.
 
-Select **Service1** and fill out the following fields in the **Configuration Pane**:
+选中 **Service1** 图标并在 **Configuration Pane** 填写以下字段 :
 
 - **Service Name** - HAProxy
 - **Name** - HAPROXYAHV
@@ -444,19 +444,19 @@ Select **Service1** and fill out the following fields in the **Configuration Pan
 - **NIC** - Primary
 - **Credential** - CENTOS
 
-Scroll to the top of the **Configuration Panel**, click **Package**.
+滚动 **Configuration Panel** 到顶部, 点击 **Package**.
 
-Fill out the following fields:
+填写以下字段:
 
 - **Package Name** - HAPROXY_PACKAGE
-- **Click** - Configure install
-- **Click** - + Task
+- **点击** - Configure install
+- **点击** - + Task
 - **Name Task** - install_haproxy
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+在 **Script** 字段中复制并粘贴以下代码:
 
 .. code-block:: bash
 
@@ -522,18 +522,18 @@ Copy and paste the following script into the **Script** field:
 
 .. code-block:: bash
 
-Select the HAProxy service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
+在工作区窗口中再次选中 HAProxy 服务图标，并且滚动到 **Configuration Panel** 的顶部, 点击 **Package**.
 
-Fill out the following fields:
+填写以下字段:
 
-- **Click** - Configure install
-- **Click** - + Task
+- **点击** - Configure install
+- **点击** - + Task
 - **Name Task** - uninstall_haproxy
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+在 **Script** 字段中复制并粘贴以下代码:
 
 .. code-block:: bash
 
@@ -542,255 +542,259 @@ Copy and paste the following script into the **Script** field:
 
 .. code-block:: bash
 
-Click **Save**.
+点击 **Save**.
 
-In the **Workspace**, select the **HAProxy** Service and click the **Create Dependency** icon that appears above the Service icon.
+在 **Workspace**工作区中, 选中 **HAProxy** 服务图标并在服务图标的上方点击 **Create Dependency** 图标.
 
-Select the **Apache_PHP** Service. This will hold the execution of **HAProxy** installation script until the **APACHE_PHP** Service is running.
+选中 **Apache_PHP** 服务。这会确保 **HAProxy** 的安装脚本的执行，只会发生在 **APACHE_PHP** 服务运行了之后.
 
-Click **Save**.
+点击 **Save**.
 
-Click **Launch**. Specify a unique **Application Name** (e.g. CalmIntro*<INITIALS>*-2) and click **Create**.
+点击 **Launch**. 填写一个全局唯一的 **Application Name**  (例如 CalmIntro*<INITIALS>*-2) 然后点击 **Create**.
 
-Calm Marketplace Part 1
+Calm应用市场--第一部分
 +++++++++++++++++++++++
 
-In this exercise you will learn how to manage Calm Blueprints within the Nutanix Marketplace. As part of the exercise you will publish a pre-configured Blueprint to the local Marketplace, clone the Blueprint from the Marketplace for editing, and launch the application.
+在这个练习中，你将学习如何在 Nutanix Marketplace中管理Calm蓝图。作为本练习的一部分，你将发布一个预配置的蓝图到本地市场中，从市场中克隆并编辑一个蓝图，然后启动这个应用。
 
-Publishing Blueprints from Marketplace Manager
+从Marketplace Manager发布蓝图
 ..............................................
 
-By default, Calm comes pre-seeded with validated Blueprints for multiple open source and enterprise applications. Marketplace Manager acts as a staging area for publishing default and user-created Blueprints to your local Marketplace. The Marketplace acts as an application store, providing end users with a catalog of available applications.
+默认情况下，Calm自带了一些预定义的、经过验证的开源和企业应用蓝图。Marketplace Manager是默认自带的和用户自开发应用的存储区域，用作本地的应用商店。应用商店可以保存各种应用，用户可以查询到能部署的应用。
 
-From **Prism Central > Apps**, select |mktmgr-icon| **Marketplace Manager** from the sidebar.
+从 **Prism Central > Apps**中, 的侧栏里选中 |mktmgr-icon| **Marketplace Manager** 图标.
 
-Under **Marketplace Blueprints**, select **Mongo**.
+在 **Marketplace Blueprints**中, 选中 **Mongo**.
 
-Note the Blueprint description contains key information including licensing, hardware requirements, OS, supported platforms, and limitations. Click **Publish**.
+注意-蓝图描述中一般会包含关于许可证、硬件需求，支持的操作系统平台和限制等重要的信息. 点击 **Publish**.
 
 .. figure:: images/marketplace_p1_1.png
 
-Wait for the Blueprint **Status** to appear as **Published**.
+等待蓝图的 **Status** 状态显示为 **Published**.
 
 .. figure:: images/marketplace_p1_2.png
 
-Under **Projects Shared With**, select the **Calm** Project and click **Apply**.
+在 **Projects Shared With** 之下, 选中 **Calm** 项目并点击 **Apply**.
 
 .. figure:: images/marketplace_p1_3.png
 
-.. note::
+.. 注意::
 
-  If the **Projects Shared With** drop down menu is unavailable, refresh your browser.
+  如果 **Projects Shared With** 的下拉菜单是不可选择的，请刷新你的浏览器。
 
-Cloning Blueprints from Marketplace
+从Marketplace中克隆蓝图
 ...................................
 
-From **Prism Central > Apps**, select |mkt-icon| **Marketplace** from the sidebar. All Blueprints published in Marketplace Manager are visible here.
+选择 **Prism Central > Apps** , 从侧栏里选中 |mkt-icon| **Marketplace** . 所有已经发布的蓝图都可以在 Marketplace Manager 的这个部分看到.
 
 .. figure:: images/marketplace_p1_4.png
 
-Select the **Mongo** Blueprint and click **Clone**.
+选中 **Mongo** 蓝图并点击 **Clone**.
 
-.. note::
+.. 注意::
 
-  Selecting **Actions Included** for a Blueprint will display the actions that have been implemented for a given Blueprint, such as Create, Start, Stop, Delete, Update, Scale Up, Scale Down, etc.
+  蓝图在 **Actions Included** 中将显示所有该蓝图中所实施的可以执行的动作，例如创建、启动、停止、删除、更新、扩容、缩容等等。
 
 .. figure:: images/marketplace_p1_5.png
 
-Fill out the following fields and click **Clone**:
+填写以下字段并点击 **Clone**:
 
 - **Blueprint Name** - MongoDB*<INITIALS>*
 - **Project** - Calm
 
-Editing Cloned Blueprint
+编辑克隆的蓝图
 ........................
 
-Select |bp-icon| **Blueprints** from the sidebar and click your **MongoDB<INITIALS>** Blueprint to open the Blueprint Editor.
+在侧栏中选择 |bp-icon| **Blueprints** 并点击你的 **MongoDB<INITIALS>** 蓝图来打开蓝图编辑器.
 
 .. figure:: images/marketplace_p1_6.png
 
-Click :fa:`exclamation-circle` to review the list of errors that would prevent a successful deployment of the Blueprint.
+点击 :fa:`exclamation-circle` 来查看错误提示信息，这些错误会阻止蓝图的成功部署。
 
 .. figure:: images/marketplace_p1_7.png
 
-Click **Credentials** and select **CENTOS (Default)**.
+点击 **Credentials** 并选择 **CENTOS (Default)**.
 
-Fill out the following fields and click **Back**:
+填写以下字段并点击 **Back**:
 
 - **Username** - root
 - **Secret** - Password
 - **Password** - nutanix/4u
 
-Select the **Mongo_ConfigSet** Service and make the following changes in the **Configuration Pane**:
+选择 **Mongo_ConfigSet** 服务，在 **Configuration Pane**中进行如下配置:
 
-- Update the **VM Configuration > Image** to **CentOS**.
-- Update the **Network Adapters > NIC** to **Primary**.
-- Update the **Connection > Credential** to **CENTOS**.
+- 更新 **VM Configuration > Image** 为 **CentOS**.
+- 更新 the **Network Adapters > NIC** 为 **Primary**.
+- 更新 the **Connection > Credential** 为 **CENTOS**.
 
-Repeat these steps for the **Mongo_Router** and **Mongo_ReplicaSet** Services.
+对 **Mongo_Router** 和 **Mongo_ReplicaSet** 服务进行上述的相同操作.
 
-Click **Save**.
+点击 **Save**.
 
-Click **Launch**. Specify a unique **Application Name** (e.g. MongoDB*<INITIALS>*-1) and click **Create**.
+点击 **Launch**. 指定一个唯一的 **Application Name** (例如 MongoDB*<INITIALS>*-1) 并点击 **Create**.
 
 .. figure:: images/marketplace_p1_8.png
 
-Calm Marketplace Part 2
+Calm应用市场第二部分
 +++++++++++++++++++++++
 
-.. note::
+.. 注意::
 
-  This exercise assumes you have a Blueprint available from a previous exercise.
+  这个实验的前提条件是你在上一个实验中做了一个可用蓝图。
+在这个练习中，你将会学习如何在Nutanix Marketplace中管理Calm蓝图。在练习中你将通过蓝图编辑器发布一个蓝图，使用 Marketplace Manager 来审批，分配角色和项目，并发布到应用市场。最后你会编辑一个项目环境，这样你的蓝图就能够从应用市场中直接启动。
 
-In this exercise you will learn how to manage Calm Blueprints within the Nutanix Marketplace. As part of the exercise you will publish a Blueprint from the Blueprint Editor, use Marketplace Manager to approve, assign roles and projects, and publish to the Marketplace. Finally you will edit a project environment so your Blueprint can be launched directly from the Marketplace.
 
-Publishing Blueprints
+发布蓝图
 .....................
 
-From **Prism Central > Apps**, select |bp-icon| **Blueprints** from the sidebar.
+选择 **Prism Central > Apps**, 在侧栏中选中 |bp-icon| **Blueprints** .
 
-Open any **Active** Blueprint by clicking on its **Name**.
+通过对点击任一 **Active** 蓝图的 **Name**来打开它.
 
 .. figure:: images/marketplace_p2_1.png
 
-Click **Publish**.
+点击 **Publish**.
 
 .. figure:: images/marketplace_p2_2.png
 
-Provide the following details:
-- **Name** (e.g. Blueprint Name *<INITIALS>*)
+提供如下细节:
+
+- **Name** (例如 Blueprint Name *<INITIALS>*)
 - **Publish as a** - New Marketplace blueprint
 - **Initial Version** - 1.0.0
 - **Description** - Finished MySQL app
 
-Click **Submit for Approval**.
+点击 **Submit for Approval**.
 
 .. figure:: images/marketplace_p2_3.png
 
-Approving Blueprints
+批准蓝图
 ....................
 
-From **Prism Central > Apps**, select |mktmgr-icon| **Marketplace Manager** from the sidebar.
+选择 **Prism Central > Apps**, 在侧栏中选择 |mktmgr-icon| **Marketplace Manager**.
 
-.. note:: You must be logged in as a Cluster Admin user to access the Marketplace Manager.
+.. 注意:: 你登陆Marketplace Manager的访问权限必须是 Cluster Admin 用户.
 
-Note your Blueprint does not appear in the list of **Marketplace Items**.
+注意你的蓝图还没有显示在 **Marketplace Items** 清单中.
 
-Select the **Approval Pending** tab.
+选择 **Approval Pending** 标签.
 
 .. figure:: images/marketplace_p2_4.png
 
-Select your **Pending** Blueprint.
+选择你 **Pending** 状态的蓝图.
 
 .. figure:: images/marketplace_p2_5.png
 
-Review the available actions:
+查看所有可以操作的选项:
 
-- **Reject** - Prevents  Blueprint from being launched or published in the Marketplace. The Blueprint will need to be submitted again after being rejected before it can be published.
-- **Approve** - Approves the Blueprint for publication to the Marketplace.
-- **Launch** - Launches the Blueprint as an application, similar to launching from the Blueprint Editor.
+- **Reject** - 阻止蓝图在应用市场中被启动或者发布。在这个蓝图能被发布以前，这个而蓝图必须被再次提交。
+- **Approve** - 批准蓝图发布到应用市场。
+- **Launch** - 启动一个应用的蓝图，与在蓝图编辑器中启动类似。
 
-Click **Approve**.
+点击 **Approve**.
 
-Once the application has been successfully approved, assign the appropriate **Category** and **Project Shared With**. Click **Apply**.
+一旦应用被成功地批准之后，就可以配置合适的 **Category** 和 **Project Shared With**. 点击 **Apply**.
 
 .. figure:: images/marketplace_p2_6.png
 
-Select the **Marketplace Blueprints** tab and select your Blueprint. Click **Publish**.
+选中 **Marketplace Blueprints** 标签并且选中你的蓝图。 点击 **Publish**.
 
-Verify the Blueprint's **Status** is now shown as **Published**.
+校验蓝图的状态 **Status** 现在已经显示为 **Published**.
 
 .. figure:: images/marketplace_p2_7.png
 
-From **Prism Central > Apps**, select |mkt-icon| **Marketplace** from the sidebar. Verify your Blueprint is available for launching as an application.
+选择 **Prism Central > Apps**, 从侧栏中选择 |mkt-icon| **Marketplace** . 校验你的蓝图已经成为了一个可以启动的应用。
 
 .. figure:: images/marketplace_p2_8.png
 
-Configuring Project Environment
+配置项目环境
 ...............................
 
-To launch a Blueprint directly from the Marketplace, we need to ensure our Project has all of the requisite environment details to satisfy the Blueprint.
+为了从应用市场中直接启动一个蓝图，我们需要确保你的环境与蓝图所需的所有细节需求相匹配。
 
-From **Prism Central > Apps**, select |proj-icon| **Projects** from the sidebar.
+选择 **Prism Central > Apps**, 从侧栏中选择 |proj-icon| **Projects** .
 
-Select the Project **Name** associated with your Blueprint at the time of publishing (e.g. the **Calm** Project that was assigned as **Project Shared With**).
+选中你所用的发布名称 **Name**  (例如  **Calm** 项目之前被分配的 **Project Shared With**).
 
 .. figure:: images/marketplace_p2_9.png
 
-Select the **Environment** tab.
+选择 **Environment** 标签.
 
-Under **Credential**, click :fa:`plus-circle` to add new credential.
-Fill out the following fields:
+在 **Credential**下, 点击 :fa:`plus-circle` 来增加新的账户信息.
+
+填写以下字段:
 
 - **Credential Name** - CENTOS
 - **Username** - root
 - **Secret** - Password
 - **Password** - nutanix/4u
-- Select **Use as default**
+- 选择 **Use as default**
 
 
-Under **VM Configuration**
-- select **AHV on NUTANIX**.
+在 **VM Configuration**下
+
+- 选择 **AHV on NUTANIX**.
 - **VM Name** - add prefix "default" to the name
 - **Image** - CentOS
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory** - 4GiB
+
 .. figure:: images/marketplace_p2_010.png
 
 
-Under **Network Adapters (NICs)**, click :fa:`plus-circle` and select **Primary**.
+在 **Network Adapters (NICs)**下, 点击 :fa:`plus-circle` 并选择 **Primary**.
 
 .. figure:: images/marketplace_p2_10.png
 
-Click **Save**.
+点击 **Save**.
 
-Launching Blueprint from the Marketplace
+从Marketplace启动蓝图
 ........................................
 
-From **Prism Central > Apps**, select |mkt-icon| **Marketplace** from the sidebar.
+选择 **Prism Central > Apps**, 从侧栏中选择 |mkt-icon| **Marketplace** .
 
 .. figure:: images/marketplace_p2_11.png
 
-Select the Blueprint published as part of this exercise and click **Launch**.
+选择在实验中所发布的蓝图并点击 **Launch**.
 
 .. figure:: images/marketplace_p2_12.png
 
-Select the **Calm** Project and click **Launch**.
+选择 **Calm** 项目并点击 **Launch**.
 
 .. figure:: images/marketplace_p2_13.png
 
-Specify a unique **Application Name** (e.g. Marketplace*<INITIALS>*) and click **Create**.
+指定一个唯一的 **Application Name** (例如. Marketplace*<INITIALS>*) 并点击 **Create**.
 
-.. note::
+.. 注意::
 
-  To see the configured **Environment** details, expand the **VM Configurations** entities.
+  为了查看预配置的 **Environment** 细节, 展开 **VM Configurations** 部分.
 
 .. figure:: images/marketplace_p2_14.png
 
-Monitor the provisioning of the Blueprint until complete.
+监控蓝图的整个配置过程直到完成为止。
 
 .. figure:: images/marketplace_p2_15.png
 
-Takeaways
+关键要点
 +++++++++
 
-- Nutanix Calm is a fully integrated component of the Nutanix stack. Easily enabled, highly available out of the box in a Scale Out Prism Central deployment, and takes advantage of non-disruptive One Click upgrades for new features and fixes.
-- By using different projects assigned to different clusters and users, administrators can ensure that workloads are deployed the right way each time.  For example, a developer can be a Project Admin for a dev/test project, so they have full control to deploy to their development clusters or to a cloud, while having Read Only access to production projects, allowing them access to logs but no ability to alter production workloads.
-- The Blueprint Editor provides a simple UI for modeling potentially complex applications.
-- Blueprints are tied to SSP Projects which can be used to enforce quotas and role based access control.
-- Having a Blueprint install and configure binaries means no longer creating specific images for individual applications. Instead the application can be modified through changes to the Blueprint or installation script, both of which can be stored in source code repositories.
-- Variables allow another dimension of customizing an application without having to edit the underlying Blueprint.
-- Application status can be monitored in real time.
-- Applications typically span across multiple VMs, each responsible for different services. Calm is capable of automated and orchestrating full applications.
-- Dependencies between services can be easily modeled in the Blueprint Editor.
-- Users can quickly provision entire application stacks for production or testing for repeatable results without time lost to manual configuration.
-- By using pre-seeded Blueprints from the Nutanix Marketplace, users can quickly try out new applications.
-- Marketplace Blueprints can be cloned and modified to suit a user's needs. For example, the pre-seeded LAMP Blueprint could be a starting point for a developer looking to swap PHP for a Go application server.
-- Marketplace Blueprints can use local disk images or automatically download associated disk images. Users can create their own keys and slipstream them into Blueprints (via cloud-init) to control access.
-- Developers can publish Blueprints to the Marketplace for fast and easy consumption by users.
-- Blueprints can be launched directly from the Marketplace with no additional configuration from users, delivering a public cloud-like SaaS experience for end users.
-- Administrators have control over what Blueprints are published to the Marketplace and which projects have access to published Blueprints.
+- Nutanix Calm 是一个Nutanix堆栈中完全集成化的组建。它容易启用，从 Prism Central中可以横向扩展的，并具有高可靠性，并且支持一键式的而升级和补丁，并且不会中断服务。
+- 通过为不同的项目配置不同的群集和用户、管理员，可以保证每次工作负载都被正确的部署。例如，一个开发人员可以被项目管理员分配到一个开发/测试项目中，这样他们就能够集群和云的环境中具有部署应用的全部控制力，可是对于生产环境只有只读的权限，能够访问生产环境的日志，而不能修改生产环境的工作负载。
+- 蓝图编辑器为编辑和建模复杂的应用系统提供了简洁的图形界面。
+- 蓝图是和SSP项目紧密关联在一起的，这样就具有了配额管理和基于角色的访问控制能力。
+- 使用蓝图安装和配置二进制应用意味着再也不用为某个应用制作特殊的镜像文件。应用反而可以通过修改蓝图或者安装脚本来修改，这些都别保存在了源代码库里。
+- 变量提供了多个定制化应用的维度，而不用修改底层的蓝图。
+- 应用的状态能够被实时监控。
+- 应用通常由多个虚拟机组成，每个虚拟机负责不同的服务。Calm具有自动化和编排全套应用的能力。
+- 服务之间的依赖关系能在蓝图编辑器中容易的编辑。
+- 用户能在生产环境中部署全套的应用堆栈，或者重复的得到测试结果，而并不需要大量的手工配置工作。
+- 通过使用Nutanix Marketplace中内置的蓝图，用户可以快速地尝试新的应用。
+- 应用市场的蓝图能够被克隆和修改，从而满足用户的需求。例如，内置的LAMP蓝图可以是开发者的一个起点，能容易地把PHP应用换成Go应用服务器。
+- 应用市场朗图能使用本地的磁盘镜像或者自动地下载相关的磁盘镜像。用户可以创建自己的密钥，将密钥封装到蓝图中（cloud-init）。
+- 开发人员能发布蓝图到应用市场中，用户从而能够容易的被快速使用。
+- 用户可以在不需要进行多余配置的情况下从应用市场中启动蓝图，为最终用户交付了一种类似与共有云中的SaaS服务的使用体验。
+- 管理员能控制发布到市场中的蓝图，不同的项目能访问不同的蓝图。
 
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
 .. |mkt-icon| image:: ../images/marketplace_icon.png

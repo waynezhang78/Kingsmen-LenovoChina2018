@@ -208,7 +208,7 @@ In **Application Overview > Services**, 点击 :fa:`plus-circle`.
 
   在处理下一步之前，确保**Credential**中的配置已经最终选定了，选择其它的字段会清除掉 **Credential** 的选择.
 
-在工作区窗口中选中 MySQL 服务的图标, 滚动到 **Configuration Panel** 的顶端, 点击 **Package**.
+在工作区窗口中选中 MySQL 服务的图标, 滚动到 **Configuration Panel** 的顶端, 点击 **Package** .
 
 填写以下字段:
 
@@ -322,7 +322,7 @@ Calm 蓝图 (LAMP)
 
 在工作区的窗口里，保持Apache服务的图标处于选中状态，滚动到 **Configuration Panel** 的顶部， 点击 **Package**.
 
-- **Service Name** - APACHE_PHP
+- **Service Name** - 
 - **Name** - APACHE_PHP_AHV
 - **Cloud** - Nutanix
 - **OS** - Linux
@@ -413,7 +413,7 @@ Calm 蓝图 (LAMP)
 
 通过Calm为一个特定的服务扩容多个虚拟机是很简单的，这对横向扩容web服务这样的需求很有帮助。
 
-在工作区 **Workspace**中, 选中 **APACHE_PHP** 服务.
+在工作区 **Workspace** 中, 选中 **APACHE_PHP** 服务.
 
 在 **Configuration Pane** 中, 选中 **Service**  标签.
 
@@ -544,7 +544,7 @@ Calm 蓝图 (LAMP)
 
 点击 **Save**.
 
-在 **Workspace**工作区中, 选中 **HAProxy** 服务图标并在服务图标的上方点击 **Create Dependency** 图标.
+在 **Workspace** 工作区中, 选中 **HAProxy** 服务图标并在服务图标的上方点击 **Create Dependency** 图标.
 
 选中 **Apache_PHP** 服务。这会确保 **HAProxy** 的安装脚本的执行，只会发生在 **APACHE_PHP** 服务运行了之后.
 
@@ -562,9 +562,9 @@ Calm应用市场--第一部分
 
 默认情况下，Calm自带了一些预定义的、经过验证的开源和企业应用蓝图。Marketplace Manager是默认自带的和用户自开发应用的存储区域，用作本地的应用商店。应用商店可以保存各种应用，用户可以查询到能部署的应用。
 
-从 **Prism Central > Apps**中, 的侧栏里选中 |mktmgr-icon| **Marketplace Manager** 图标.
+从 **Prism Central > Apps** 中, 的侧栏里选中 |mktmgr-icon| **Marketplace Manager** 图标.
 
-在 **Marketplace Blueprints**中, 选中 **Mongo**.
+在 **Marketplace Blueprints** 中, 选中 **Mongo**.
 
 注意-蓝图描述中一般会包含关于许可证、硬件需求，支持的操作系统平台和限制等重要的信息. 点击 **Publish**.
 
@@ -621,9 +621,9 @@ Calm应用市场--第一部分
 - **Secret** - Password
 - **Password** - nutanix/4u
 
-选择 **Mongo_ConfigSet** 服务，在 **Configuration Pane**中进行如下配置:
+选择 **Mongo_ConfigSet** 服务，在 **Configuration Pane** 中进行如下配置:
 
-- 更新 **VM Configuration > Image** 为 **CentOS**.
+- 更新 **VM Configuration > Image** 为 **CentOS** .
 - 更新 the **Network Adapters > NIC** 为 **Primary**.
 - 更新 the **Connection > Credential** 为 **CENTOS**.
 
@@ -693,17 +693,17 @@ Calm应用市场第二部分
 
 点击 **Approve**.
 
-一旦应用被成功地批准之后，就可以配置合适的 **Category** 和 **Project Shared With**. 点击 **Apply**.
+一旦应用被成功地批准之后，就可以配置合适的 **Category** 和 **Project Shared With** . 点击 **Apply**.
 
 .. figure:: images/marketplace_p2_6.png
 
 选中 **Marketplace Blueprints** 标签并且选中你的蓝图。 点击 **Publish**.
 
-校验蓝图的状态 **Status** 现在已经显示为 **Published**.
+校验蓝图的状态 **Status** 现在已经显示为 **Published** .
 
 .. figure:: images/marketplace_p2_7.png
 
-选择 **Prism Central > Apps**, 从侧栏中选择 |mkt-icon| **Marketplace** . 校验你的蓝图已经成为了一个可以启动的应用。
+选择 **Prism Central > Apps** , 从侧栏中选择 |mkt-icon| **Marketplace** . 校验你的蓝图已经成为了一个可以启动的应用。
 
 .. figure:: images/marketplace_p2_8.png
 
@@ -714,7 +714,7 @@ Calm应用市场第二部分
 
 选择 **Prism Central > Apps**, 从侧栏中选择 |proj-icon| **Projects** .
 
-选中你所用的发布名称 **Name**  (例如  **Calm** 项目之前被分配的 **Project Shared With**).
+选中你所用的发布名称 **Name**  (例如  **Calm** 项目之前被分配的 **Project Shared With** ).
 
 .. figure:: images/marketplace_p2_9.png
 

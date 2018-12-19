@@ -232,6 +232,7 @@ Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲�
 可以通过多种不同方式访问Nutanix Hosted POC环境:
 
 1)VMware Horizon View(推荐)
+.................
 
 1. Browse to https://hostedpoc.nutanix.com
 2. Select HTML5 (web browser) OR Install the Client to point to hostedpoc.nutanix.com

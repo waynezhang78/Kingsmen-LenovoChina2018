@@ -65,18 +65,11 @@
   
 .. toctree::
   :maxdepth: 2
-  :caption: 高级实验-Calm（Linux）
+  :caption: 高级实验-Calm
   :name: _optional_labs
   :hidden:
   
   calm/calm
-  
-.. toctree::
-  :maxdepth: 2
-  :caption: 高级实验-Calm（Windows）
-  :name: _optional_labs
-  :hidden:
-  
   calm/calm-windows
   
 .. toctree::

@@ -1,3 +1,8 @@
+.. _calm-windows:
+
+----------------------------
+高级实验3：Calm(Windows)
+----------------------------
 # Windows Deployment
 
 This Nutanix Calm blueprint will deploy a single Windows virtual machine from a Sysprep'd image, join an AD domain then install IIS Services.

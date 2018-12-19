@@ -239,7 +239,14 @@ https://citrixready.nutanix.com - *Accessible via the Citrix Receiver client or 
 **Nutanix内部员工** - 使用Nutanix公司SSO域帐户
 **非Nutanix员工** - **用户名:** POCxxx-User01 (up to POCxxx-User20), **密码:** *<培训讲师提供>*
 
-2)Employee Pulse Secure VPN
+2)VMware Horizon View
+1. Browse to https://hostedpoc.nutanix.com
+2. Select HTML5 (web browser) OR Install the Client to point to hostedpoc.nutanix.com
+3. Login using a POC User account to access a desktop
+**Nutanix内部员工** - 使用Nutanix公司SSO域帐户
+**非Nutanix员工** - **用户名:** POCxxx-User01 (up to POCxxx-User20), **密码:** *<培训讲师提供>*
+
+3)Employee Pulse Secure VPN
 ..........................
 
 https://sslvpn.nutanix.com - 使用Nutanix域帐户登陆

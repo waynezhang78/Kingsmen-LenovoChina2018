@@ -65,7 +65,7 @@
   
 .. toctree::
   :maxdepth: 2
-  :caption: 高级实验-Calm
+  :caption: 高级实验-Calm（Linux）
   :name: _optional_labs
   :hidden:
   
@@ -73,7 +73,7 @@
   
 .. toctree::
   :maxdepth: 2
-  :caption: 高级实验-Calm-Windows
+  :caption: 高级实验-Calm（Windows）
   :name: _optional_labs
   :hidden:
   
@@ -115,14 +115,23 @@
 
 -
 初级实验1:NUTANIX管理界面介绍 
+
 初级实验2:存储容器配置  
+
 初级实验3:网络配置  
+
 初级实验4:AHV的虚机部署与管理 
+
 中级实验5:数据保护与恢复 
+
 中级实验6:监控与管理 
+
 高级实验7:自助服务门户
+
 高级实验8：FLOW网络虚拟化
+
 高级实验9：CALM应用自动化（Linux）
+
 高级实验10：CALM应用自动化（Windows）
 
 

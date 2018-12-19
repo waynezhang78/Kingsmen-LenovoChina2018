@@ -237,6 +237,7 @@ Nutanix实验室将会在Nutanix HPOC或现场实验环境中运行，实验讲�
 1. Browse to https://hostedpoc.nutanix.com
 2. Select HTML5 (web browser) OR Install the Client to point to hostedpoc.nutanix.com
 3. Login using a POC User account to access a desktop
+
 **Nutanix内部员工** - 使用Nutanix公司SSO域帐户
 
 **非Nutanix员工** - **用户名:** POCxxx-User01 (up to POCxxx-User20), **密码:** *<培训讲师提供>*

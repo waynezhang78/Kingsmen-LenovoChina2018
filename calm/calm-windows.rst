@@ -36,7 +36,7 @@ To deploy this blueprint you will need the following things available.
 
 ## Usage
 
-- Import the blueprint into your Nutanix Calm environment
+- Import the blueprint(windows-deployment.json) into your Nutanix Calm environment
 - Adjust credentials to suit your requirements (the import will warn about blueprint validation errors, since credentials are not saved in exported blueprints)
 - Alter each Calm service/VM so that it deploys your Windows 2016 image
 - Alter each Calm service/VM so that it connects to your preferred network
@@ -54,3 +54,5 @@ These blueprints are *unofficial* and are not supported or maintained by Nutanix
 In addition, please also be advised that these blueprints may deploy applications that do not follow best practices.  Please check through each blueprint to ensure the configuration suits your requirements.
 
 ***Changes will be required before these application blueprints can be used in production environments.***
+
+.. windows-deployment.json: ./windows-deployment.json
